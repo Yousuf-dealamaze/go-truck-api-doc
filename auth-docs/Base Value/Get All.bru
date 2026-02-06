@@ -1,0 +1,36 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/base-value
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 20
+  search: 
+  baseValuesModule: 
+  status: 
+  sortBy: createdAt
+  sortOrder: desc
+}
+
+docs {
+  # Get All Base Values
+  
+  Retrieves a paginated list of base values.
+  
+  ## Query Params
+  - **page** (number): Page number (default 1).
+  - **limit** (number): Items per page (default 20).
+  - **search** (string): Search term.
+  - **baseValuesModule** (string): Filter by module.
+  - **status** (string): Filter by status (`active`, `inactive`).
+  - **sortBy** (string): Sort field (`createdAt`, `updatedAt`, `baseValuesTitle`).
+  - **sortOrder** (string): Sort order (`asc`, `desc`).
+}

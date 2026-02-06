@@ -1,0 +1,34 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseURL}}/company/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "phone": "9999999999",
+    "status": "active"
+  }
+}
+
+docs {
+  # Update Company
+  
+  Updates company details.
+  
+  ## Path Params
+  - **id** (UUID): Company ID.
+  
+  ## Payload
+  - **legalName** (string, optional)
+  - **email** (string, optional)
+  - **phone** (string, optional)
+  - **status** (string, optional): `active`, `inactive`, `pending`.
+  - ... (See validation schema for all fields)
+}

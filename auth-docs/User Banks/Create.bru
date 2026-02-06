@@ -1,0 +1,38 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/user_banks
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": "00000000-0000-0000-0000-000000000000",
+    "accountHolderName": "John Doe",
+    "bankName": "HDFC Bank",
+    "bankBranch": "Mumbai",
+    "accountNumber": "1234567890",
+    "phoneNumberAssociate": "9876543210",
+    "status": "Pending"
+  }
+}
+
+docs {
+  # Create User Bank
+  
+  Adds a new bank account for a user.
+  
+  ## Payload
+  - **userId** (UUID, required)
+  - **accountHolderName** (string, required)
+  - **bankName** (string, required)
+  - **bankBranch** (string, required)
+  - **accountNumber** (string, required)
+  - **phoneNumberAssociate** (string, required)
+  - **status** (string, optional)
+}

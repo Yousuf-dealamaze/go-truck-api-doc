@@ -1,0 +1,20 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseURL}}/base-value-option/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Delete Base Value Option
+  
+  Deletes a base value option.
+  
+  ## Path Params
+  - **id** (UUID): The ID of the option to delete.
+}

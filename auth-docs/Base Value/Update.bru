@@ -1,0 +1,33 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseURL}}/base-value/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "baseValuesTitle": "Updated Title",
+    "status": "active"
+  }
+}
+
+docs {
+  # Update Base Value
+  
+  Updates an existing base value.
+  
+  ## Path Params
+  - **baseValueId** (UUID): The ID of the base value to update.
+  
+  ## Payload
+  - **baseValuesModule** (string, optional): Module name.
+  - **baseValuesTitle** (string, optional): Title.
+  - **status** (string, optional): Status.
+  - **options** (array, optional): List of options.
+}

@@ -1,0 +1,17 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/user_wallet
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get All User Wallets
+  
+  Retrieves all user wallets.
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseURL}}/user_company/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "companyType": "LLP",
+    "status": "active"
+  }
+}
+
+docs {
+  # Update User Company
+  
+  Updates user company details.
+  
+  ## Payload
+  - **companyType** (string, optional)
+  - **status** (string, optional)
+  - ...
+}

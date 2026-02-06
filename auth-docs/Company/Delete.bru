@@ -1,0 +1,20 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseURL}}/company/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Delete Company
+  
+  Deletes a company.
+  
+  ## Path Params
+  - **id** (UUID): Company ID.
+}

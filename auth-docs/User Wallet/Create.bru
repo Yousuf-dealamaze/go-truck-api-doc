@@ -1,0 +1,29 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/user_wallet
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": "00000000-0000-0000-0000-000000000000",
+    "kycName": "John Doe",
+    "remarks": "Initial wallet creation"
+  }
+}
+
+docs {
+  # Create User Wallet
+  
+  Creates a wallet for a user.
+  
+  ## Payload
+  - **userId** (UUID, required)
+  - **kycName** (string, optional)
+}

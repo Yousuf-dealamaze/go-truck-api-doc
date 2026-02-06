@@ -1,0 +1,20 @@
+meta {
+  name: Delete
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{baseURL}}/users/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Delete User
+  
+  Deletes a user (Soft delete).
+  
+  ## Path Params
+  - **userId** (UUID)
+}

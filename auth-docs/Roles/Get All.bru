@@ -1,0 +1,17 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/roles/all
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get All Roles
+  
+  Retrieves a list of all roles.
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Login
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseURL}}/auth/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "john.doe@example.com",
+    "password": "Password@123"
+  }
+}
+
+script:post-response {
+  if (res.status === 200) {
+    bru.setEnvVar("token", res.body.data.accessToken);
+  }
+}
+
+docs {
+  # Login
+  
+  Authenticates a user and returns access/refresh tokens.
+  
+  ## Payload
+  - **username** (string, required): Registered email or username.
+  - **password** (string, required): User password.
+  
+  ## Notes
+  - This request automatically extracts the `accessToken` from the response and saves it to the `token` environment variable for subsequent requests.
+}

@@ -1,0 +1,41 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/base-value
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "baseValuesModule": "example-module",
+    "baseValuesTitle": "Example Title",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "status": "active",
+    "options": [
+      {
+        "optionTitle": "Option 1",
+        "optionValue": "value1",
+        "optionNote": "Note for option 1",
+        "status": "active"
+      }
+    ]
+  }
+}
+
+docs {
+  # Create Base Value
+  
+  Creates a new base value configuration.
+  
+  ## Payload
+  - **baseValuesModule** (string, required): Module name.
+  - **baseValuesTitle** (string, required): Title (min 2, max 200 chars).
+  - **createdBy** (UUID, required): User ID of creator.
+  - **status** (string, optional): `active` or `inactive`.
+  - **options** (array, optional): List of options.
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Update Status
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{baseURL}}/enquiry/00000000-0000-0000-0000-000000000000/status
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "status": "processing"
+  }
+}
+
+docs {
+  # Update Status
+  
+  Updates the status of an enquiry.
+  
+  ## Path Params
+  - **enquiryId** (UUID): Enquiry ID.
+  
+  ## Payload
+  - **status** (string, required): New status (e.g., `pending`, `processing`, `completed`, `rejected`).
+}

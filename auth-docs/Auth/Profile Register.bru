@@ -1,0 +1,42 @@
+meta {
+  name: Profile Register
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseURL}}/auth/profile/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "idProof": "ABCDE1234F",
+    "idProofType": "PAN",
+    "description": "Profile update description"
+  }
+}
+
+docs {
+  # Profile Register (Update)
+  
+  Updates the profile information for a user.
+  
+  ## Path Params
+  - **userId** (UUID): The ID of the user to update.
+  
+  ## Payload
+  - **idProof** (string, optional): ID proof number/details.
+  - **idProofType** (string, optional): Type of ID proof (e.g., PAN, Aadhar).
+  - **idProofDoc** (string, optional): URL or reference to ID proof document.
+  - **addressProof** (string, optional): Address proof details.
+  - **addressProofType** (string, optional): Type of address proof.
+  - **addressProofDoc** (string, optional): URL to address proof document.
+  - **registrationProof** (string, optional): Registration proof details.
+  - **registrationProofType** (string, optional): Type of registration proof.
+  - **registrationProofDoc** (string, optional): URL to registration proof document.
+  - **logoPic** (string, optional): URL to logo image.
+  - **displayPic** (string, optional): URL to profile picture.
+  - **description** (string, optional): Profile description.
+}

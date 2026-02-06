@@ -1,0 +1,36 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/driver_extra
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": "00000000-0000-0000-0000-000000000000",
+    "drivingLicenseNumber": "DL1234567890",
+    "licenseIssuingCountry": "India",
+    "licenseExpiryDate": "2030-01-01",
+    "licenseCategory": "LMV",
+    "employmentType": "permanent",
+    "nationality": "Indian"
+  }
+}
+
+docs {
+  # Create Driver Extra
+  
+  Creates extra details for a driver.
+  
+  ## Payload
+  - **userId** (UUID, required)
+  - **drivingLicenseNumber** (string, optional)
+  - **licenseIssuingCountry** (string, optional)
+  - **licenseExpiryDate** (date, optional)
+  - ...
+}

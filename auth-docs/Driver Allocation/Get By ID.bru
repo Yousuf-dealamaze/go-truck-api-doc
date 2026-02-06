@@ -1,0 +1,17 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseURL}}/driver_allocation/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get Allocation By ID
+  
+  Retrieves a specific allocation.
+}

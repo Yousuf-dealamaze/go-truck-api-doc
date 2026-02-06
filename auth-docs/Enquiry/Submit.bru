@@ -1,0 +1,38 @@
+meta {
+  name: Submit
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseURL}}/enquiry/submit
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "fullName": "John Doe",
+    "countryCode": "+91",
+    "phoneNumber": "9876543210",
+    "emailId": "john@example.com",
+    "pickupLocation": "Location A",
+    "dropoffLocation": "Location B",
+    "additionalNotes": "Fragile items"
+  }
+}
+
+docs {
+  # Submit Enquiry
+  
+  Submits a transport enquiry.
+  
+  ## Payload
+  - **fullName** (string, required)
+  - **countryCode** (string, required)
+  - **phoneNumber** (string, required)
+  - **emailId** (string, optional)
+  - **pickupLocation** (string, optional)
+  - **dropoffLocation** (string, optional)
+  - **additionalNotes** (string, optional)
+}

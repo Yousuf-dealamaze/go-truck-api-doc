@@ -1,0 +1,34 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseURL}}/base-value-option/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "optionTitle": "Updated Option Title",
+    "status": "active"
+  }
+}
+
+docs {
+  # Update Base Value Option
+  
+  Updates an existing base value option.
+  
+  ## Path Params
+  - **id** (UUID): The ID of the option to update.
+  
+  ## Payload
+  - **baseValueId** (UUID, optional): Parent base value ID.
+  - **optionTitle** (string, optional): Title.
+  - **optionValue** (string, optional): Value.
+  - **optionNote** (string, optional): Note.
+  - **status** (string, optional): `active` or `inactive`.
+}

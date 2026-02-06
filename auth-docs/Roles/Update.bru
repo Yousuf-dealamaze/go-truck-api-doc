@@ -1,0 +1,31 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseURL}}/roles/00000000-0000-0000-0000-000000000000/update
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "permissions": {
+      "user": {
+        "view": true,
+        "create": false
+      }
+    }
+  }
+}
+
+docs {
+  # Update Role
+  
+  Updates permissions for a role.
+  
+  ## Payload
+  - **permissions** (object, optional)
+}

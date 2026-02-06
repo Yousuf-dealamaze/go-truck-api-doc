@@ -1,0 +1,17 @@
+meta {
+  name: Dashboard Stats
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseURL}}/user_banks/dashboard
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Dashboard Stats
+  
+  Retrieves user bank dashboard stats.
+}

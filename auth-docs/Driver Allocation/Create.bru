@@ -1,0 +1,32 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/driver_allocation
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "driverId": "00000000-0000-0000-0000-000000000000",
+    "transporterId": "00000000-0000-0000-0000-000000000000",
+    "remarks": "Assigned for route A",
+    "status": "assigned"
+  }
+}
+
+docs {
+  # Create Allocation
+  
+  Allocates a driver to a transporter.
+  
+  ## Payload
+  - **driverId** (UUID, required)
+  - **transporterId** (UUID, required)
+  - **remarks** (string, optional)
+  - **status** (string, optional): `un-assign`, `assigned`, `blocked`, `hold`.
+}

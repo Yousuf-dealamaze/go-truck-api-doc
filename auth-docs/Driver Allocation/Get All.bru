@@ -1,0 +1,28 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/driver_allocation
+  body: none
+  auth: inherit
+}
+
+params:query {
+  driverId: 
+  transporterId: 
+  status: 
+}
+
+docs {
+  # Get All Allocations
+  
+  Retrieves list of driver allocations.
+  
+  ## Query Params
+  - **driverId** (UUID)
+  - **transporterId** (UUID)
+  - **status** (string)
+}

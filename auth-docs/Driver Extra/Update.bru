@@ -1,0 +1,32 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseURL}}/driver_extra/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "drivingLicenseNumber": "DL-UPDATED-123",
+    "status": "Active"
+  }
+}
+
+docs {
+  # Update Driver Extra
+  
+  Updates additional details for a driver.
+  
+  ## Path Params
+  - **id** (UUID): Driver Extra ID.
+  
+  ## Payload
+  - **drivingLicenseNumber** (string, optional)
+  - **status** (string, optional)
+  - ... (See schema for other fields)
+}

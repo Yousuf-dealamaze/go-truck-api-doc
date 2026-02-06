@@ -1,0 +1,17 @@
+meta {
+  name: Profile
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/users/profile
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get Profile
+  
+  Retrieves the authenticated user's profile.
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/driver_extra
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  userId: 
+  nationality: 
+  employmentType: 
+  sortBy: createdAt
+  sortOrder: desc
+}
+
+docs {
+  # Get All Driver Extras
+  
+  Retrieves list of driver extra details.
+}

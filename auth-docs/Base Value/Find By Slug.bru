@@ -1,0 +1,20 @@
+meta {
+  name: Find By Slug
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseURL}}/base-value/slug/example-slug
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Find Base Value By Slug
+  
+  Retrieves a base value by its slug.
+  
+  ## Path Params
+  - **slug** (string): The slug of the base value.
+}

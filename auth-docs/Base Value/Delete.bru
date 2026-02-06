@@ -1,0 +1,20 @@
+meta {
+  name: Delete
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseURL}}/base-value/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Delete Base Value
+  
+  Deletes a base value.
+  
+  ## Path Params
+  - **baseValueId** (UUID): The ID of the base value to delete.
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/company
+  body: none
+  auth: inherit
+}
+
+params:query {
+  legalName: 
+  email: 
+  phone: 
+  status: 
+}
+
+docs {
+  # Get All Companies
+  
+  Retrieves a list of companies with optional filtering.
+  
+  ## Query Params
+  - **legalName** (string): Filter by legal name.
+  - **email** (string): Filter by email.
+  - **phone** (string): Filter by phone.
+  - **status** (string): Filter by status (`active`, `inactive`, `pending`).
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Dashboard Stats
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseURL}}/users/dashboard
+  body: none
+  auth: inherit
+}
+
+params:query {
+  userType: consumer
+}
+
+docs {
+  # Dashboard Stats
+  
+  Retrieves user dashboard statistics.
+  
+  ## Query Params
+  - **userType** (string, required)
+}

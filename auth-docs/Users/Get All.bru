@@ -1,0 +1,28 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseURL}}/users/all
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  userType: 
+  status: 
+  gender: 
+  sortBy: createdAt
+  sortOrder: desc
+}
+
+docs {
+  # Get All Users
+  
+  Retrieves a paginated list of all users.
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Update
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{baseURL}}/user_wallet/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "kycStatus": "Approved",
+    "status": "Active"
+  }
+}
+
+docs {
+  # Update User Wallet
+  
+  Updates wallet details.
+  
+  ## Payload
+  - **kycStatus** (string, optional)
+  - **status** (string, optional)
+}

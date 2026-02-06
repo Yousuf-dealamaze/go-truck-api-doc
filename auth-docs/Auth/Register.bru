@@ -1,0 +1,47 @@
+meta {
+  name: Register
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/auth/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userType": "consumer",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "countryCode": "+91",
+    "phoneNumber": "9876543210",
+    "password": "Password@123",
+    "gender": "male",
+    "displayName": "John Doe",
+    "username": "johndoe",
+    "status": "active"
+  }
+}
+
+docs {
+  # Register User
+  
+  Creates a new user account.
+  
+  ## Payload
+  - **userType** (string, optional): Role of the user. Valid values: `super_admin`, `admin`, `partner`, `transporter`, `driver`, `transporter_user`, `consumer`.
+  - **firstName** (string, optional): First name (min 2, max 50 chars).
+  - **lastName** (string, optional): Last name (min 2, max 50 chars).
+  - **email** (string, required): Valid email address.
+  - **countryCode** (string, optional): Country code for phone number.
+  - **phoneNumber** (string, optional): Phone number.
+  - **password** (string, required): User password.
+  - **gender** (string, optional): `male`, `female`, or `other`.
+  - **displayName** (string, optional): Display name (min 2, max 100 chars).
+  - **username** (string, optional): Username (min 3, max 50 chars).
+  - **status** (string, optional): Account status. Valid values: `active`, `inactive`, `pending`, `hold`, `blocked`.
+  - **parentTransporterId** (UUID, optional): ID of the parent transporter (if applicable).
+}

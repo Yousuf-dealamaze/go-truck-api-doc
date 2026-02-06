@@ -1,0 +1,29 @@
+meta {
+  name: Update Own Profile
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseURL}}/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "firstName": "John",
+    "lastName": "Doe"
+  }
+}
+
+docs {
+  # Update Own Profile
+  
+  Updates the authenticated user's profile.
+  
+  ## Payload
+  - **firstName** (string, optional)
+  - **lastName** (string, optional)
+  - **phoneNumber** (string, optional)
+}

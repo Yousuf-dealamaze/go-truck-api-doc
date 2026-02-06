@@ -1,0 +1,36 @@
+meta {
+  name: Register
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/user_company/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": "00000000-0000-0000-0000-000000000000",
+    "companyType": "Private Limited",
+    "legalName": "My Company",
+    "address_1": "123 Street",
+    "address_2": "Area",
+    "city": "City",
+    "country": "Country"
+  }
+}
+
+docs {
+  # Register User Company
+  
+  Registers a company for a user.
+  
+  ## Payload
+  - **userId** (UUID, required)
+  - **companyType** (string, required)
+  - **legalName** (string, required)
+  - **address_1** (string, required)
+  - ...
+}

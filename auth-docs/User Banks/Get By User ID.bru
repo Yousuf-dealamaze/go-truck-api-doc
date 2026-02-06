@@ -1,0 +1,23 @@
+meta {
+  name: Get By User ID
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseURL}}/user_banks/user/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 10
+  status: 
+}
+
+docs {
+  # Get Banks By User ID
+  
+  Retrieves all bank accounts for a specific user.
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Check Phone
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseURL}}/auth/check-phone
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "countryCode": "+91",
+    "phoneNumber": "9876543210"
+  }
+}
+
+docs {
+  # Check Phone
+  
+  Checks if a phone number is already registered.
+  
+  ## Payload
+  - **phoneNumber** (string, required): The phone number to check.
+  - **countryCode** (string, optional): Country code (e.g., +91).
+}

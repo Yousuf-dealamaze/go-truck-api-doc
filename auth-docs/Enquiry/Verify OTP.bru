@@ -1,0 +1,30 @@
+meta {
+  name: Verify OTP
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseURL}}/enquiry/verify-otp
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "countryCode": "+91",
+    "phoneNumber": "9876543210",
+    "otp": "123456"
+  }
+}
+
+docs {
+  # Verify OTP
+  
+  Verifies the OTP for enquiry.
+  
+  ## Payload
+  - **countryCode** (string, required)
+  - **phoneNumber** (string, required)
+  - **otp** (string, required)
+}

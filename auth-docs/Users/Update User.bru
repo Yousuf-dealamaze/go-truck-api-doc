@@ -1,0 +1,31 @@
+meta {
+  name: Update User
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseURL}}/users/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "status": "active",
+    "userType": "admin"
+  }
+}
+
+docs {
+  # Update User (Admin)
+  
+  Updates any user's details (Admin only).
+  
+  ## Path Params
+  - **userId** (UUID)
+  
+  ## Payload
+  - **status** (string, optional)
+  - **userType** (string, optional)
+}

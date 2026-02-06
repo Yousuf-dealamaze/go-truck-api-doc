@@ -1,0 +1,17 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseURL}}/user_wallet/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get User Wallet By ID
+  
+  Retrieves wallet by ID.
+}

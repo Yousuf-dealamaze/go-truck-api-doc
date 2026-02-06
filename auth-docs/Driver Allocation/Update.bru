@@ -1,0 +1,29 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseURL}}/driver_allocation/00000000-0000-0000-0000-000000000000
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "status": "un-assign"
+  }
+}
+
+docs {
+  # Update Allocation
+  
+  Updates an allocation.
+  
+  ## Payload
+  - **driverId** (UUID, optional)
+  - **transporterId** (UUID, optional)
+  - **remarks** (string, optional)
+  - **status** (string, optional)
+}

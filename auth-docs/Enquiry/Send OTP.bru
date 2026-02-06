@@ -1,0 +1,28 @@
+meta {
+  name: Send OTP
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/enquiry/send-otp
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "countryCode": "+91",
+    "phoneNumber": "9876543210"
+  }
+}
+
+docs {
+  # Send OTP
+  
+  Sends an OTP for enquiry verification.
+  
+  ## Payload
+  - **countryCode** (string, required)
+  - **phoneNumber** (string, required)
+}

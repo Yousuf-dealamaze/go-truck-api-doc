@@ -1,0 +1,26 @@
+meta {
+  name: Get All
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseURL}}/enquiry
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  status: 
+  sortBy: createdAt
+  sortOrder: desc
+}
+
+docs {
+  # Get All Enquiries
+  
+  Retrieves a paginated list of enquiries.
+}

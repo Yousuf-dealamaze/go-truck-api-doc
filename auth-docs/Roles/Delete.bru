@@ -1,0 +1,17 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseURL}}/roles/00000000-0000-0000-0000-000000000000/delete
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Delete Role
+  
+  Deletes a role.
+}

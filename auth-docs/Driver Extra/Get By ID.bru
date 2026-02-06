@@ -1,0 +1,20 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseURL}}/driver_extra/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get Driver Extra By ID
+  
+  Retrieves driver extra details by its ID.
+  
+  ## Path Params
+  - **id** (UUID): Driver Extra ID.
+}

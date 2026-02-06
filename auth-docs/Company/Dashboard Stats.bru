@@ -1,0 +1,17 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseURL}}/company/dashboard-stat
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get Dashboard Stats
+  
+  Retrieves statistics for the company dashboard.
+}

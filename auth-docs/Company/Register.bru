@@ -1,0 +1,42 @@
+meta {
+  name: Register
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/company/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "legalName": "Acme Corp",
+    "email": "contact@acmecorp.com",
+    "countryCode": "+91",
+    "phone": "9876543210",
+    "address_1": "123 Business Park",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "country": "India",
+    "pincode": "400001",
+    "website": "https://acmecorp.com"
+  }
+}
+
+docs {
+  # Register Company
+  
+  Registers a new company.
+  
+  ## Payload
+  - **legalName** (string, required): Legal name of the company.
+  - **email** (string, optional): Contact email.
+  - **phone** (string, optional): Contact phone.
+  - **website** (string, optional): Website URL.
+  - **address_1** (string, optional): Address line 1.
+  - **city** (string, optional): City.
+  - **country** (string, optional): Country.
+  - ... (See validation schema for all optional fields)
+}

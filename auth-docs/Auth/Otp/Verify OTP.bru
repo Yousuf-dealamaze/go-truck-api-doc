@@ -1,0 +1,31 @@
+meta {
+  name: Verify OTP
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseURL}}/otp/verifyOtp
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "otpType": "phone",
+    "countryCode": "+91",
+    "phoneNumber": "9876543210",
+    "otp": "123456"
+  }
+}
+
+docs {
+  # Verify OTP
+  
+  Verifies the sent OTP.
+  
+  ## Payload
+  - **otpType** (string, required): `email` or `phone`.
+  - **otp** (string, required): The 6-digit OTP.
+  - ... (See schema for other fields)
+}

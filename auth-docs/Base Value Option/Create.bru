@@ -1,0 +1,34 @@
+meta {
+  name: Create 
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/base-value-option
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "baseValueId": "00000000-0000-0000-0000-000000000000",
+    "optionTitle": "New Option",
+    "optionValue": "new_option",
+    "optionNote": "Optional note",
+    "status": "active"
+  }
+}
+
+docs {
+  # Create Base Value Option
+  
+  Creates a new option for a base value.
+  
+  ## Payload
+  - **baseValueId** (UUID, required): ID of the parent base value.
+  - **optionTitle** (string, required): Title of the option.
+  - **optionValue** (string, required): Value of the option.
+  - **optionNote** (string, optional): Note.
+  - **status** (string, optional): `active` or `inactive`.
+}

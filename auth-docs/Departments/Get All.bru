@@ -1,0 +1,17 @@
+meta {
+  name: Get All Departments
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseURL}}/departments
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get All Departments
+  
+  Retrieves a list of all departments.
+}

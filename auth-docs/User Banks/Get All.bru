@@ -1,0 +1,25 @@
+meta {
+  name: Get All
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseURL}}/user_banks
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  status: 
+  userId: 
+}
+
+docs {
+  # Get All User Banks
+  
+  Retrieves a list of all user bank accounts.
+}

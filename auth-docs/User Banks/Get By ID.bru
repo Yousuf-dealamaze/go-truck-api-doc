@@ -1,0 +1,17 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseURL}}/user_banks/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get User Bank By ID
+  
+  Retrieves details of a specific bank account.
+}

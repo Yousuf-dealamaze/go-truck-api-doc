@@ -1,0 +1,31 @@
+meta {
+  name: Send OTP
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/otp/sendOtp
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "otpType": "phone",
+    "countryCode": "+91",
+    "phoneNumber": "9876543210"
+  }
+}
+
+docs {
+  # Send OTP
+  
+  Sends an OTP via Email or Phone.
+  
+  ## Payload
+  - **otpType** (string, required): `email` or `phone`.
+  - **email** (string): Required if `otpType` is email.
+  - **phoneNumber** (string): Required if `otpType` is phone.
+  - **countryCode** (string): Required if `otpType` is phone.
+}
