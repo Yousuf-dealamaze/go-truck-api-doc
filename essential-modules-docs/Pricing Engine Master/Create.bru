@@ -1,0 +1,69 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/pricing-engine-master
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "ruleTypeId": "RT001",
+    "bookingTypeId": "BT001",
+    "vehicleCategory": "Heavy",
+    "vehicleTypeId": "VT001",
+    "vehicleSizeId": "VS001",
+    "cargoTypeId": "CT001",
+    "dayFixPrice": 1000,
+    "dayFixCurrency": "USD",
+    "description": "Standard pricing rule",
+    "pricingRuleTitle": "Standard Rule",
+    "effectiveDate": "2023-01-01",
+    "expiryDate": "2023-12-31",
+    "forceExpiry": "2023-12-31",
+    "status": "active",
+    "slabs": [
+      {
+        "kmFrom": 0,
+        "kmTo": 10,
+        "ratePerKm": 50,
+        "status": "active"
+      },
+      {
+        "kmFrom": 10,
+        "kmTo": 50,
+        "ratePerKm": 40,
+        "status": "active"
+      }
+    ]
+  }
+}
+
+docs {
+  Creates a new pricing engine master record.
+  
+  **Body Parameters:**
+  * `ruleTypeId` (string): The type ID of the rule.
+  * `bookingTypeId` (string): The booking type ID.
+  * `vehicleCategory` (string): The category of the vehicle.
+  * `vehicleTypeId` (string): The vehicle type ID.
+  * `vehicleSizeId` (string): The vehicle size ID.
+  * `cargoTypeId` (string): The cargo type ID.
+  * `dayFixPrice` (number): Fixed price per day.
+  * `dayFixCurrency` (string): Currency for the fixed price.
+  * `description` (string): Description of the pricing rule.
+  * `pricingRuleTitle` (string): Title of the pricing rule.
+  * `effectiveDate` (date): Date when the rule becomes effective.
+  * `expiryDate` (date): Date when the rule expires.
+  * `forceExpiry` (date): Date to force expiry.
+  * `status` (string): Status of the rule ('active' or 'inactive').
+  * `slabs` (array): Optional list of pricing slabs to create with the master record.
+    * `kmFrom` (number): Starting kilometer for the slab.
+    * `kmTo` (number): Ending kilometer for the slab.
+    * `ratePerKm` (number): Rate per kilometer for this slab.
+    * `status` (string): Status of the slab.
+}

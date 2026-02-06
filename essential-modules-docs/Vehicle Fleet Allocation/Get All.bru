@@ -1,0 +1,32 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/vehicle-fleet-allocation
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  status: 
+  vehicleId: 
+  fleetId: 
+}
+
+docs {
+  Retrieves a list of vehicle fleet allocation records with pagination and filtering.
+  
+  **Query Parameters:**
+  * `page` (number): Page number.
+  * `limit` (number): Items per page.
+  * `search` (string): Search by role.
+  * `status` (string): Filter by status.
+  * `vehicleId` (uuid): Filter by vehicle ID.
+  * `fleetId` (uuid): Filter by fleet ID.
+}

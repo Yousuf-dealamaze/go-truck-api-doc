@@ -1,0 +1,18 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/booking-vehicles/3b4296de-a4c4-4b6c-91e8-48efe89033bc
+  body: none
+  auth: none
+}
+
+docs {
+  Soft deletes a booking vehicle record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the booking vehicle record.
+}

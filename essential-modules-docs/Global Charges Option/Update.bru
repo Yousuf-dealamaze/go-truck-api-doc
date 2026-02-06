@@ -1,0 +1,40 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/global-charges-option/ffb58ef6-d507-4a09-a5ba-e9b8b7d4bbad
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Updated Standard Rate",
+    "option_rate": "120",
+    "rangeFrom": 0,
+    "rangeTo": 100
+  }
+}
+
+docs {
+  Updates an existing global charges option record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The ID of the record to update.
+  
+  **Body Parameters:**
+  * `base_value_id` (uuid, optional): ID of the base value.
+  * `title` (string, optional): Title of the option.
+  * `rate_type` (string, optional): Type of rate.
+  * `option_rate` (string, optional): The rate value.
+  * `effective_date` (date, optional): Effective date.
+  * `expiry_date` (date, optional): Expiry date.
+  * `isExpired` (boolean, optional): Whether the option is expired.
+  * `rangeFrom` (integer, optional): Start of the range.
+  * `rangeTo` (integer, optional): End of the range.
+  * `status` (string, optional): Status of the record (active, inactive, expired).
+  * `created_by` (uuid, optional): ID of the user updating the record.
+}

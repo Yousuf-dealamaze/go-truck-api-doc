@@ -1,0 +1,20 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/vehicle-fleet-allocation/dashboard-stats
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves dashboard statistics for vehicle fleet allocations.
+  
+  **Response:**
+  * `totalAllocations` (number): Total number of allocations.
+  * `activeAllocations` (number): Number of active allocations.
+  * `inactiveAllocations` (number): Number of inactive allocations.
+}

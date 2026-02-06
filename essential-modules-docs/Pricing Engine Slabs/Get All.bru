@@ -1,0 +1,22 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/pricing-engine-slabs
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  ~status: active
+  ~pricingRuleId: 
+}
+
+docs {
+  Retrieves a list of pricing engine slab records.
+}

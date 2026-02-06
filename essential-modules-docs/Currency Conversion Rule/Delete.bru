@@ -1,0 +1,15 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/currency-conversion-rule/1
+  body: none
+  auth: none
+}
+
+docs {
+  Soft deletes a conversion rule.
+}

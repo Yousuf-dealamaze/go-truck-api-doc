@@ -1,0 +1,18 @@
+meta {
+  name: Get By Code
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/currency-master/code/EUR
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a currency by its 3-letter currency code.
+  
+  **Path Parameters:**
+  *   `code`: The 3-letter currency code (e.g., USD, EUR, INR).
+}

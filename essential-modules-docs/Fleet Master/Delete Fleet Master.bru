@@ -1,0 +1,18 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/fleet-master/550e8400-e29b-41d4-a716-446655440000
+  body: none
+  auth: none
+}
+
+docs {
+  Soft deletes a fleet master record.
+  
+  **Path Parameters:**
+  * `id` (uuid, required): The UUID of the fleet master record.
+}

@@ -1,0 +1,44 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/currency-master
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "currencySymbol": "€",
+    "numericCode": 978,
+    "decimalPlaces": 2,
+    "countryCode": "EU",
+    "region": "Europe",
+    "isBaseCurrency": false,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new currency.
+
+  **Start Checks:**
+  *   **Base Currency**: Only one currency can be 'base' at a time. Setting `isBaseCurrency: true` here will automatically unset it for any other currency.
+  *   **Uniqueness**: `currencyCode` must be unique.
+
+  **Body Parameters:**
+  * `currencyCode` (string, required): 3-letter currency code (e.g., USD, EUR).
+  * `currencyName` (string, required): Full name of the currency.
+  * `currencySymbol` (string): Symbol (e.g., $, €).
+  * `numericCode` (number): ISO numeric code.
+  * `decimalPlaces` (number): Number of decimal places (default: 2).
+  * `countryCode` (string): 2-letter country code.
+  * `region` (string): Region name.
+  * `isBaseCurrency` (boolean): Set as base currency.
+  * `status` (string): 'active' or 'inactive'.
+}

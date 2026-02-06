@@ -1,0 +1,40 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-vehicles
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "bookingId": "765b1459-615e-4c7d-826e-3be1e29809c7",
+    "pricingRuleId": "550e8400-e29b-41d4-a716-446655440000",
+    "driverId": "9de60eb6-6206-497f-b54e-5ebf583bcedb",
+    "vehicleId": "17d027ff-494c-415e-b025-1a6eccda9657",
+    "quantity": 1,
+    "totalDistanceKm": 25.5,
+    "totalAmount": 1500.00,
+    "currency": "INR",
+    "statusTrip": "Pending"
+  }
+}
+
+docs {
+  Creates a new booking vehicle record.
+  
+  **Body Parameters:**
+  * `bookingId` (uuid, required): ID of the booking.
+  * `pricingRuleId` (uuid, optional): ID of the pricing rule.
+  * `driverId` (uuid, optional): ID of the driver.
+  * `vehicleId` (uuid, optional): ID of the vehicle.
+  * `quantity` (number, optional): Number of vehicles.
+  * `totalDistanceKm` (number, optional): Total distance.
+  * `totalAmount` (number, optional): Total amount.
+  * `currency` (string, optional): Currency code.
+  * `statusTrip` (string, optional): Status of the trip.
+}

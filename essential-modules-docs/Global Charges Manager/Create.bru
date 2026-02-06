@@ -1,0 +1,65 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/global-charges-manager
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "related_module": "Booking",
+    "title": "Fuel Surcharge",
+    "category": "Logistics",
+    "remark": "Standard surcharge",
+    "status": "active",
+    "options": [
+      {
+        "title": "Zone A",
+        "rate_type": "percentage",
+        "option_rate": "10",
+        "effective_date": "2024-01-01",
+        "expiry_date": "2024-12-31",
+        "status": "active",
+        "rangeFrom": 0,
+        "rangeTo": 100
+      },
+      {
+        "title": "Zone B",
+        "rate_type": "flat",
+        "option_rate": "500",
+        "effective_date": "2024-01-01",
+        "expiry_date": "2024-06-30",
+        "status": "active",
+        "rangeFrom": 101,
+        "rangeTo": 200
+      }
+    ]
+  }
+}
+
+docs {
+  Creates a new Global Charge Manager and its associated Options.
+
+  **Body Parameters:**
+  * `related_module` (string): The module this charge applies to (e.g., 'Booking').
+  * `title` (string): Name of the charge.
+  * `category` (string): Category grouping.
+  * `remark` (string): Additional notes.
+  * `status` (enum): 'active' or 'inactive'.
+  * `options` (array): List of charge options.
+
+  **Option Fields:**
+  * `title` (string): Option name (Required).
+  * `rate_type` (string): Type of rate (e.g., 'percentage', 'flat').
+  * `option_rate` (string): The rate value.
+  * `effective_date` (date): Start date (YYYY-MM-DD).
+  * `expiry_date` (date): End date (YYYY-MM-DD).
+  * `status` (enum): 'active' or 'inactive'.
+  * `rangeFrom` (number): Minimum range value.
+  * `rangeTo` (number): Maximum range value.
+}

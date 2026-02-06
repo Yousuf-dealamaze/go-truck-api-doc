@@ -1,0 +1,26 @@
+meta {
+  name: Get All
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/currency-exchange-rate
+  body: none
+  auth: none
+}
+
+params:query {
+  ~status: active
+  ~fromCurrencyId: 1
+  ~toCurrencyId: 2
+}
+
+docs {
+  Retrieves a list of exchange rates.
+  
+  **Query Parameters:**
+  * `status` (optional): Filter by status ('active'/'inactive').
+  * `fromCurrencyId` (optional): Filter by source currency ID.
+  * `toCurrencyId` (optional): Filter by target currency ID.
+}

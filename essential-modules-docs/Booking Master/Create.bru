@@ -1,0 +1,40 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-master
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userId": "3ab12e5e-62a6-4433-9644-5565dca15368",
+    "currency": "INR",
+    "bookingDistanceKm": 25.5,
+    "bookingAmount": 1500.00,
+    "totalDistanceKm": 25.5,
+    "totalAmount": 1500.00,
+    "vehiclesQuantity": 2,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new booking master record.
+  
+  **Body Parameters:**
+  * `userId` (uuid, optional): ID of the user making the booking.
+  * `currency` (string, optional): Currency code (e.g., INR).
+  * `bookingDistanceKm` (number, optional): Distance of the booking in km.
+  * `bookingAmount` (number, optional): Amount for the booking.
+  * `totalDistanceKm` (number, optional): Total distance including return if applicable.
+  * `totalAmount` (number, optional): Total amount including taxes/extras.
+  * `vehiclesQuantity` (number, optional): Number of vehicles required.
+  * `status` (string, optional): Status of the booking.
+  
+  **Note:** `bookingJsonData` is internally generated and stores user data after query.
+}

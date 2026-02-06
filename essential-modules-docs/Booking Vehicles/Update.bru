@@ -1,0 +1,34 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/booking-vehicles/3b4296de-a4c4-4b6c-91e8-48efe89033bc
+  body: json
+  auth: none
+}
+
+body:json {
+    "statusTrip": "Completed"
+  }
+}
+
+docs {
+  Updates an existing booking vehicle record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the booking vehicle record.
+  
+  **Body Parameters:**
+  * `bookingId` (uuid, optional)
+  * `pricingRuleId` (uuid, optional)
+  * `driverId` (uuid, optional)
+  * `vehicleId` (uuid, optional)
+  * `quantity` (number, optional)
+  * `totalDistanceKm` (number, optional)
+  * `totalAmount` (number, optional)
+  * `currency` (string, optional)
+  * `statusTrip` (string, optional)
+}

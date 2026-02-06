@@ -1,0 +1,39 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/currency-conversion-rule
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "conversionType": "markup",
+    "markupPercent": 2.5,
+    "roundingMethod": "round",
+    "roundingPrecision": 2,
+    "effectiveFrom": "2024-01-01T00:00:00Z",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new conversion rule.
+
+  **Validation:**
+  *   **Date Overlap**: You cannot create an `active` rule that overlaps in date range (`effectiveFrom` - `effectiveTo`) with another active rule of the same `conversionType`.
+  *   **effectiveTo**: If null, implies open-ended future.
+
+  **Body Parameters:**
+  * `conversionType` (string): 'markup' or 'markdown' (default: 'markup').
+  * `markupPercent` (number): Percentage to markup/down (e.g., 2.5 for 2.5%).
+  * `roundingMethod` (string): 'round', 'floor', 'ceil' (default: 'round').
+  * `roundingPrecision` (number): Decimal places to round to (default: 2).
+  * `effectiveFrom` (date, required): Start date (ISO).
+  * `effectiveTo` (date, optional): End date (ISO).
+  * `status` (string): 'active' or 'inactive'.
+}

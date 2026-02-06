@@ -1,0 +1,18 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/booking-addresses/96e96659-1c31-42f7-a6d0-0238cec11f17
+  body: none
+  auth: none
+}
+
+docs {
+  Soft deletes a booking address record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the booking address record.
+}

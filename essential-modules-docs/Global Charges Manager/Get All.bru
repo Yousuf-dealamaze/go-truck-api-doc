@@ -1,0 +1,28 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/global-charges-manager
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+  ~search: VAT
+  ~status: active
+}
+
+docs {
+  Retrieves a list of global charges manager records.
+  
+  **Query Parameters:**
+  * `page` (number, optional): Page number for pagination.
+  * `limit` (number, optional): Number of items per page.
+  * `search` (string, optional): Search term for title, slug_code, or idd.
+  * `status` (string, optional): Filter by status.
+}

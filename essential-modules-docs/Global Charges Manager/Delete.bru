@@ -1,0 +1,18 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/global-charges-manager/60836b90-7f3b-4efd-9f95-a9719ba9d488
+  body: none
+  auth: none
+}
+
+docs {
+  Deletes a global charges manager record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The ID of the record to delete.
+}

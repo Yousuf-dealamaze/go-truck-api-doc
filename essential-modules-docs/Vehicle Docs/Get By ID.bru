@@ -1,0 +1,18 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/vehicle-docs/a6d8dbe0-4aa5-45b7-b583-f12ef700fc78
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a single vehicle document record by its UUID.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the vehicle document record.
+}

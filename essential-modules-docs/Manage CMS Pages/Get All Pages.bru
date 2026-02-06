@@ -1,0 +1,28 @@
+meta {
+  name: Get All Pages
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/manage-cms-pages?page=1&limit=10
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  ~search: terms
+  ~status: active
+}
+
+docs {
+  Retrieves a list of CMS pages with pagination and search.
+
+  **Query Parameters:**
+  * `page` (number): Page number (default: 1).
+  * `limit` (number): Items per page (default: 10).
+  * `search` (string): Search by title, slug, or pageId.
+  * `status` (string): Filter by status ('active', 'inactive').
+}

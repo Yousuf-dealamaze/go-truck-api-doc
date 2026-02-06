@@ -1,0 +1,18 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/booking-addresses/96e96659-1c31-42f7-a6d0-0238cec11f17
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a single booking address record by its UUID.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the booking address record.
+}

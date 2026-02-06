@@ -1,0 +1,34 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/vehicle-docs/a6d8dbe0-4aa5-45b7-b583-f12ef700fc78
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  isVerified: true
+  verifiedBy: 550e8400-e29b-41d4-a716-446655440000
+  file: @file(C:\Users\CandyKisu\Downloads\github-wrapped-ctrixcode.png)
+}
+
+docs {
+  Updates an existing vehicle document record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the vehicle document record.
+  
+  **Body Parameters (multipart/form-data):**
+  * `vehicleId` (uuid, optional)
+  * `docType` (string, optional)
+  * `file` (file, optional): New document file to upload.
+  * `metadata` (object, optional)
+  * `isVerified` (boolean, optional)
+  * `verifiedBy` (uuid, optional)
+  * `expiresAt` (date, optional)
+  * `status` (string, optional)
+}

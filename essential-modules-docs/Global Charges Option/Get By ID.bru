@@ -1,0 +1,22 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/global-charges-option/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Retrieves a single global charges option record by ID.
+  
+  **Path Parameters:**
+  * `id` (uuid): The ID of the record to retrieve.
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Get Dashboard
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/booking-master/dashboard-stat
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a single booking master record by its UUID.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the booking master record.
+}

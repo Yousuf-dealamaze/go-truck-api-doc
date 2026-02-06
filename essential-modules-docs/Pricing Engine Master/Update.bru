@@ -1,0 +1,51 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/pricing-engine-master/991c2aff-e70e-4302-b66c-43bdef93b303
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "dayFixPrice": 1200,
+    "description": "Updated pricing rule",
+    "slabs": [
+      {
+        "kmFrom": 0,
+        "kmTo": 10,
+        "ratePerKm": 55,
+        "status": "active"
+      }
+    ]
+  }
+}
+
+docs {
+  Updates an existing pricing engine master record.
+  
+  **Body Parameters:**
+  * `ruleTypeId` (string): The type ID of the rule.
+  * `bookingTypeId` (string): The booking type ID.
+  * `vehicleCategory` (string): The category of the vehicle.
+  * `vehicleTypeId` (string): The vehicle type ID.
+  * `vehicleSizeId` (string): The vehicle size ID.
+  * `cargoTypeId` (string): The cargo type ID.
+  * `dayFixPrice` (number): Fixed price per day.
+  * `dayFixCurrency` (string): Currency for the fixed price.
+  * `description` (string): Description of the pricing rule.
+  * `pricingRuleTitle` (string): Title of the pricing rule.
+  * `effectiveDate` (date): Date when the rule becomes effective.
+  * `expiryDate` (date): Date when the rule expires.
+  * `forceExpiry` (date): Date to force expiry.
+  * `status` (string): Status of the rule ('active' or 'inactive').
+  * `slabs` (array): Optional list of pricing slabs. **IMPORTANT**: If provided, this list will **REPLACE** all existing slabs for this pricing rule. Any existing slabs not included in this list will be deleted.
+    * `kmFrom` (number): Starting kilometer for the slab.
+    * `kmTo` (number): Ending kilometer for the slab.
+    * `ratePerKm` (number): Rate per kilometer for this slab.
+    * `status` (string): Status of the slab.
+}

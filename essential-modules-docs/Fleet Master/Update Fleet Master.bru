@@ -1,0 +1,37 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/fleet-master/550e8400-e29b-41d4-a716-446655440000
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Updated Heavy Duty Truck",
+    "description": "Updated description for the fleet vehicle",
+    "status": "inactive"
+  }
+}
+
+docs {
+  Updates an existing fleet master record.
+  
+  **Path Parameters:**
+  * `id` (uuid, required): The UUID of the fleet master record.
+  
+  **Body Parameters:**
+  * `type` (string, optional): The type of the fleet vehicle.
+  * `name` (string, optional): The name of the fleet vehicle.
+  * `code` (string, optional): A unique code for the vehicle.
+  * `description` (string, optional): Description of the fleet vehicle.
+  * `capacity` (object, optional): Capacity details.
+  * `metadata` (object, optional): Additional metadata.
+  * `status` (string, optional): Status of the vehicle.
+  
+  **Note:** `idd` and `createdBy` fields cannot be updated.
+}

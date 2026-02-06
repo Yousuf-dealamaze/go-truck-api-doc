@@ -1,0 +1,33 @@
+meta {
+  name: Update
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{baseUrl}}/currency-exchange-rate/873f4e2b-1234-5678-9abc-def012345678
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "exchangeRate": 0.86,
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing exchange rate.
+
+  **Restrictions:**
+  *   **Inactive Records**: You cannot update a record that is `inactive` unless you are setting `status: 'active'`.
+  *   **Uniqueness**: Updates cannot result in a duplicate `[from, to, date]` combination.
+
+  **Path Parameters:**
+  * `id`: Exchange Rate ID
+
+  **Body Parameters:**
+  * `isMarketRate` (boolean): Whether this is a live market rate.
+  * Any field from Create payload.
+}

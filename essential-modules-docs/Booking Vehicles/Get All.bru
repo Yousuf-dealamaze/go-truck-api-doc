@@ -1,0 +1,32 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/booking-vehicles
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  status: 
+  bookingId: 
+  vehicleId: 
+}
+
+docs {
+  Retrieves a list of booking vehicle records with pagination and filtering.
+  
+  **Query Parameters:**
+  * `page` (number): Page number.
+  * `limit` (number): Items per page.
+  * `search` (string): Search by statusTrip.
+  * `status` (string): Filter by status.
+  * `bookingId` (uuid): Filter by booking ID.
+  * `vehicleId` (uuid): Filter by vehicle ID.
+}

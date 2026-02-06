@@ -1,0 +1,34 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/vehicle-fleet-allocation/550e8400-e29b-41d4-a716-446655440000
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "role": "Secondary",
+    "status": "inactive"
+  }
+}
+
+docs {
+  Updates an existing vehicle fleet allocation record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the vehicle fleet allocation record.
+  
+  **Body Parameters:**
+  * `fleetId` (uuid, optional)
+  * `vehicleId` (uuid, optional)
+  * `role` (string, optional)
+  * `metadata` (object, optional)
+  * `assignedBy` (uuid, optional)
+  * `assignedAt` (date, optional)
+  * `status` (string, optional)
+}

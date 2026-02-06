@@ -1,0 +1,20 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/vehicle-master/dashboard-stats
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves dashboard statistics for vehicle master.
+  
+  **Response:**
+  * `totalVehicles` (number): Total number of vehicles.
+  * `activeVehicles` (number): Number of active vehicles.
+  * `inactiveVehicles` (number): Number of inactive vehicles.
+}

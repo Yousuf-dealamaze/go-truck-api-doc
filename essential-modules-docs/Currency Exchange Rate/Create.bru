@@ -1,0 +1,39 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/currency-exchange-rate
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "fromCurrencyId": "7f784cb3-c007-4d13-ad56-2987957dc3f2",
+    "toCurrencyId": "989ce2a0-e4b5-4fc3-9120-51195431c3e6",
+    "exchangeRate": 0.85,
+    "validFrom": "2024-01-01T00:00:00Z",
+    "isMarketRate": true,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new exchange rate manually.
+  
+  **Important Logic:**
+  *   **Uniqueness**: The combination of `[fromCurrencyId, toCurrencyId, validFrom]` must be unique.
+  *   **Date Mapping**: The field `validFrom` in the payload is mapped to `rateDate` in the database.
+  
+  **Body Parameters:**
+  * `fromCurrencyId` (number, required): ID of source currency.
+  * `toCurrencyId` (number, required): ID of target currency.
+  * `exchangeRate` (number, required): Conversion rate (e.g., 1 USD = 0.85 EUR).
+  * `validFrom` (date, required): Start date of validity (ISO). Maps to `rateDate`.
+  * `validTo` (date, optional): End date of validity (ISO).
+  * `isMarketRate` (boolean): Whether this is a live market rate (default: false).
+  * `status` (string): 'active' or 'inactive'.
+}

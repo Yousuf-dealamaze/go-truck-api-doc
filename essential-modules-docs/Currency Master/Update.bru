@@ -1,0 +1,32 @@
+meta {
+  name: Update
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{baseUrl}}/currency-master/989ce2a0-e4b5-4fc3-9120-51195431c3e6
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "currencyName": "Euro Updated",
+    "isBaseCurrency": true,
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing currency.
+  
+  **Restrictions:**
+  *   **Inactive Records**: You cannot update a record that is `inactive` unless you are setting `status: 'active'` (reactivating it).
+  
+  **Path Parameters:**
+  * `id`: Currency ID
+  
+  **Body Parameters:**
+  * Any field from Create payload.
+}

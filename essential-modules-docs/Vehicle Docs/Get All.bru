@@ -1,0 +1,30 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/vehicle-docs
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  status: 
+  vehicleId: 
+}
+
+docs {
+  Retrieves a list of vehicle document records with pagination and filtering.
+  
+  **Query Parameters:**
+  * `page` (number): Page number.
+  * `limit` (number): Items per page.
+  * `search` (string): Search by docType or fileName.
+  * `status` (string): Filter by status.
+  * `vehicleId` (uuid): Filter by vehicle ID.
+}

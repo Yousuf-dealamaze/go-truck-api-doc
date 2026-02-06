@@ -1,0 +1,24 @@
+meta {
+  name: Get All
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/currency-conversion-rule
+  body: none
+  auth: none
+}
+
+params:query {
+  ~status: active
+  ~conversionType: markup
+}
+
+docs {
+  Retrieves a list of conversion rules.
+  
+  **Query Parameters:**
+  * `status` (optional): Filter by status ('active'/'inactive').
+  * `conversionType` (optional): Filter by type ('markup'/'markdown').
+}

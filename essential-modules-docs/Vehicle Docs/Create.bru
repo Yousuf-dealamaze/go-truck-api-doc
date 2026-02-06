@@ -1,0 +1,36 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/vehicle-docs
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  vehicleId: f6bd7008-7543-414d-8c87-070fb42ec9ea
+  docType: Insurance
+  file: @file(C:\Users\CandyKisu\Downloads\1741573950945262d25c5c0ac4b0a852266db09795850.webp)
+  metadata: {"provider": "HDFC Ergo", "policyNumber": "POL123456789"}
+  isVerified: false
+  expiresAt: 2024-12-31T23:59:59Z
+  status: active
+  uploadedBy: 550e8400-e29b-41d4-a716-446655440000
+}
+
+docs {
+  Creates a new vehicle document record with file upload.
+  
+  **Body Parameters (multipart/form-data):**
+  * `vehicleId` (uuid, required): ID of the associated vehicle.
+  * `docType` (string, required): Type of document (e.g., Insurance, RC).
+  * `file` (file, required): The document file to upload.
+  * `metadata` (object, optional): Additional metadata.
+  * `isVerified` (boolean, optional): Verification status (default: false).
+  * `expiresAt` (date, optional): Expiration date.
+  * `status` (string, optional): Record status.
+  * `uploadedBy` (uuid, optional): ID of the uploader.
+}

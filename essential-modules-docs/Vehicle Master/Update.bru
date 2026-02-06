@@ -1,0 +1,41 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/vehicle-master/f6bd7008-7543-414d-8c87-070fb42ec9ea
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "currentOdometer": 16000,
+    "availabilityStatus": "On Trip"
+  }
+}
+
+docs {
+  Updates an existing vehicle master record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the vehicle master record.
+  
+  **Body Parameters:**
+  * `vehicleType` (string, optional): Type of vehicle.
+  * `vehicleFeatures` (string, optional): Features of the vehicle.
+  * `registrationNumber` (string, optional): Vehicle registration number.
+  * `vin` (string, optional): Vehicle Identification Number.
+  * `model` (string, optional): Vehicle model.
+  * `make` (string, optional): Vehicle make.
+  * `year` (string, optional): Manufacturing year.
+  * `currentOdometer` (number, optional): Current odometer reading.
+  * `capacity` (object, optional): Capacity details.
+  * `availabilityFlags` (object, optional): Availability flags.
+  * `availabilityStatus` (string, optional): Availability status.
+  * `status` (string, optional): Record status ('active' or 'inactive').
+  
+  **Note:** `idd` and `createdBy` fields cannot be updated.
+}

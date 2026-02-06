@@ -1,0 +1,18 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/booking-uploads/b6d4eb23-580c-40a9-b863-ab3a52f38e9a
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a specific booking upload by its ID.
+  
+  **Path Parameters:**
+  * `id` (uuid, required): The ID of the booking upload.
+}

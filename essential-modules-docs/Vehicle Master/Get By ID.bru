@@ -1,0 +1,18 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/vehicle-master/f6bd7008-7543-414d-8c87-070fb42ec9ea
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a single vehicle master record by its UUID.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the vehicle master record.
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get Base Currency
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/currency-master/base/currency
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves the current Base Currency of the system.
+  
+  **Response:**
+  *   Returns the currency object marked as `isBaseCurrency: true`.
+  *   Returns success: false if no base currency is set.
+}

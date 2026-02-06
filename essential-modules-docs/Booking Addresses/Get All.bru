@@ -1,0 +1,32 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/booking-addresses
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  status: 
+  bookingId: 
+  addressType: 
+}
+
+docs {
+  Retrieves a list of booking address records with pagination and filtering.
+  
+  **Query Parameters:**
+  * `page` (number): Page number.
+  * `limit` (number): Items per page.
+  * `search` (string): Search by firstName, lastName, city, or phone.
+  * `status` (string): Filter by status.
+  * `bookingId` (uuid): Filter by booking ID.
+  * `addressType` (string): Filter by address type.
+}

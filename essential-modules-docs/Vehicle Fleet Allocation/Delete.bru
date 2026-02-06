@@ -1,0 +1,18 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/vehicle-fleet-allocation/550e8400-e29b-41d4-a716-446655440000
+  body: none
+  auth: none
+}
+
+docs {
+  Soft deletes a vehicle fleet allocation record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the vehicle fleet allocation record.
+}

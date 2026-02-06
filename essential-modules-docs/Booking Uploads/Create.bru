@@ -1,0 +1,29 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-uploads
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  bookingId: b6d4eb23-580c-40a9-b863-ab3a52f38e9a
+  docUploadType: Truck Load pics
+  files: @file(C:\Users\CandyKisu\Pictures\a5iw3m.jpg)
+  files: @file(C:\Users\CandyKisu\Pictures\anurag.jpeg)
+}
+
+docs {
+  Creates a new booking upload record with file upload.
+  
+  **Body Parameters (multipart/form-data):**
+  * `bookingId` (uuid, required): ID of the booking.
+  * `docUploadType` (string, required): Type of document uploaded.
+  * `files` (file, required): The document file(s) to upload. Multiple files can be uploaded with the same field name 'files'.
+  
+  **Note:** After upload, file paths are stored as an array in `docUploadFile` field to support multiple files per upload type.
+}

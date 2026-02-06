@@ -1,0 +1,28 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/booking-uploads/70fc805e-3f6a-4cab-827b-5a7dfebb8f93
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  docUploadType: Truck Unload Pics
+  file: @file(C:\Users\CandyKisu\Downloads\Daksh Kachawa.jpg)
+}
+
+docs {
+  Updates an existing booking upload record.
+  
+  **Path Parameters:**
+  * `id` (uuid, required): The ID of the booking upload.
+  
+  **Body Parameters (multipart/form-data):**
+  * `bookingId` (uuid, optional): ID of the booking.
+  * `docUploadType` (string, optional): Type of document uploaded.
+  * `file` (file, optional): New document file to upload.
+}

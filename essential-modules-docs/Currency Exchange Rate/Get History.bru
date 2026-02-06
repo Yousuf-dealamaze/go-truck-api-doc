@@ -1,0 +1,28 @@
+meta {
+  name: Get History
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/currency-exchange-rate/history?fromCurrencyId=7f784cb3-c007-4d13-ad56-2987957dc3f2&toCurrencyId=989ce2a0-e4b5-4fc3-9120-51195431c3e6&startDate=2024-01-01&endDate=2024-12-31
+  body: none
+  auth: none
+}
+
+params:query {
+  fromCurrencyId: 7f784cb3-c007-4d13-ad56-2987957dc3f2
+  toCurrencyId: 989ce2a0-e4b5-4fc3-9120-51195431c3e6
+  startDate: 2024-01-01
+  endDate: 2024-12-31
+}
+
+docs {
+  Retrieves historical exchange rates for a currency pair within a date range.
+  
+  **Query Parameters:**
+  *   `fromCurrencyId` (UUID, required): Source currency ID.
+  *   `toCurrencyId` (UUID, required): Target currency ID.
+  *   `startDate` (Date, optional): Start of the date range (ISO YYYY-MM-DD).
+  *   `endDate` (Date, optional): End of the date range (ISO YYYY-MM-DD).
+}

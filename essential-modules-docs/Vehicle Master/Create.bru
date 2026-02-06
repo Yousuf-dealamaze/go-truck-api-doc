@@ -1,0 +1,51 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/vehicle-master
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "vehicleType": "Truck",
+    "vehicleFeatures": "AC, GPS",
+    "registrationNumber": "KA-01-AB-1235",
+    "vin": "VIN1234567890",
+    "model": "Tata Prima",
+    "make": "Tata",
+    "year": "2023",
+    "currentOdometer": 15000,
+    "capacity": {
+      "payload": "10 tons"
+    },
+    "availabilityFlags": {
+      "isAvailable": true
+    },
+    "availabilityStatus": "Available",
+    "status": "active",
+    "createdBy": "550e8400-e29b-41d4-a716-446655440000"
+  }
+}
+
+docs {
+  Creates a new vehicle master record.
+  
+  **Body Parameters:**
+  * `vehicleType` (string): Type of vehicle.
+  * `registrationNumber` (string): Vehicle registration number.
+  * `vin` (string): Vehicle Identification Number.
+  * `model` (string): Vehicle model.
+  * `make` (string): Vehicle make.
+  * `year` (string): Manufacturing year.
+  * `currentOdometer` (number): Current odometer reading.
+  * `capacity` (object): Capacity details.
+  * `availabilityFlags` (object): Availability flags.
+  * `availabilityStatus` (string): Availability status.
+  * `status` (string): Record status.
+  * `createdBy` (uuid): User ID of creator.
+}

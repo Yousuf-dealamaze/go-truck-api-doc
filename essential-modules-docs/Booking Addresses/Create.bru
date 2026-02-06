@@ -1,0 +1,51 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-addresses
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "bookingId": "4b1deb28-a4d0-4a1d-8339-d37d0d3d86c0",
+    "addressType": "pick_up",
+    "firstName": "John",
+    "lastName": "Doe",
+    "address1": "123 Main St",
+    "city": "Bangalore",
+    "postalCode": "560001",
+    "phone": "9876543210",
+    "isPrimary": false,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new booking address record.
+  
+  **Body Parameters:**
+  * `bookingId` (uuid, required): ID of the booking.
+  * `addressType` (string, required): Type of address (e.g., pick_up, drop).
+  * `isPrimary` (boolean, optional): Whether this is the primary address (default: false).
+  * `firstName` (string, optional): First name of the contact.
+  * `lastName` (string, optional): Last name of the contact.
+  * `address1` (string, optional): Address line 1.
+  * `address2` (string, optional): Address line 2.
+  * `landmark` (string, optional): Landmark.
+  * `postalCode` (string, optional): Postal code.
+  * `city` (string, optional): City.
+  * `regionState` (string, optional): State/Region.
+  * `country` (string, optional): Country.
+  * `countryCode` (string, optional): Country code.
+  * `phone` (string, optional): Phone number.
+  * `email` (string, optional): Email address.
+  * `latitude` (string, optional): Latitude.
+  * `longitude` (string, optional): Longitude.
+  * `locationGeography` (string, optional): Location geography.
+  * `status` (string, optional): Status of the record.
+}

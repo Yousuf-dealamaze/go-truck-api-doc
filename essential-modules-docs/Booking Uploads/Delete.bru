@@ -1,0 +1,18 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/booking-uploads/70fc805e-3f6a-4cab-827b-5a7dfebb8f93
+  body: none
+  auth: none
+}
+
+docs {
+  Deletes a booking upload record.
+  
+  **Path Parameters:**
+  * `id` (uuid, required): The ID of the booking upload.
+}

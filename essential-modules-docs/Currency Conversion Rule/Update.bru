@@ -1,0 +1,32 @@
+meta {
+  name: Update
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{baseUrl}}/currency-conversion-rule/987c6b5a-4321-8765-cba9-fed987654321
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "markupPercent": 3.0,
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing conversion rule.
+
+  **Restrictions:**
+  *   **Inactive Records**: You cannot update a record that is `inactive` unless you are setting `status: 'active'`.
+  *   **Date Overlap**: Updates to `active` rules are checked for date overlaps.
+
+  **Path Parameters:**
+  * `id`: Conversion Rule ID
+
+  **Body Parameters:**
+  * Any field from Create payload.
+}

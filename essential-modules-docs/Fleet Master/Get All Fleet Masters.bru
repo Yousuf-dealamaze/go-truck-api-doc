@@ -1,0 +1,28 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/fleet-master
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  status: 
+}
+
+docs {
+  Retrieves a list of fleet master records with pagination and filtering.
+  
+  **Query Parameters:**
+  * `page` (number, optional): Page number (default: 1).
+  * `limit` (number, optional): Number of items per page (default: 10).
+  * `search` (string, optional): Search term for name, code, or type.
+  * `status` (string, optional): Filter by status ('active' or 'inactive').
+}

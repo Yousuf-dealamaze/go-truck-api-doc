@@ -1,0 +1,39 @@
+meta {
+  name: Update Page
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/manage-cms-pages/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "pageTitle": "Updated Terms",
+    "status": "inactive"
+  }
+}
+
+docs {
+  Updates an existing CMS page.
+
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the page.
+
+  **Body Parameters:**
+  * `pageTitle` (string): Title of the page.
+  * `slug` (string): Unique URL slug.
+  * `pageContent` (string): HTML content.
+  * `type` (enum): Type of page.
+  * `metaTitle` (string): SEO meta title.
+  * `metaDescription` (string): SEO meta description.
+  * `searchKeywords` (array): Keywords.
+  * `status` (enum): Status.
+}

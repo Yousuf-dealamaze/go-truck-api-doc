@@ -1,0 +1,44 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/fleet-master
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "type": "Truck",
+    "name": "Heavy Duty Truck 001",
+    "code": "HDT-001",
+    "description": "Heavy duty truck for long distance cargo transportation",
+    "capacity": {
+      "weight": "10 tons",
+      "volume": "50 m3"
+    },
+    "metadata": {
+      "color": "Red",
+      "year": 2023
+    },
+    "status": "active",
+    "createdBy": "550e8400-e29b-41d4-a716-446655440000"
+  }
+}
+
+docs {
+  Creates a new fleet master record.
+  
+  **Body Parameters:**
+  * `type` (string, required): The type of the fleet vehicle.
+  * `name` (string, required): The name of the fleet vehicle.
+  * `code` (string, required): A unique code for the vehicle.
+  * `description` (string, optional): Description of the fleet vehicle.
+  * `capacity` (object, optional): Capacity details (e.g., weight, volume).
+  * `metadata` (object, optional): Additional metadata.
+  * `status` (string, optional): Status of the vehicle ('active' or 'inactive'). Default is 'active'.
+  * `createdBy` (uuid, optional): UUID of the user creating the record.
+}

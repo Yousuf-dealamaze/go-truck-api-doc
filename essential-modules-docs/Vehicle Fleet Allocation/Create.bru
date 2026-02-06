@@ -1,0 +1,40 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/vehicle-fleet-allocation
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "fleetId": "e84284c3-a163-49d4-8898-cf5df606d83b",
+    "vehicleId": "f6bd7008-7543-414d-8c87-070fb42ec9ea",
+    "role": "Primary",
+    "metadata": {
+      "notes": "Assigned for long haul"
+    },
+    "assignedBy": "2f5222e9-2a70-4673-825b-4c871525e923",
+    "assignedAt": "2023-10-27T10:00:00Z",
+    "status": "active"
+  //   "uploadedBy": "358d472d-7723-47a3-baae-4a7660b4d0f4"
+  }
+}
+
+docs {
+  Creates a new vehicle fleet allocation record.
+  
+  **Body Parameters:**
+  * `fleetId` (uuid, required): ID of the fleet.
+  * `vehicleId` (uuid, required): ID of the vehicle.
+  * `role` (string, optional): Role of the vehicle in the fleet.
+  * `metadata` (object, optional): Additional metadata.
+  * `assignedBy` (uuid, optional): ID of the user who assigned the vehicle.
+  * `assignedAt` (date, optional): Date of assignment.
+  * `status` (string, optional): Status of the allocation.
+  * `uploadedBy` (uuid, optional): ID of the uploader.
+}

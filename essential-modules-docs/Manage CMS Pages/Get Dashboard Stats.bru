@@ -1,0 +1,20 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/manage-cms-pages/dashboard-stats
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves statistical data for the CMS pages dashboard.
+  
+  **Response:**
+  * `totalPages`: Total count of non-deleted pages.
+  * `activePages`: Count of active pages.
+  * `inactivePages`: Count of inactive pages.
+}

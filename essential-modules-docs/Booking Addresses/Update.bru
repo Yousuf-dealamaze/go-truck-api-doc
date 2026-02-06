@@ -1,0 +1,46 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/booking-addresses/96e96659-1c31-42f7-a6d0-0238cec11f17
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "addressType": "drop",
+    "status": "inactive"
+  }
+}
+
+docs {
+  Updates an existing booking address record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the booking address record.
+  
+  **Body Parameters:**
+  * `bookingId` (uuid, optional)
+  * `addressType` (string, optional)
+  * `isPrimary` (boolean, optional)
+  * `firstName` (string, optional)
+  * `lastName` (string, optional)
+  * `address1` (string, optional)
+  * `address2` (string, optional)
+  * `landmark` (string, optional)
+  * `postalCode` (string, optional)
+  * `city` (string, optional)
+  * `regionState` (string, optional)
+  * `country` (string, optional)
+  * `countryCode` (string, optional)
+  * `phone` (string, optional)
+  * `email` (string, optional)
+  * `latitude` (string, optional)
+  * `longitude` (string, optional)
+  * `locationGeography` (string, optional)
+  * `status` (string, optional)
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/pricing-engine-slabs
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "pricingRuleId": "991c2aff-e70e-4302-b66c-43bdef93b303",
+    "kmFrom": 0,
+    "kmTo": 10,
+    "ratePerKm": 50,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new pricing engine slab record.
+}

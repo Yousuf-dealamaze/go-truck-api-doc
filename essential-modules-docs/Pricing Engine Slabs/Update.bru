@@ -1,0 +1,21 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/pricing-engine-slabs/991c2aff-e70e-4302-b66c-43bdef93b303
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "ratePerKm": 55
+  }
+}
+
+docs {
+  Updates an existing pricing engine slab record.
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Get All
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/currency-master
+  body: none
+  auth: none
+}
+
+params:query {
+  ~status: active
+  ~search: USD
+}
+
+docs {
+  Retrieves a list of currencies.
+  
+  **Query Parameters:**
+  * `status` (optional): Filter by status ('active'/'inactive').
+  * `search` (optional): Search by code, name, country, or region.
+}

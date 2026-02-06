@@ -1,0 +1,18 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/global-charges-manager/0af466f8-15b2-4187-8738-4195eb4bf516
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a single global charges manager record by ID.
+  
+  **Path Parameters:**
+  * `id` (uuid): The ID of the record to retrieve.
+}

@@ -1,0 +1,44 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/global-charges-option
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "base_value_id": "550e8400-e29b-41d4-a716-446655440000",
+    "title": "Standard Rate",
+    "rate_type": "Fixed",
+    "option_rate": "100",
+    "effective_date": "2025-01-01",
+    "expiry_date": "2025-12-31",
+    "isExpired": false,
+    "rangeFrom": 0,
+    "rangeTo": 100,
+    "status": "active",
+    "created_by": "550e8400-e29b-41d4-a716-446655440000"
+  }
+}
+
+docs {
+  Creates a new global charges option record.
+  
+  **Body Parameters:**
+  * `base_value_id` (uuid, optional): ID of the base value.
+  * `title` (string, optional): Title of the option.
+  * `rate_type` (string, optional): Type of rate (e.g., Fixed, Percentage).
+  * `option_rate` (string, optional): The rate value.
+  * `effective_date` (date, optional): Effective date of the option.
+  * `expiry_date` (date, optional): Expiry date of the option.
+  * `isExpired` (boolean, optional): Whether the option is expired.
+  * `rangeFrom` (integer, optional): Start of the range.
+  * `rangeTo` (integer, optional): End of the range.
+  * `status` (string, optional): Status of the record (active, inactive, expired).
+  * `created_by` (uuid, optional): ID of the user creating the record.
+}

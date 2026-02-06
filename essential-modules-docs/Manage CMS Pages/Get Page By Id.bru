@@ -1,0 +1,22 @@
+meta {
+  name: Get Page By Id
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/manage-cms-pages/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Retrieves a specific CMS page by its UUID.
+
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the page.
+}

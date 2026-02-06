@@ -1,0 +1,28 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/booking-uploads
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+  ~bookingId: 
+  ~docUploadType: 
+}
+
+docs {
+  Retrieves a list of booking uploads.
+  
+  **Query Parameters:**
+  * `page` (number, optional): Page number for pagination.
+  * `limit` (number, optional): Number of items per page.
+  * `bookingId` (uuid, optional): Filter by booking ID.
+  * `docUploadType` (string, optional): Filter by document upload type.
+}

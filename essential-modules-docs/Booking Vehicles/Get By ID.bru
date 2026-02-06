@@ -1,0 +1,18 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/booking-vehicles/3b4296de-a4c4-4b6c-91e8-48efe89033bc
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a single booking vehicle record by its UUID.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the booking vehicle record.
+}

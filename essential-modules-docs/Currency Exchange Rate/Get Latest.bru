@@ -1,0 +1,24 @@
+meta {
+  name: Get Latest
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/currency-exchange-rate/latest?fromCurrencyId=7f784cb3-c007-4d13-ad56-2987957dc3f2&toCurrencyId=989ce2a0-e4b5-4fc3-9120-51195431c3e6
+  body: none
+  auth: none
+}
+
+params:query {
+  fromCurrencyId: 7f784cb3-c007-4d13-ad56-2987957dc3f2
+  toCurrencyId: 989ce2a0-e4b5-4fc3-9120-51195431c3e6
+}
+
+docs {
+  Retrieves the latest active exchange rate for a specific currency pair.
+  
+  **Query Parameters:**
+  *   `fromCurrencyId` (UUID, required): Source currency ID.
+  *   `toCurrencyId` (UUID, required): Target currency ID.
+}

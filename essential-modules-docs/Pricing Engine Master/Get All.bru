@@ -1,0 +1,22 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/pricing-engine-master
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  ~search: 
+  ~status: active
+}
+
+docs {
+  Retrieves a list of pricing engine master records.
+}

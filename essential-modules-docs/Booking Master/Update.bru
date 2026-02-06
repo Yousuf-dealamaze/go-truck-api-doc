@@ -1,0 +1,37 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/booking-master/550e8400-e29b-41d4-a716-446655440000
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "status": "inactive",
+    "vehiclesQuantity": 3
+  }
+}
+
+docs {
+  Updates an existing booking master record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the booking master record.
+  
+  **Body Parameters:**
+  * `userId` (uuid, optional)
+  * `currency` (string, optional)
+  * `bookingDistanceKm` (number, optional)
+  * `bookingAmount` (number, optional)
+  * `totalDistanceKm` (number, optional)
+  * `totalAmount` (number, optional)
+  * `vehiclesQuantity` (number, optional)
+  * `status` (string, optional)
+  
+  **Note:** `bookingJsonData` is internally generated and cannot be updated externally.
+}
