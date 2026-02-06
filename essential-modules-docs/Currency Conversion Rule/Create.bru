@@ -13,10 +13,15 @@ post {
 body:json {
   {
     "conversionType": "markup",
-    "markupPercent": 2.5,
+    "fromCurrencyId": "7f784cb3-c007-4d13-ad56-2987957dc3f2",
+    "toCurrencyId": "989ce2a0-e4b5-4fc3-9120-51195431c3e6",
+    "baseRateSource": "exchange_rate",
+    "fixedRate": null,
+    "markupPercentage": 2.5,
     "roundingMethod": "round",
     "roundingPrecision": 2,
     "effectiveFrom": "2024-01-01T00:00:00Z",
+    "forceExpiry": false,
     "status": "active"
   }
 }
@@ -30,7 +35,11 @@ docs {
 
   **Body Parameters:**
   * `conversionType` (string): 'markup' or 'markdown' (default: 'markup').
-  * `markupPercent` (number): Percentage to markup/down (e.g., 2.5 for 2.5%).
+  * `fromCurrencyId` (number, required): Source currency.
+  * `toCurrencyId` (number, required): Target currency.
+  * `baseRateSource` (string): 'exchange_rate' or 'manual'.
+  * `fixedRate` (number): Fixed rate if applicable.
+  * `markupPercentage` (number): Percentage to markup/down (e.g., 2.5 for 2.5%).
   * `roundingMethod` (string): 'round', 'floor', 'ceil' (default: 'round').
   * `roundingPrecision` (number): Decimal places to round to (default: 2).
   * `effectiveFrom` (date, required): Start date (ISO).
