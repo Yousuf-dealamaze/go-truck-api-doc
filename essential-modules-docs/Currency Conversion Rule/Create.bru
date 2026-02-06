@@ -21,18 +21,18 @@ body:json {
     "roundingMethod": "round",
     "roundingPrecision": 2,
     "effectiveFrom": "2024-01-01T00:00:00Z",
-    "forceExpiry": false,
+    "effectiveTo": "2024-01-01T00:00:00Z",
     "status": "active"
   }
 }
 
 docs {
   Creates a new conversion rule.
-
+  
   **Validation:**
   *   **Date Overlap**: You cannot create an `active` rule that overlaps in date range (`effectiveFrom` - `effectiveTo`) with another active rule of the same `conversionType`.
   *   **effectiveTo**: If null, implies open-ended future.
-
+  
   **Body Parameters:**
   * `conversionType` (string): 'markup' or 'markdown' (default: 'markup').
   * `fromCurrencyId` (number, required): Source currency.

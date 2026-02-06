@@ -1,0 +1,29 @@
+meta {
+  name: Force Expire
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{baseUrl}}/currency-conversion-rule/237695ee-fe94-4eee-b292-e83bcfe8d644/expire
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+  //   "expiryDate": "2024-12-31T23:59:59Z"
+  }
+}
+
+docs {
+  Manually expires an active conversion rule.
+  
+  **Use Case:**
+  *   Closing an open-ended rule to allow a new rule to take effect.
+  *   Shortening the validity of a rule.
+  
+  **Body Parameters:**
+  * `expiryDate` (date, optional): The date/time to set as `effectiveTo`. If omitted, defaults to current server time.
+  * **Constraint**: `expiryDate` must be greater than the rule's `effectiveFrom`.
+}
