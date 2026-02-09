@@ -1,0 +1,18 @@
+meta {
+  name: Delete Navigation
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/manage-cms-navigation/bb23375e-4075-4c37-b92f-623e06347451
+  body: none
+  auth: none
+}
+
+docs {
+  Soft deletes a CMS navigation entry.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the navigation entry.
+}

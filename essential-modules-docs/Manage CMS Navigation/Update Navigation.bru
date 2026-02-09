@@ -1,0 +1,32 @@
+meta {
+  name: Update Navigation
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/manage-cms-navigation/bb23375e-4075-4c37-b92f-623e06347451
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "cmsPageId": "apidropdown_updated",
+    "showOn": "header",
+    "sequence": 2
+  }
+}
+
+docs {
+  Updates an existing CMS navigation entry.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the navigation entry.
+  
+  **Body Parameters:**
+  * `cmsPageId` (string): Validator/Identifier for the CMS page.
+  * `showOn` (string): Where to show the navigation.
+  * `sequence` (number): Order of appearance.
+  * `status` (enum): Status ('active', 'inactive').
+}
