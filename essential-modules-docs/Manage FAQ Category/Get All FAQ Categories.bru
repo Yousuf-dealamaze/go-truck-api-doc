@@ -1,0 +1,30 @@
+meta {
+  name: Get All FAQ Categories
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/manage-faq-category?page=1&limit=10
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  ~search: general
+  ~status: active
+  ~type: Consumer
+}
+
+docs {
+  Retrieves a list of FAQ categories with pagination and filters.
+
+  **Query Parameters:**
+  * `page` (number): Page number (default: 1).
+  * `limit` (number): Items per page (default: 10).
+  * `search` (string): Search by category title or code.
+  * `status` (string): Filter by status ('active', 'inactive').
+  * `type` (string): Filter by type ('Consumer', 'Transporter', 'Partner').
+}

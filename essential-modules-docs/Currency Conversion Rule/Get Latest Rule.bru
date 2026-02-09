@@ -1,0 +1,26 @@
+meta {
+  name: Get Latest Rule
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/currency-conversion-rule/latest
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "fromCurrencyId": "UUID",
+    "toCurrencyId": "UUID"
+  }
+}
+
+docs {
+  Retrieves the latest active conversion rule for a given currency pair.
+  
+  **Body Parameters:**
+  *   `fromCurrencyId` (UUID, required): The ID of the source currency.
+  *   `toCurrencyId` (UUID, required): The ID of the target currency.
+}

@@ -1,0 +1,39 @@
+meta {
+  name: Update FAQ Category
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/manage-faq-category/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "categoryTitle": "Updated General Questions",
+    "type": "Transporter",
+    "sequence": 2,
+    "status": "inactive"
+  }
+}
+
+docs {
+  Updates an existing FAQ category.
+
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the FAQ category.
+
+  **Body Parameters:**
+  * `categoryTitle` (string): Title of the FAQ category (optional).
+  * `productCategoryId` (string): Product category identifier (optional).
+  * `type` (enum): Type ('Consumer', 'Transporter', 'Partner') (optional).
+  * `categoryType` (string): Category type (optional).
+  * `sequence` (number): Display order (optional).
+  * `status` (enum): Status ('active', 'inactive') (optional).
+}
