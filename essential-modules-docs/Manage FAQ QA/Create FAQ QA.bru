@@ -1,0 +1,32 @@
+meta {
+  name: Create FAQ QA
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/manage-faq-qa
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "faqCategoryId": "uuid-of-category",
+    "faqQuestion": "How do I track my shipment?",
+    "faqAnswer": "You can track your shipment using the tracking number provided in your confirmation email.",
+    "sequence": 1,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new FAQ Q&A entry.
+
+  **Body Parameters:**
+  * `faqCategoryId` (uuid): UUID of the FAQ category.
+  * `faqQuestion` (string): The question text.
+  * `faqAnswer` (string): The answer text.
+  * `sequence` (number): Display order (optional).
+  * `status` (enum): Status ('active', 'inactive').
+}

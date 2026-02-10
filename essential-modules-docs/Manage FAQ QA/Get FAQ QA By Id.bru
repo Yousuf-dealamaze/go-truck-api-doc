@@ -1,0 +1,22 @@
+meta {
+  name: Get FAQ QA By Id
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/manage-faq-qa/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Retrieves a specific FAQ Q&A by its UUID.
+
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the FAQ Q&A.
+}

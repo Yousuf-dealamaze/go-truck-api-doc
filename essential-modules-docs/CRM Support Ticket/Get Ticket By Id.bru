@@ -1,0 +1,18 @@
+meta {
+  name: Get Ticket By Id
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/crm-support-ticket/4fbc47dd-7ebf-44b2-9175-4915b2c6bd7f
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a specific CRM support ticket by its UUID.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the support ticket.
+}

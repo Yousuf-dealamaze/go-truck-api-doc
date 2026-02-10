@@ -1,0 +1,30 @@
+meta {
+  name: Get All FAQ QAs
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/manage-faq-qa?page=1&limit=10
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  ~search: shipment
+  ~status: active
+  ~faqCategoryId: uuid-of-category
+}
+
+docs {
+  Retrieves a list of FAQ Q&As with pagination and filters.
+
+  **Query Parameters:**
+  * `page` (number): Page number (default: 1).
+  * `limit` (number): Items per page (default: 10).
+  * `search` (string): Search by question or answer text.
+  * `status` (string): Filter by status ('active', 'inactive').
+  * `faqCategoryId` (uuid): Filter by FAQ category UUID.
+}

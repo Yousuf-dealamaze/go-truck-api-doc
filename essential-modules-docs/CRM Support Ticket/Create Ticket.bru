@@ -1,0 +1,39 @@
+meta {
+  name: Create Ticket
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/crm-support-ticket
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "bookingId": "9f924cbf-9a0e-4de6-bea9-5997d0738405",
+    "ticketType": "Booking Issue",
+    "transporterId": "64d6d853-2a0d-45b5-9e29-0d437d05dd41",
+    "priority": "high",
+    "issueCategory": "Missing Item",
+    "subject": "Incomplete delivery",
+    "description": "One item from my booking GTBM0000001 is missing.",
+    "createdBy": "64d6d853-2a0d-45b5-9e29-0d437d05dd41"
+  }
+}
+
+docs {
+  Creates a new CRM support ticket.
+  
+  **Body Parameters:**
+  * `bookingId` (string): Reference to associated booking (optional).
+  * `ticketType` (string): Type of support ticket.
+  * `transporterId` (string): Reference to transporter (optional).
+  * `priority` (enum): 'low', 'medium', 'high', 'urgent' (default: 'medium').
+  * `issueCategory` (string): Category of the issue.
+  * `subject` (string): Short summary of the issue.
+  * `description` (string): Detailed description of the issue.
+  * `createdBy` (string): User ID who created the ticket.
+  * `status` (enum): 'open', 'in_progress', 'resolved', 'closed', 'cancelled' (default: 'open').
+}

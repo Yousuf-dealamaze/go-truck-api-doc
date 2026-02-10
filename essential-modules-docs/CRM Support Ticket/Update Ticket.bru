@@ -1,0 +1,33 @@
+meta {
+  name: Update Ticket
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/crm-support-ticket/4fbc47dd-7ebf-44b2-9175-4915b2c6bd7f
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "status": "in_progress",
+    "assignTo": "agent-uuid-456",
+    "priority": "urgent",
+    "addNote": "Assigning to the specialized delivery investigation team."
+  }
+}
+
+docs {
+  Updates an existing CRM support ticket.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the support ticket.
+  
+  **Body Parameters:**
+  * `status` (enum): New status for the ticket.
+  * `assignTo` (string): User ID of the assigned support agent.
+  * `priority` (enum): New priority level.
+  * `addNote` (string): Additional tracking notes.
+}

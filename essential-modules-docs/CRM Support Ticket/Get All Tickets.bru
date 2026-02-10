@@ -1,0 +1,32 @@
+meta {
+  name: Get All Tickets
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/crm-support-ticket?page=1&limit=10
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  ~search: missing
+  ~status: open
+  ~priority: high
+  ~ticketType: Booking Issue
+}
+
+docs {
+  Retrieves a list of CRM support tickets with pagination and filters.
+  
+  **Query Parameters:**
+  * `page` (number): Page number (default: 1).
+  * `limit` (number): Items per page (default: 10).
+  * `search` (string): Search by ticket ID, subject, description, or category.
+  * `status` (string): Filter by ticket status.
+  * `priority` (string): Filter by priority level.
+  * `ticketType` (string): Filter by ticket type.
+}

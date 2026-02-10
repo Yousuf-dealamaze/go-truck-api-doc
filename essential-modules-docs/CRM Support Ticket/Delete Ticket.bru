@@ -1,0 +1,18 @@
+meta {
+  name: Delete Ticket
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/crm-support-ticket/4fbc47dd-7ebf-44b2-9175-4915b2c6bd7f
+  body: none
+  auth: none
+}
+
+docs {
+  Soft deletes a CRM support ticket.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the support ticket.
+}

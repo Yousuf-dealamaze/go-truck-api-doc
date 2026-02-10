@@ -1,0 +1,38 @@
+meta {
+  name: Update FAQ QA
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/manage-faq-qa/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "faqQuestion": "How can I track my shipment?",
+    "faqAnswer": "You can track your shipment using the tracking number sent to your email or SMS.",
+    "sequence": 2,
+    "status": "inactive"
+  }
+}
+
+docs {
+  Updates an existing FAQ Q&A.
+
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the FAQ Q&A.
+
+  **Body Parameters:**
+  * `faqCategoryId` (uuid): UUID of the FAQ category (optional).
+  * `faqQuestion` (string): The question text (optional).
+  * `faqAnswer` (string): The answer text (optional).
+  * `sequence` (number): Display order (optional).
+  * `status` (enum): Status ('active', 'inactive') (optional).
+}
