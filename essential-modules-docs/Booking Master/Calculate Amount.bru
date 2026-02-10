@@ -1,0 +1,29 @@
+meta {
+  name: Calculate Amount
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/booking-master/calculate-amount
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "pricingRuleId": "",
+    "distanceKm": 50
+  }
+}
+
+docs {
+  Calculates the booking amount based on the provided distance and pricing rule slabs.
+  
+  **Body Parameters:**
+  * `pricingRuleId` (uuid, required): The ID of the pricing rule to apply.
+  * `distanceKm` (number, required): The distance in kilometers.
+  
+  **Response:**
+  Returns the calculated `amount` and the `ratePerKm` used from the matching slab.
+}
