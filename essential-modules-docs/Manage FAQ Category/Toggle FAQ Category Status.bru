@@ -1,0 +1,18 @@
+meta {
+  name: Toggle FAQ Category Status
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{baseUrl}}/manage-faq-category/status/6b9ce81a-9760-41c2-8c41-115555dd9b35
+  body: none
+  auth: none
+}
+
+docs {
+  Toggles the status of an FAQ category between 'active' and 'inactive'.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the FAQ category.
+}

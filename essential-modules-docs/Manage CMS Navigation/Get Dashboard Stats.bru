@@ -1,0 +1,20 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/manage-cms-navigation/dashboard-stats
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves statistical data for the CMS navigation dashboard.
+  
+  **Response:**
+  * `totalCount`: Total count of non-deleted navigation items.
+  * `activeCount`: Count of active navigation items.
+  * `inactiveCount`: Count of inactive navigation items.
+}

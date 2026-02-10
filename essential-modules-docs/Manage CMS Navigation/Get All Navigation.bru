@@ -13,8 +13,9 @@ get {
 params:query {
   page: 1
   limit: 10
-  search: apidropdown
-  status: active
+  ~search: apidropdown
+  ~status: active
+  ~showOn: header
 }
 
 docs {
@@ -25,4 +26,5 @@ docs {
   * `limit` (number): Items per page (default: 10).
   * `search` (string): Search by cmsNavigationId, cmsPageId, showOn.
   * `status` (string): Filter by status ('active', 'inactive').
+  * `showOn` (string): Filter by where the page is shown (e.g., 'header', 'footer').
 }

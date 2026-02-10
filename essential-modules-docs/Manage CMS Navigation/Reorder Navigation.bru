@@ -1,0 +1,35 @@
+meta {
+  name: Reorder Navigation
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{baseUrl}}/manage-cms-navigation/reorder
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "items": [
+      {
+        "id": "uuid-here",
+        "sequence": 1
+      },
+      {
+        "id": "another-uuid",
+        "sequence": 2
+      }
+    ]
+  }
+}
+
+docs {
+  Bulk reorders the sequence of CMS navigation items.
+
+  **Request Body:**
+  * `items` (array): List of navigation items to reorder.
+    * `id` (UUID): The unique identifier of the navigation entry.
+    * `sequence` (number): The new sequence/order.
+}

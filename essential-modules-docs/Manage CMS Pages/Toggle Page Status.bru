@@ -1,0 +1,31 @@
+meta {
+  name: Toggle Page Status
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{baseUrl}}/manage-cms-pages/status/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "status": "active"
+  }
+}
+
+docs {
+  Toggles the status of a CMS page between 'active' and 'inactive'.
+
+  **Path Parameters:**
+  * `id` (UUID): The unique identifier of the CMS page.
+
+  **Request Body:**
+  * `status` (string): The new status ('active' or 'inactive').
+}

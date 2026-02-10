@@ -1,0 +1,22 @@
+meta {
+  name: Toggle FAQ QA Status
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{baseUrl}}/manage-faq-qa/status/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Toggles the status of an FAQ Q&A between 'active' and 'inactive'.
+
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the FAQ QA.
+}

@@ -1,0 +1,31 @@
+meta {
+  name: Toggle Navigation Status
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{baseUrl}}/manage-cms-navigation/status/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "status": "active"
+  }
+}
+
+docs {
+  Toggles the status of a CMS navigation entry between 'active' and 'inactive'.
+
+  **Path Parameters:**
+  * `id` (UUID): The unique identifier of the navigation entry.
+
+  **Request Body:**
+  * `status` (string): The new status ('active' or 'inactive').
+}

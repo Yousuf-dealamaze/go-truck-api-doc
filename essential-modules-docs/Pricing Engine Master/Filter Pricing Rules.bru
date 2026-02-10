@@ -1,0 +1,38 @@
+meta {
+  name: Filter Pricing Rules
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/pricing-engine-master/filter
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "page": 1,
+    "limit": 10,
+    "search": "",
+    "status": "active",
+    "ruleTypeId": "",
+    "bookingTypeId": "",
+    "vehicleCategory": "",
+    "vehicleTypeId": "",
+    "vehicleSizeId": "",
+    "cargoTypeId": "",
+    "transporterId": "",
+    "fleetId": ""
+  }
+}
+
+docs {
+  Search and filter pricing rules using various criteria.
+  
+  **Available Filters:**
+  * `page`, `limit`: Pagination
+  * `search`: Generic search (title, ID, description)
+  * `status`: active/inactive
+  * `ruleTypeId`, `bookingTypeId`, `vehicleCategory`, `vehicleTypeId`, `vehicleSizeId`, `cargoTypeId`, `fleetId`: Specific entity filters
+}

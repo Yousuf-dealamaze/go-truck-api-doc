@@ -1,0 +1,27 @@
+meta {
+  name: Reorder FAQ Categories
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{baseUrl}}/manage-faq-category/reorder
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "items": [
+      { "id": "uuid-1", "sequence": 1 },
+      { "id": "uuid-2", "sequence": 2 }
+    ]
+  }
+}
+
+docs {
+  Bulk updates the sequence of FAQ categories for reordering.
+
+  **Body Parameters:**
+  * `items` (array): List of objects containing `id` and `sequence`.
+}

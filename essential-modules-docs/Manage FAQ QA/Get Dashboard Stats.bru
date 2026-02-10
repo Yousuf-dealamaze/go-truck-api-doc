@@ -1,0 +1,20 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/manage-faq-qa/dashboard-stats
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves statistical data for the FAQ Q&A dashboard.
+  
+  **Response:**
+  * `totalCount`: Total count of non-deleted faq q&as.
+  * `activeCount`: Count of active faq q&as.
+  * `inactiveCount`: Count of inactive faq q&as.
+}

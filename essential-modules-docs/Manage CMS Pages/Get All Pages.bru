@@ -15,6 +15,7 @@ params:query {
   limit: 10
   ~search: terms
   ~status: active
+  ~type: seller
 }
 
 docs {
@@ -25,4 +26,5 @@ docs {
   * `limit` (number): Items per page (default: 10).
   * `search` (string): Search by title, slug, or pageId.
   * `status` (string): Filter by status ('active', 'inactive').
+  * `type` (string): Filter by user type ('seller', 'consumer', 'b2b').
 }

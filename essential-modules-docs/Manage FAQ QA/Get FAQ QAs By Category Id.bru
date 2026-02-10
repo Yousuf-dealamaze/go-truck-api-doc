@@ -1,0 +1,22 @@
+meta {
+  name: Get FAQ QAs By Category Id
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/manage-faq-qa/category/:faqCategoryId
+  body: none
+  auth: none
+}
+
+params:path {
+  faqCategoryId: 
+}
+
+docs {
+  Fetches all FAQ Q&As for a specific Category ID.
+
+  **Path Parameters:**
+  * `faqCategoryId` (uuid): The UUID of the FAQ Category.
+}
