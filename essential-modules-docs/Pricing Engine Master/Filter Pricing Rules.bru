@@ -22,8 +22,8 @@ body:json {
     "vehicleTypeId": "",
     "vehicleSizeId": "",
     "cargoTypeId": "",
-    "transporterId": "",
-    "fleetId": ""
+    "fleetId": "",
+    "distanceKm": 20
   }
 }
 
@@ -35,4 +35,41 @@ docs {
   * `search`: Generic search (title, ID, description)
   * `status`: active/inactive
   * `ruleTypeId`, `bookingTypeId`, `vehicleCategory`, `vehicleTypeId`, `vehicleSizeId`, `cargoTypeId`, `fleetId`: Specific entity filters
+  * `distanceKm`: If provided, the response will include a `calculation` object for each matching pricing rule.
+  
+  **Example Response with `distanceKm: 100`:**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Success",
+    "data": {
+      "count": 1,
+      "rows": [
+        {
+          "pricingRuleId": "GTPEM0000001",
+          "pricingRuleTitle": "Standard Rule",
+          "calculation": {
+            "totalDistanceKm": 100,
+            "totalAmount": 900,
+            "breakdown": [
+              {
+                "slab": "0-50",
+                "distanceInSlab": 50,
+                "ratePerKm": 10,
+                "slabAmount": 500
+              },
+              {
+                "slab": "50-150",
+                "distanceInSlab": 50,
+                "ratePerKm": 8,
+                "slabAmount": 400
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+  ```
 }
