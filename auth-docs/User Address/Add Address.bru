@@ -1,0 +1,33 @@
+meta {
+  name: Add Address
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseURL}}/address
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "addressType": "Home",
+    "isDefault": true,
+    "firstName": "John",
+    "lastName": "Doe",
+    "address1": "123 Main St",
+    "address2": "Apt 4B",
+    "landmark": "Near Central Park",
+    "postalCode": "12345",
+    "city": "Dubai",
+    "regionState": "Dubai",
+    "country": "UAE",
+    "countryCode": "+971",
+    "phone": "501234567",
+    "email": "john.doe@example.com",
+    "latitude": "25.2048",
+    "longitude": "55.2708",
+    "locationGeography": "POINT(55.2708 25.2048)"
+  }
+}

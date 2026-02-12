@@ -1,0 +1,22 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseURL}}/address/:addressId
+  body: json
+  auth: inherit
+}
+
+params:path {
+  addressId: 
+}
+
+body:json {
+  {
+    "addressType": "Office",
+    "isDefault": false
+  }
+}
