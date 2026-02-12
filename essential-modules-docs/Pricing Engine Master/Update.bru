@@ -14,8 +14,8 @@ body:json {
   {
     "dayFixPrice": 1200,
     "description": "Updated pricing rule",
-    "transporterId": "",
-    "fleetId": "",
+    "transporterId": "550e8400-e29b-41d4-a716-446655440000",
+    "fleetId": "550e8400-e29b-41d4-a716-446655440001",
     "slabs": [
       {
         "kmFrom": 0,
@@ -45,6 +45,8 @@ docs {
   * `expiryDate` (date): Date when the rule expires.
   * `forceExpiry` (date): Date to force expiry.
   * `status` (string): Status of the rule ('active' or 'inactive').
+  * `transporterId` (uuid): ID of the transporter.
+  * `fleetId` (uuid): ID of the fleet.
   * `slabs` (array): Optional list of pricing slabs. **IMPORTANT**: If provided, this list will **REPLACE** all existing slabs for this pricing rule. Any existing slabs not included in this list will be deleted.
     * `kmFrom` (number): Starting kilometer for the slab.
     * `kmTo` (number): Ending kilometer for the slab.

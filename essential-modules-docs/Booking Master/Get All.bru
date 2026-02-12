@@ -18,13 +18,5 @@ params:query {
   userId: 
 }
 
-docs {
-  Retrieves a list of booking master records with pagination and filtering.
-  
-  **Query Parameters:**
-  * `page` (number): Page number.
-  * `limit` (number): Items per page.
-  * `search` (string): Search by bookingCode, pickupPincode, or dropPincode.
-  * `status` (string): Filter by status.
-  * `userId` (uuid): Filter by user ID.
+  **Note:** This endpoint includes nested `pricingRule` data, which further includes nested `fleet` data.
 }

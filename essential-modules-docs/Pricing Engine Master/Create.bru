@@ -26,8 +26,8 @@ body:json {
     "expiryDate": "2023-12-31",
     "forceExpiry": "2023-12-31",
     "status": "active",
-    "transporterId": "",
-    "fleetId": "",
+    "transporterId": "550e8400-e29b-41d4-a716-446655440000",
+    "fleetId": "22e6c3a4-6a3f-470e-96e4-2202e162c7b7",
     "slabs": [
       {
         "kmFrom": 0,
@@ -63,6 +63,8 @@ docs {
   * `expiryDate` (date): Date when the rule expires.
   * `forceExpiry` (date): Date to force expiry.
   * `status` (string): Status of the rule ('active' or 'inactive').
+  * `transporterId` (uuid): ID of the transporter.
+  * `fleetId` (uuid): ID of the fleet.
   * `slabs` (array): Optional list of pricing slabs to create with the master record.
     * `kmFrom` (number): Starting kilometer for the slab.
     * `kmTo` (number): Ending kilometer for the slab.
