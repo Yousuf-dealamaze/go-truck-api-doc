@@ -1,0 +1,35 @@
+meta {
+  name: Create (Bulk)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/fleet-master-region/bulk
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "fleetId": "309f6b1e-fb14-4416-9ace-7c7013e19563",
+    "data": [
+      {
+        "regionType": "type1",
+        "regionName": "Region Name 1",
+        "regionCode": "CODE01",
+        "status": "active"
+      },
+      {
+        "regionType": "type2",
+        "regionName": "Region Name 2",
+        "regionCode": "CODE02",
+        "status": "active"
+      }
+    ]
+  }
+}
+
+docs {
+  Bulk creates multiple fleet master regions for a specific fleet.
+}

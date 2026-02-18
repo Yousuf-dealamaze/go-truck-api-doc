@@ -1,0 +1,33 @@
+meta {
+  name: Update (Bulk)
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{baseUrl}}/fleet-master-region/bulk
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "fleetId": "309f6b1e-fb14-4416-9ace-7c7013e19563",
+    "data": [
+      {
+        "regionCode": "CODE01",
+        "regionName": "Region Name 1 Updated",
+        "regionType": "type1-updated",
+        "status": "active"
+      },
+      {
+        "regionCode": "CODE02",
+        "regionName": "Region Name 2 Updated"
+      }
+    ]
+  }
+}
+
+docs {
+  Bulk updates multiple fleet master regions for a specific fleet, identifying them by their `regionCode`.
+}

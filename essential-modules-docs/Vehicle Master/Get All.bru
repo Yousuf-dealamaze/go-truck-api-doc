@@ -7,22 +7,16 @@ meta {
 get {
   url: {{baseUrl}}/vehicle-master
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {
   page: 1
   limit: 10
-  search: 
-  status: 
+  ~search: 
+  ~status: 
 }
 
 docs {
-  Retrieves a list of vehicle master records with pagination and filtering.
-  
-  **Query Parameters:**
-  * `page` (number): Page number.
-  * `limit` (number): Items per page.
-  * `search` (string): Search by type, registration, VIN, model, or make.
-  * `status` (string): Filter by status.
+  Retrieves all vehicles with pagination and optional filters.
 }

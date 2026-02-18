@@ -7,16 +7,17 @@ meta {
 get {
   url: {{baseUrl}}/booking-master
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {
   page: 1
   limit: 10
-  search: 
-  status: 
-  userId: 
+  ~search: 
+  ~status: 
+  ~userId: 
 }
 
-  **Note:** This endpoint includes nested `pricingRule` data, which further includes nested `fleet` data.
+docs {
+  Retrieves all bookings with pagination and optional filters.
 }

@@ -11,7 +11,8 @@ get {
 }
 
 docs {
-  Retrieves a specific CRM support ticket by its UUID.
+  Retrieves a single CRM support ticket by its UUID.
+  Response includes both `issueCategory` and `issueSubCategory`.
   
   **Path Parameters:**
   * `id` (uuid): The UUID of the support ticket.

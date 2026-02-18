@@ -1,0 +1,22 @@
+meta {
+  name: Get Child FAQ Categories
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/manage-faq-category/child-categories/{{parentCategoryId}}
+  body: none
+  auth: none
+}
+
+params:path {
+  parentCategoryId: 
+}
+
+docs {
+  Retrieves all child FAQ categories associated with a specific parent category ID.
+  
+  **Path Parameters:**
+  * `parentCategoryId` (UUID): The ID of the parent category.
+}

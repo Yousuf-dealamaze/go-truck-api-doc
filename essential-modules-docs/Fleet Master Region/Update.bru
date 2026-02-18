@@ -1,0 +1,25 @@
+meta {
+  name: Update
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{baseUrl}}/fleet-master-region/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "regionName": "Updated Region Name"
+  }
+}
+
+docs {
+  Updates an existing fleet master region.
+}

@@ -23,10 +23,8 @@ docs {
   Retrieves a list of CRM support tickets with pagination and filters.
   
   **Query Parameters:**
-  * `page` (number): Page number (default: 1).
-  * `limit` (number): Items per page (default: 10).
-  * `search` (string): Search by ticket ID, subject, description, or category.
-  * `status` (string): Filter by ticket status.
-  * `priority` (string): Filter by priority level.
-  * `ticketType` (string): Filter by ticket type.
+  * `page`, `limit`: Pagination
+  * `status`, `priority`, `ticketType`, `assignTo`, `bookingId`, `transporterId`: Filters
+  * `issueCategory`, `issueSubCategory`: Direct category/sub-category filters
+  * `search`: Generic search (ticketId, subject, description, category, sub-category)
 }

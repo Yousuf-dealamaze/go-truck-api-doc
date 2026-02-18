@@ -1,0 +1,19 @@
+meta {
+  name: Get By Fleet ID
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/fleet-master-region/fleet/:fleetId
+  body: none
+  auth: none
+}
+
+params:path {
+  fleetId: 309f6b1e-fb14-4416-9ace-7c7013e19563
+}
+
+docs {
+  Retrieves all fleet master regions associated with a specific fleet ID.
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Get All 
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/fleet-master-region
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+  ~fleetId: 550e8400-e29b-41d4-a716-446655440000
+  ~status: active
+}
+
+docs {
+  Retrieves a paginated list of all fleet master regions.
+}

@@ -16,10 +16,11 @@ body:json {
     "ticketType": "Booking Issue",
     "transporterId": "64d6d853-2a0d-45b5-9e29-0d437d05dd41",
     "priority": "high",
-    "issueCategory": "Missing Item",
+    "issueCategory": "1fd5895d-0f7f-42a9-b659-e8891d4629a3",
+    "issueSubCategory": "5d542c75-a5c8-475c-8519-e7d2cc469198",
     "subject": "Incomplete delivery",
     "description": "One item from my booking GTBM0000001 is missing.",
-    "assignTo": "",
+    "assignTo": "64d6d853-2a0d-45b5-9e29-0d437d05dd41",
     "createdBy": "64d6d853-2a0d-45b5-9e29-0d437d05dd41"
   }
 }
@@ -33,6 +34,7 @@ docs {
   * `transporterId` (string): Reference to transporter (optional).
   * `priority` (enum): 'low', 'medium', 'high', 'urgent' (default: 'medium').
   * `issueCategory` (string): Category of the issue.
+  * `issueSubCategory` (string): Sub-category of the issue (optional).
   * `assignTo` (uuid): User ID of assigned support agent (optional).
   * `subject` (string): Short summary of the issue.
   * `description` (string): Detailed description of the issue.

@@ -1,0 +1,25 @@
+meta {
+  name: Create 
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/fleet-master-region
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "fleetId": "550e8400-e29b-41d4-a716-446655440000",
+    "regionType": "type1",
+    "regionName": "Region Name 1",
+    "regionCode": "CODE01",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new fleet master region.
+}
