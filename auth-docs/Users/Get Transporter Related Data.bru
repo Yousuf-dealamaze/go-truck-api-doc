@@ -1,0 +1,30 @@
+meta {
+  name: Get Transporter Related Data
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseURL}}/users/transporters/cb306099-174d-45c2-a226-3d599a75a3ff/related-data
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~search: 
+  ~userType: 
+}
+
+docs {
+  # Get Transporter Related Data
+  
+  Fetches comprehensive data related to a transporter, including:
+  - Transporter's company info
+  - Direct staff (transporter_user)
+  - Allocated drivers
+  - Employees in the same company
+  
+  Path: `GET /users/transporters/:transporterId/related-data`
+}
