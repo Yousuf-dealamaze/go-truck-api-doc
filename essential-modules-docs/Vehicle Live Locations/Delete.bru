@@ -1,0 +1,18 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/vehicle-live-locations/:id/delete
+  body: none
+  auth: none
+}
+
+docs {
+  Deletes a vehicle live location record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): Vehicle live location record ID
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/booking-trip-tracking/:id/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "endLatitude": "28.5355",
+    "endLongitude": "77.3910",
+    "totalDistanceKm": "45.5",
+    "totalDurationMin": 90,
+    "tripEndTime": "2024-01-15T12:30:00Z",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing booking trip tracking record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Booking trip tracking record ID
+  
+  **Optional Fields:**
+  All fields from create are optional for update.
+}

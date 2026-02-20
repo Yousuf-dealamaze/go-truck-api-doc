@@ -1,0 +1,37 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/notification-preferences/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "isEnabled": false,
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing notification preference by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the preference to update.
+  
+  **Optional Request Body Fields:**
+  * `userId`: Updated user ID
+  * `eventId`: Updated event ID
+  * `channelType`: Updated channel type
+  * `isEnabled`: Updated enabled status
+  * `isMandatory`: Updated mandatory status
+  * `status`: 'active' or 'inactive'
+}

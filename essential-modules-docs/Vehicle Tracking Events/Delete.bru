@@ -1,0 +1,18 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/vehicle-tracking-events/:id/delete
+  body: none
+  auth: none
+}
+
+docs {
+  Deletes a vehicle tracking event record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): Vehicle tracking event record ID
+}

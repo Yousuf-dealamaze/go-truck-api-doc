@@ -1,0 +1,33 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/performance-criteria-master/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+body:json {
+  {
+    "criteriaLabel": "Updated Punctuality",
+    "displayOrder": "2",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing performance criteria master record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Performance criteria master ID
+  
+  **Optional Fields:**
+  * `entityType`, `criteriaLabel`, `criteriaCode`, `displayOrder`, `status`
+}

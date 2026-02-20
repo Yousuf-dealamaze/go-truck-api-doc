@@ -1,0 +1,39 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/notification-templates/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "titleTemplate": "Updated Subject: {{bookingId}}",
+    "bodyTemplate": "Updated body for {{driverName}}.",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing notification template by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the template to update.
+  
+  **Optional Request Body Fields:**
+  * `eventId`: Updated event ID
+  * `userType`: Updated user type
+  * `channelType`: Updated channel type
+  * `titleTemplate`: Updated title template
+  * `bodyTemplate`: Updated body template
+  * `language`: Updated language
+  * `status`: 'active' or 'inactive'
+}

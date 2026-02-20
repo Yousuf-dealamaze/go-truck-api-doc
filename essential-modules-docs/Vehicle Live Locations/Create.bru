@@ -1,0 +1,45 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/vehicle-live-locations/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "vehicleId": "123e4567-e89b-12d3-a456-426614174000",
+    "bookingId": "123e4567-e89b-12d3-a456-426614174001",
+    "latitude": "28.7041",
+    "longitude": "77.1025",
+    "speedKmph": "60",
+    "heading": "180",
+    "altitude": "200",
+    "odometerKm": "15000",
+    "engineStatus": "running",
+    "ignitionStatus": true,
+    "gpsSignalStatus": "good",
+    "recordedAt": "2024-01-15T10:30:00Z",
+    "status": "active",
+    "installedBy": "123e4567-e89b-12d3-a456-426614174002"
+  }
+}
+
+docs {
+  Creates a new vehicle live location record.
+  
+  **Required Fields:**
+  * `vehicleId` (UUID): Vehicle identifier
+  * `bookingId` (UUID): Booking identifier
+  * `installedBy` (UUID): User who installed/recorded
+  
+  **Optional Fields:**
+  * `latitude`, `longitude`, `speedKmph`, `heading`, `altitude`, `odometerKm`
+  * `engineStatus`, `ignitionStatus`, `gpsSignalStatus`
+  * `locationGeography`, `recordedAt`
+  * `status` (default: 'active')
+}

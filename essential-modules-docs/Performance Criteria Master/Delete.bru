@@ -1,0 +1,22 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/performance-criteria-master/:id/delete
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+docs {
+  Deletes a performance criteria master record (soft delete).
+  
+  **Path Parameters:**
+  * `id` (UUID): Performance criteria master ID
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/notification-queue/:id/delete
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Soft deletes a notification queue record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the record to delete.
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/notification-role-defaults/:id/delete
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Soft deletes a notification role default by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the role default to delete.
+}

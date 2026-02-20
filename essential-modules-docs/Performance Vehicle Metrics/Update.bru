@@ -1,0 +1,36 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/performance-vehicle-metrics/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+body:json {
+  {
+    "totalTrips": "210",
+    "averageRating": "4.7",
+    "cleanlinessScore": "4.9",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing performance vehicle metrics record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Performance vehicle metrics ID
+  
+  **Optional Fields:**
+  * `vehicleId`, `totalTrips`, `breakdownCount`, `delayIncidents`
+  * `averageRating`, `cleanlinessScore`, `complaintsCount`
+  * `lastServiceDate`, `status`
+}

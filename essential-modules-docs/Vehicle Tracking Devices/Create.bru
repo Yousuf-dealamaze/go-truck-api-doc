@@ -1,0 +1,41 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/vehicle-tracking-devices/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "vehicleId": "123e4567-e89b-12d3-a456-426614174000",
+    "deviceProvider": "GPS Provider Inc",
+    "deviceSerialNo": "GPS123456",
+    "deviceType": "OBD-II",
+    "simNumber": "9876543210",
+    "imeiNumber": "123456789012345",
+    "metadata": {
+      "firmwareVersion": "1.2.3",
+      "installationDate": "2024-01-01"
+    },
+    "status": "active",
+    "installedBy": "123e4567-e89b-12d3-a456-426614174002"
+  }
+}
+
+docs {
+  Creates a new vehicle tracking device record.
+  
+  **Required Fields:**
+  * `vehicleId` (UUID): Vehicle identifier
+  * `installedBy` (UUID): User who installed the device
+  
+  **Optional Fields:**
+  * `deviceProvider`, `deviceSerialNo`, `deviceType`
+  * `simNumber`, `imeiNumber`, `metadata`
+  * `status` (default: 'active')
+}

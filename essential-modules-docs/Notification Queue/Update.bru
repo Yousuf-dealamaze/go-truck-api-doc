@@ -1,0 +1,31 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/notification-queue/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "status": "inactive"
+  }
+}
+
+docs {
+  Updates an existing notification queue record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the queue record to update.
+  
+  **Optional Request Body Fields:**
+  * `eventId`, `userId`, `userType`, `channelType`, `referenceId`, `status`
+}

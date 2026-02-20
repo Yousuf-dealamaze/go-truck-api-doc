@@ -1,0 +1,38 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/notification-templates/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "eventId": "550e8400-e29b-41d4-a716-446655440001",
+    "userType": "driver",
+    "channelType": "email",
+    "titleTemplate": "New Booking Alert: {{bookingId}}",
+    "bodyTemplate": "Hi {{driverName}}, a new booking has been assigned to you. ID: {{bookingId}}",
+    "language": "en",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new notification template.
+  
+  **Required Fields:**
+  * `eventId`: UUID of the event
+  * `userType`: Type of user (e.g., 'driver', 'transporter')
+  * `channelType`: Type of channel (e.g., 'email', 'sms', 'push')
+  * `bodyTemplate`: The template for the notification body (supports {{handlebars}})
+  
+  **Optional Fields:**
+  * `titleTemplate`: The template for the notification title/subject
+  * `language`: Language code (default: 'en')
+  * `status`: 'active' or 'inactive'
+}

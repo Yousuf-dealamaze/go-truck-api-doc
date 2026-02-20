@@ -1,0 +1,38 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/driver-tracking-sessions/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "driverId": "123e4567-e89b-12d3-a456-426614174003",
+    "vehicleId": "123e4567-e89b-12d3-a456-426614174000",
+    "bookingId": "123e4567-e89b-12d3-a456-426614174001",
+    "sessionStart": "2024-01-15T10:00:00Z",
+    "sessionEnd": "2024-01-15T18:00:00Z",
+    "deviceType": "Android",
+    "appVersion": "2.5.1",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new driver tracking session record.
+  
+  **Required Fields:**
+  * `driverId` (UUID): Driver identifier
+  * `vehicleId` (UUID): Vehicle identifier
+  * `bookingId` (UUID): Booking identifier
+  * `sessionStart` (date): Session start timestamp
+  
+  **Optional Fields:**
+  * `sessionEnd`, `deviceType`, `appVersion`
+  * `status` (default: 'active')
+}

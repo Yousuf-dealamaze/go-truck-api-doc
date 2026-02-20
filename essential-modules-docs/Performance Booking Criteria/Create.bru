@@ -1,0 +1,35 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/performance-booking-criteria/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "entityType": "driver",
+    "bookingRatingId": "123e4567-e89b-12d3-a456-426614174000",
+    "criteriaCode": "PUNCTUALITY",
+    "criteriaLabel": "Punctuality",
+    "score": 4.5,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new performance booking criteria record.
+  
+  **Required Fields:**
+  * `entityType` (enum): 'driver' or 'vehicle' (default: 'driver')
+  * `bookingRatingId` (UUID): Booking rating identifier
+  
+  **Optional Fields:**
+  * `criteriaCode`, `criteriaLabel`
+  * `score` (number)
+  * `status` (default: 'active')
+}

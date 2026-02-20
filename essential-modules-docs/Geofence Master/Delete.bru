@@ -1,0 +1,19 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/geofence-master/:id/delete
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Deletes a geofence master record.
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/notification-category-master/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "categoryName": "Booking Updates",
+    "description": "Notifications related to booking status changes.",
+    "sequence": 1,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new notification category.
+  
+  **Required Fields:**
+  * `categoryName`: Name of the category
+  
+  **Optional Fields:**
+  * `description`: Description of the category
+  * `sequence`: Display order
+  * `status`: 'active' or 'inactive'
+}

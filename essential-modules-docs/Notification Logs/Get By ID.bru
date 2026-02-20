@@ -1,0 +1,22 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/notification-logs/:id/view
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Retrieves a specific notification log record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the log record to retrieve.
+}

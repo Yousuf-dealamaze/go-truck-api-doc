@@ -1,0 +1,39 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/geofence-events/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "geofenceId": "123e4567-e89b-12d3-a456-426614174004",
+    "vehicleId": "123e4567-e89b-12d3-a456-426614174000",
+    "bookingId": "123e4567-e89b-12d3-a456-426614174001",
+    "eventType": "entry",
+    "latitude": 28.7041,
+    "longitude": 77.1025,
+    "eventTime": "2024-01-15T10:30:00Z",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new geofence event record.
+  
+  **Required Fields:**
+  * `geofenceId` (UUID): Geofence identifier
+  * `vehicleId` (UUID): Vehicle identifier
+  * `bookingId` (UUID): Booking identifier
+  * `eventType` (string): Event type (e.g., entry, exit)
+  * `eventTime` (date): Event timestamp
+  
+  **Optional Fields:**
+  * `latitude`, `longitude`
+  * `status` (default: 'active')
+}

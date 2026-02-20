@@ -1,0 +1,24 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/notification-category-master/all
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+}
+
+docs {
+  Retrieves all notification categories with pagination.
+  
+  **Query Parameters:**
+  * `page` (number, optional): Page number (default: 1)
+  * `limit` (number, optional): Items per page (default: 10)
+}

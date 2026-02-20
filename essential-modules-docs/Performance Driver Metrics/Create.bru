@@ -1,0 +1,38 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/performance-driver-metrics/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "driverId": "123e4567-e89b-12d3-a456-426614174000",
+    "totalBookings": "150",
+    "completedBookings": "145",
+    "cancelledBookings": "5",
+    "onTimePercentage": "96.5",
+    "averageRating": "4.7",
+    "complaintsCount": "2",
+    "penaltyPoints": "0",
+    "lastBookingAt": "2024-01-15T10:30:00Z",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new performance driver metrics record.
+  
+  **Required Fields:**
+  * `driverId` (UUID): Driver identifier
+  
+  **Optional Fields:**
+  * `totalBookings`, `completedBookings`, `cancelledBookings`
+  * `onTimePercentage`, `averageRating`, `complaintsCount`, `penaltyPoints`
+  * `lastBookingAt`, `status` (default: 'active')
+}

@@ -1,0 +1,36 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/notification-queue/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "eventId": "34cb488c-7d0b-4a48-bf6b-03b5c245757b",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "userType": "driver",
+    "channelType": "email",
+    "referenceId": "BOOKING_123456",
+    "status": "active"
+  }
+}
+
+docs {
+  Adds a new notification to the processing queue.
+  
+  **Required Fields:**
+  * `eventId`: UUID of the event
+  * `userId`: UUID of the recipient user
+  * `userType`: Type of user (e.g., 'driver', 'transporter')
+  * `channelType`: Type of channel (e.g., 'email', 'sms', 'push')
+  
+  **Optional Fields:**
+  * `referenceId`: External reference ID (e.g., booking ID)
+  * `status`: 'active' or 'inactive'
+}

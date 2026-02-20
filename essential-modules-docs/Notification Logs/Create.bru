@@ -1,0 +1,32 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/notification-logs/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "queueId": "db0d1c23-4189-4760-b370-712f2422e318",
+    "deliveryStatus": "sent",
+    "providerResponse": "Message delivered successfully",
+    "sentAt": "2024-01-15T10:30:00Z",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new notification log record.
+  
+  **Required Fields:**
+  * `queueId` (UUID): Queue identifier
+  * `deliveryStatus` (string): Delivery status
+  
+  **Optional Fields:**
+  * `providerResponse`, `sentAt`, `status` (default: 'active')
+}

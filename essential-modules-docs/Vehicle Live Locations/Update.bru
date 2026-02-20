@@ -1,0 +1,31 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/vehicle-live-locations/:id/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "latitude": "28.7041",
+    "longitude": "77.1025",
+    "speedKmph": "65",
+    "ignitionStatus": true,
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing vehicle live location record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Vehicle live location record ID
+  
+  **Optional Fields:**
+  All fields from create are optional for update.
+}

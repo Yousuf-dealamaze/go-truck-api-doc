@@ -1,0 +1,40 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/vehicle-location-history/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "vehicleLiveId": "123e4567-e89b-12d3-a456-426614174000",
+    "latitude": "28.7041",
+    "longitude": "77.1025",
+    "speedKmph": "60",
+    "heading": "180",
+    "altitude": "200",
+    "odometerKm": "15000",
+    "engineStatus": "running",
+    "source": "gps",
+    "recordedAt": "2024-01-15T10:30:00Z",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new vehicle location history record.
+  
+  **Required Fields:**
+  * `vehicleLiveId` (UUID): Reference to vehicle live location
+  
+  **Optional Fields:**
+  * `latitude`, `longitude`, `speedKmph`, `heading`, `altitude`
+  * `odometerKm`, `engineStatus`, `source`
+  * `locationGeography`, `recordedAt`
+  * `status` (default: 'active')
+}

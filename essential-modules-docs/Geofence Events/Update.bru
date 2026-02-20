@@ -1,0 +1,30 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/geofence-events/:id/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "eventType": "exit",
+    "latitude": 28.7041,
+    "longitude": 77.1025,
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing geofence event record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Geofence event record ID
+  
+  **Optional Fields:**
+  All fields from create are optional for update.
+}

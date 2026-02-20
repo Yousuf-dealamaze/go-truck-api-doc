@@ -1,0 +1,36 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/notification-preferences/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "eventId": "34cb488c-7d0b-4a48-bf6b-03b5c245757b",
+    "channelType": "email",
+    "isEnabled": true,
+    "isMandatory": false,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new notification preference for a user.
+  
+  **Required Fields:**
+  * `userId`: UUID of the user
+  * `eventId`: UUID of the event
+  * `channelType`: Type of channel (e.g., 'email', 'sms', 'push', 'whatsapp')
+  
+  **Optional Fields:**
+  * `isEnabled`: Whether the notification is enabled (default: true)
+  * `isMandatory`: Whether the notification is mandatory (default: false)
+  * `status`: 'active' or 'inactive'
+}

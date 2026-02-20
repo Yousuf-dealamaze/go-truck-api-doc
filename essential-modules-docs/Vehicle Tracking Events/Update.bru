@@ -1,0 +1,30 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/vehicle-tracking-events/:id/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "eventType": "speeding",
+    "eventValue": 120,
+    "eventMessage": "Updated event details",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing vehicle tracking event record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Vehicle tracking event record ID
+  
+  **Optional Fields:**
+  All fields from create are optional for update.
+}

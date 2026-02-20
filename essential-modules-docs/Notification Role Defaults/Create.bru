@@ -1,0 +1,36 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/notification-role-defaults/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userType": "driver",
+    "eventId": "34cb488c-7d0b-4a48-bf6b-03b5c245757b",
+    "channelType": "sms",
+    "defaultEnabled": true,
+    "isMandatory": false,
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new notification role default.
+  
+  **Required Fields:**
+  * `userType`: Type of user (e.g., 'driver', 'transporter', 'customer')
+  * `eventId`: UUID of the event
+  * `channelType`: Type of channel (e.g., 'email', 'sms', 'push', 'whatsapp')
+  
+  **Optional Fields:**
+  * `defaultEnabled`: Whether it is enabled by default (default: true)
+  * `isMandatory`: Whether it is mandatory for the role (default: false)
+  * `status`: 'active' or 'inactive'
+}

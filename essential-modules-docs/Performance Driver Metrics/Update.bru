@@ -1,0 +1,36 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/performance-driver-metrics/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+body:json {
+  {
+    "totalBookings": "160",
+    "completedBookings": "155",
+    "averageRating": "4.8",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing performance driver metrics record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Performance driver metrics ID
+  
+  **Optional Fields:**
+  * `driverId`, `totalBookings`, `completedBookings`, `cancelledBookings`
+  * `onTimePercentage`, `averageRating`, `complaintsCount`, `penaltyPoints`
+  * `lastBookingAt`, `status`
+}

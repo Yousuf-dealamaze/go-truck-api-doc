@@ -1,0 +1,39 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/vehicle-tracking-events/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "bookingId": "123e4567-e89b-12d3-a456-426614174001",
+    "vehicleId": "123e4567-e89b-12d3-a456-426614174000",
+    "eventType": "harsh_braking",
+    "latitude": 28.7041,
+    "longitude": 77.1025,
+    "eventValue": 85,
+    "eventMessage": "Harsh braking detected at 85 km/h",
+    "recordedAt": "2024-01-15T10:30:00Z",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new vehicle tracking event record.
+  
+  **Required Fields:**
+  * `bookingId` (UUID): Booking identifier
+  * `vehicleId` (UUID): Vehicle identifier
+  * `eventType` (string): Type of event (e.g., harsh_braking, speeding)
+  * `recordedAt` (date): Event timestamp
+  
+  **Optional Fields:**
+  * `latitude`, `longitude`, `eventValue`, `eventMessage`
+  * `status` (default: 'active')
+}

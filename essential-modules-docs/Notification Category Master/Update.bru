@@ -1,0 +1,37 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/notification-category-master/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "categoryName": "Updated Booking Updates",
+    "description": "Updated description for booking notifications.",
+    "sequence": 2,
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing notification category by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the category to update.
+  
+  **Optional Request Body Fields:**
+  * `categoryName`: Updated name
+  * `description`: Updated description
+  * `sequence`: Updated sequence
+  * `status`: 'active' or 'inactive'
+}

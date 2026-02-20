@@ -1,0 +1,18 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/driver-tracking-sessions/:id/view
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a specific driver tracking session record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): Driver tracking session record ID
+}

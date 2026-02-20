@@ -1,0 +1,18 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/booking-trip-tracking/:id/view
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a specific booking trip tracking record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): Booking trip tracking record ID
+}

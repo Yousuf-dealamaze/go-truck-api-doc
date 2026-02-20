@@ -1,0 +1,22 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/notification-event-master/:id/delete
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Soft deletes a notification event by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the event to delete.
+}

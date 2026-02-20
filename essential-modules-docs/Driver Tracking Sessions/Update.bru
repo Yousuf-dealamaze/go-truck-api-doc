@@ -1,0 +1,30 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/driver-tracking-sessions/:id/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "sessionEnd": "2024-01-15T18:00:00Z",
+    "deviceType": "iOS",
+    "appVersion": "2.5.2",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing driver tracking session record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Driver tracking session record ID
+  
+  **Optional Fields:**
+  All fields from create are optional for update.
+}

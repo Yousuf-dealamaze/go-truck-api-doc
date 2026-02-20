@@ -1,0 +1,31 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-allocations
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "bookingId": "00000000-0000-4000-a000-000000000001",
+    "driverId": "3303406b-0cc4-47cc-aefe-e68c61d9fc8b",
+    "vehicleId": "00000000-0000-4000-a000-000000000002",
+    "distanceKm": 10.5,
+    "attemptStatus": "PENDING",
+    "attemptOrder": 1
+  }
+}
+
+docs {
+  Creates a new booking allocation record.
+  
+  **Fixed IDs for testing:**
+  * `bookingId`: 00000000-0000-4000-a000-000000000001
+  * `driverId`: 00000000-0000-4000-a000-000000000003
+  * `vehicleId`: 00000000-0000-4000-a000-000000000002
+}

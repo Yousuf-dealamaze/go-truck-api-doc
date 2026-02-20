@@ -1,0 +1,24 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/booking-allocations
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 10
+  ~bookingId: 
+  ~driverId: 
+  ~vehicleId: 
+  ~attemptStatus: 
+}
+
+docs {
+  Retrieves all booking allocations with pagination and optional filters.
+}

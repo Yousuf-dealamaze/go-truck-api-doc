@@ -1,0 +1,34 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/performance-booking-ratings/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+body:json {
+  {
+    "rating": 5,
+    "review": "Excellent service!",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing performance booking rating record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Performance booking rating ID
+  
+  **Optional Fields:**
+  * `bookingId`, `consumerId`, `driverId`, `vehicleId`
+  * `rating`, `review`, `ratingType`, `status`
+}

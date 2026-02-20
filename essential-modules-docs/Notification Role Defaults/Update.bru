@@ -1,0 +1,37 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/notification-role-defaults/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "defaultEnabled": false,
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing notification role default by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the role default to update.
+  
+  **Optional Request Body Fields:**
+  * `userType`: Updated user type
+  * `eventId`: Updated event ID
+  * `channelType`: Updated channel type
+  * `defaultEnabled`: Updated default enabled status
+  * `isMandatory`: Updated mandatory status
+  * `status`: 'active' or 'inactive'
+}

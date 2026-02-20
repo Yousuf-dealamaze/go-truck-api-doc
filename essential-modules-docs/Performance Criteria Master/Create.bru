@@ -1,0 +1,32 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/performance-criteria-master/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "entityType": "driver",
+    "criteriaLabel": "Punctuality",
+    "criteriaCode": "PUNCTUALITY",
+    "displayOrder": "1",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new performance criteria master record.
+  
+  **Required Fields:**
+  * `entityType` (enum): 'driver' or 'vehicle' (default: 'driver')
+  
+  **Optional Fields:**
+  * `criteriaLabel`, `criteriaCode`, `displayOrder`
+  * `status` (default: 'active')
+}

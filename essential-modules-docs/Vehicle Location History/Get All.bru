@@ -1,0 +1,28 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/vehicle-location-history/all
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  status: 
+}
+
+docs {
+  Retrieves all vehicle location history records with pagination.
+  
+  **Query Parameters:**
+  * `page` (number, optional): Page number (default: 1)
+  * `limit` (number, optional): Items per page (default: 10)
+  * `search` (string, optional): Search term
+  * `status` (string, optional): Filter by status
+}

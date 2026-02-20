@@ -1,0 +1,32 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/performance-booking-criteria/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+body:json {
+  {
+    "score": 5,
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing performance booking criteria record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Performance booking criteria ID
+  
+  **Optional Fields:**
+  * `entityType`, `bookingRatingId`, `criteriaCode`, `criteriaLabel`, `score`, `status`
+}

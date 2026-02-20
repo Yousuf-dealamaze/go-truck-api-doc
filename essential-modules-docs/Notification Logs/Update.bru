@@ -1,0 +1,33 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/notification-logs/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "deliveryStatus": "failed",
+    "providerResponse": "Connection timeout",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing notification log record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the log record to update.
+  
+  **Optional Request Body Fields:**
+  * `queueId`, `deliveryStatus`, `providerResponse`, `sentAt`, `status`
+}

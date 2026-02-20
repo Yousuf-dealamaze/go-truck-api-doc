@@ -1,0 +1,18 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/driver-tracking-sessions/:id/delete
+  body: none
+  auth: none
+}
+
+docs {
+  Deletes a driver tracking session record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): Driver tracking session record ID
+}

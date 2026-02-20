@@ -1,0 +1,41 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/geofence-master/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Warehouse A",
+    "geofenceType": "polygon",
+    "polygonCoordinates": [
+      {"lat": 28.7041, "lng": 77.1025},
+      {"lat": 28.7051, "lng": 77.1035},
+      {"lat": 28.7061, "lng": 77.1045}
+    ],
+    "isActive": true,
+    "createdBy": "123e4567-e89b-12d3-a456-426614174000",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new geofence master record.
+  
+  **Required Fields:**
+  * `name` (string): Geofence name
+  * `geofenceType` (string): Type of geofence (e.g., polygon, circle)
+  * `createdBy` (UUID): User identifier
+  
+  **Optional Fields:**
+  * `polygonCoordinates` (array): Coordinates for polygon
+  * `radiusMeters` (numeric): Radius for circle
+  * `isActive` (boolean): Default true
+  * `status` (default: 'active')
+}

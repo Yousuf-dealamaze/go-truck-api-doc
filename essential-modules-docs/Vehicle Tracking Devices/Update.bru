@@ -1,0 +1,29 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/vehicle-tracking-devices/:id/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "deviceProvider": "New GPS Provider",
+    "simNumber": "1234567890",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing vehicle tracking device record.
+  
+  **Path Parameters:**
+  * `id` (UUID): Vehicle tracking device record ID
+  
+  **Optional Fields:**
+  All fields from create are optional for update.
+}

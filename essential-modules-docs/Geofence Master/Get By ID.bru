@@ -1,0 +1,19 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/geofence-master/:id/view
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Retrieves a specific geofence master record by ID.
+}

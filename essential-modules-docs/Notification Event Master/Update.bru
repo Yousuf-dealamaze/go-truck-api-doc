@@ -1,0 +1,37 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/notification-event-master/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "eventName": "Updated Booking Created Name",
+    "module": "BOOKINGS",
+    "status": "active"
+  }
+}
+
+docs {
+  Updates an existing notification event by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the event to update.
+  
+  **Optional Request Body Fields:**
+  * `eventCode`: Updated unique code
+  * `eventName`: Updated name
+  * `module`: Updated module
+  * `category`: Updated category
+  * `status`: 'active' or 'inactive'
+}

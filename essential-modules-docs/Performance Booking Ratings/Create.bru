@@ -1,0 +1,39 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/performance-booking-ratings/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "bookingId": "123e4567-e89b-12d3-a456-426614174000",
+    "consumerId": "123e4567-e89b-12d3-a456-426614174001",
+    "driverId": "123e4567-e89b-12d3-a456-426614174002",
+    "vehicleId": "123e4567-e89b-12d3-a456-426614174003",
+    "rating": 4.5,
+    "review": "Great service!",
+    "ratingType": "driver",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new performance booking rating record.
+  
+  **Required Fields:**
+  * `bookingId` (UUID): Booking identifier
+  * `consumerId` (UUID): Consumer identifier
+  * `driverId` (UUID): Driver identifier
+  * `vehicleId` (UUID): Vehicle identifier
+  * `ratingType` (enum): 'driver', 'vehicle', or 'overall' (default: 'driver')
+  
+  **Optional Fields:**
+  * `rating` (number, default: 0)
+  * `review`, `status` (default: 'active')
+}

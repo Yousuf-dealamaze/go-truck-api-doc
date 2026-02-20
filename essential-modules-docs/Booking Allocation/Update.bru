@@ -1,0 +1,21 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseUrl}}/booking-allocations/e622868e-766f-463f-af6c-d066b19e4806
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "attemptStatus": "ACCEPTED"
+  }
+}
+
+docs {
+  Updates an existing booking allocation.
+}

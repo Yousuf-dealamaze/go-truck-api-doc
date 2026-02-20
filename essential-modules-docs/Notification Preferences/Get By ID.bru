@@ -1,0 +1,22 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/notification-preferences/:id/view
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Retrieves a specific notification preference by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): The ID of the preference to retrieve.
+}

@@ -1,0 +1,44 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-trip-tracking/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "bookingId": "123e4567-e89b-12d3-a456-426614174001",
+    "vehicleId": "123e4567-e89b-12d3-a456-426614174000",
+    "driverId": "123e4567-e89b-12d3-a456-426614174003",
+    "startLatitude": "28.7041",
+    "startLongitude": "77.1025",
+    "endLatitude": "28.5355",
+    "endLongitude": "77.3910",
+    "totalDistanceKm": "45.5",
+    "totalDurationMin": 90,
+    "routePolyline": "encoded_polyline_string",
+    "tripStartTime": "2024-01-15T10:00:00Z",
+    "tripEndTime": "2024-01-15T11:30:00Z",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new booking trip tracking record.
+  
+  **Required Fields:**
+  * `bookingId` (UUID): Booking identifier
+  * `vehicleId` (UUID): Vehicle identifier
+  * `driverId` (UUID): Driver identifier
+  
+  **Optional Fields:**
+  * `startLatitude`, `startLongitude`, `endLatitude`, `endLongitude`
+  * `totalDistanceKm`, `totalDurationMin`, `routePolyline`
+  * `tripStartTime`, `tripEndTime`
+  * `status` (default: 'active')
+}

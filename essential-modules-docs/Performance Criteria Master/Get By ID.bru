@@ -1,0 +1,22 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/performance-criteria-master/:id/view
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+docs {
+  Retrieves a specific performance criteria master record by ID.
+  
+  **Path Parameters:**
+  * `id` (UUID): Performance criteria master ID
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/geofence-master/:id/update
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "name": "Updated Warehouse A",
+    "isActive": false
+  }
+}
+
+docs {
+  Updates an existing geofence master record.
+}
