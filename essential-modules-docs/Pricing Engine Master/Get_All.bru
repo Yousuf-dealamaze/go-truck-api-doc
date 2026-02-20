@@ -25,8 +25,12 @@ body:json {
     "fleetId": "",
     "distanceKm": 19.89,
     "vehicleQty": 2,
-    "sourceLocation": "",
-    "destinationLocation": ""
+    "sourceCity": "",
+    "sourceState": "",
+    "sourceCountry": "",
+    "destinationCity": "",
+    "destinationState": "",
+    "destinationCountry": ""
   }
 }
 
@@ -49,6 +53,10 @@ docs {
   * `vehicleQty` (number): Number of vehicles (Trucks). Multiplies both Base Price and Distance Amount. If unsure, do not pass this parameter.
   * `qty` (number): Multiplier applied to the Base Price only. If unsure, do not pass this parameter.
   
-  * `sourceLocation` (string): Filter by source region name or code.
-  * `destinationLocation` (string): Filter by destination region name or code.
+  * `sourceCity` (string): Filter by source city.
+  * `sourceState` (string): Filter by source state.
+  * `sourceCountry` (string): Filter by source country.
+  * `destinationCity` (string): Filter by destination city.
+  * `destinationState` (string): Filter by destination state.
+  * `destinationCountry` (string): Filter by destination country.
 }
