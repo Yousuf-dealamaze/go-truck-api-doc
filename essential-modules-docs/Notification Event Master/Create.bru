@@ -15,7 +15,7 @@ body:json {
     "eventCode": "BOOKING_CREATED",
     "eventName": "New Booking Created",
     "module": "BOOKING",
-    "category": "Booking Updates",
+    "categoryId": "550e8400-e29b-41d4-a716-446655440000",
     "status": "active"
   }
 }
@@ -29,6 +29,6 @@ docs {
   * `module`: Module to which the event belongs (e.g., 'BOOKING', 'USER')
   
   **Optional Fields:**
-  * `category`: Category name or ID
+  * `categoryId`: UUID of the notification category
   * `status`: 'active' or 'inactive'
 }
