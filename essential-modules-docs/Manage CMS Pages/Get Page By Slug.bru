@@ -1,0 +1,38 @@
+meta {
+  name: Get Page By Slug
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/manage-cms-pages/slug/terms-and-conditions
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves a specific CMS page by its slug.
+  
+  **Path Parameters:**
+  * `slug` (string): The slug of the page.
+
+  **Response Example:**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "id": "...",
+      "pageId": "GTPID0000001",
+      "pageTitle": "Terms and Conditions",
+      "slug": "terms-and-conditions",
+      "pageContent": "...",
+      "type": "consumer",
+      "status": "active",
+      "createdAt": "...",
+      "updatedAt": "..."
+    }
+  }
+  ```
+}

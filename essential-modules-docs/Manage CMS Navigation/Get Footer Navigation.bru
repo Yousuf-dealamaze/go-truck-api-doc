@@ -1,0 +1,46 @@
+meta {
+  name: Get Footer Navigation
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/manage-cms-navigation/footer
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves all active CMS navigation items for the footer, grouped by their section (showOn).
+
+  **Response Example:**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "footer_column_1": [
+        {
+          "cmsNavigationId": "GTNV000000001",
+          "sequence": 1,
+          "page": {
+            "pageTitle": "About Us",
+            "slug": "about-us"
+          }
+        }
+      ],
+      "footer_column_2": [
+        {
+          "cmsNavigationId": "GTNV000000002",
+          "sequence": 1,
+          "page": {
+            "pageTitle": "Terms & Conditions",
+            "slug": "terms-and-conditions"
+          }
+        }
+      ]
+    }
+  }
+  ```
+}
