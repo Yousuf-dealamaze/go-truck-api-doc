@@ -1,0 +1,24 @@
+meta {
+  name: Get By Booking ID
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/booking-uploads/booking/:bookingId
+  body: none
+  auth: none
+}
+
+params:path {
+  bookingId: 
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+}
+
+docs {
+  Retrieves all uploads associated with a specific booking ID.
+}

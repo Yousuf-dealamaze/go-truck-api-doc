@@ -1,0 +1,19 @@
+meta {
+  name: Get By Display ID
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/booking-uploads/idd/:displayId
+  body: none
+  auth: none
+}
+
+params:path {
+  displayId: 
+}
+
+docs {
+  Retrieves a specific booking upload by its unique display ID.
+}

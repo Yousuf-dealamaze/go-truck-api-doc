@@ -1,0 +1,24 @@
+meta {
+  name: Get Documents
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/booking-master/:id/documents
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+}
+
+docs {
+  Retrieves all documents (uploads) associated with a specific booking ID.
+}
