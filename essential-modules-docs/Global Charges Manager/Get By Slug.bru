@@ -1,0 +1,22 @@
+meta {
+  name: Get By Slug
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/global-charges-manager/slug/:slug
+  body: none
+  auth: none
+}
+
+params:path {
+  slug: vehicle_type
+}
+
+docs {
+  Retrieves a single global charges manager record by its slug code.
+  
+  **Path Parameters:**
+  * `slug` (string): The slug code of the record to retrieve.
+}
