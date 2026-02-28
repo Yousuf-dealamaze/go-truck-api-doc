@@ -1,0 +1,52 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-payments?page=1&limit=10
+  body: none
+  auth: inherit
+}
+
+query {
+  page: 1
+  limit: 10
+  ~billingInvoiceId: 
+  ~status: 
+}
+
+docs {
+  ### Get All Invoice Payments
+  Fetches a paginated list of billing invoice payment entries.
+  
+  **Query Parameters:**
+  - `page`: Page number (default: 1)
+  - `limit`: Items per page (default: 10)
+  - `billingInvoiceId`: Filter by parent invoice UUID
+  - `status`: Filter by payment status
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "totalItems": 1,
+      "items": [
+        {
+          "id": "payment-uuid",
+          "paymentMethod": "Bank Transfer",
+          "paidAmount": "345.00",
+          "status": "Payment Received"
+        }
+      ],
+      "totalPages": 1,
+      "currentPage": 1
+    }
+  }
+  ```
+}
+

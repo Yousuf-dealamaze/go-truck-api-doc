@@ -1,0 +1,53 @@
+meta {
+  name: Update (TESTING ONLY)
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/billing-invoice-taxes/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "taxAmount": 50,
+    "jsonMetadata": {
+      "updateReason": "manual correction"
+    }
+  }
+}
+
+docs {
+  ### Update Invoice Tax (TESTING ONLY)
+  Updates an existing invoice tax entry.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the tax entry.
+  
+  **Body Fields (All Optional):**
+  - `countryCode`: String
+  - `taxType`: String
+  - `rateType`: String
+  - `taxRate`: Decimal
+  - `taxableAmount`: Decimal
+  - `taxAmount`: Decimal
+  - `currencyCode`: String
+  - `jsonMetadata`: JSONB
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully updated",
+    "data": null
+  }
+  ```
+}
+

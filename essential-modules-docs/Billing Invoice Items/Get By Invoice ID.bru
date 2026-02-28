@@ -1,0 +1,49 @@
+meta {
+  name: Get By Invoice ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-items/invoice/:invoiceId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  invoiceId: 
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+}
+
+docs {
+  ### Get Items By Invoice ID
+  Convenience endpoint to fetch all line items associated with a specific master invoice.
+  
+  **Path Parameters:**
+  - `invoiceId`: The UUID of the parent Billing Invoice Master.
+  
+  **Query Parameters:**
+  - `page`: Page number
+  - `limit`: Items per page
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": [
+      {
+        "id": "item-uuid",
+        "chargeName": "Base Freight",
+        "amount": "100.00"
+      }
+    ]
+  }
+  ```
+}
+

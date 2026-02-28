@@ -1,0 +1,40 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-payments/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Get Invoice Payment By ID
+  Fetches details for a specific billing invoice payment entry.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the payment entry.
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "id": "payment-uuid",
+      "billingInvoiceId": "invoice-uuid",
+      "paymentMethod": "Bank Transfer",
+      "paidAmount": "345.00",
+      "status": "Payment Verified"
+    }
+  }
+  ```
+}
+

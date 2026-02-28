@@ -1,0 +1,57 @@
+meta {
+  name: Create (TESTING ONLY)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/billing-invoice-tolls
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "invoice-uuid",
+    "tollName": "Salik Toll",
+    "countryCode": "AE",
+    "tollLocation": "Al Barsha",
+    "tollAmount": 4,
+    "currencyCode": "AED",
+    "tollTime": "2026-02-25T10:30:00Z",
+    "status": "Approved",
+    "document_id": "booking-doc-uuid"
+  }
+}
+
+docs {
+  ### Create Invoice Toll (TESTING ONLY)
+  Manually adds a toll entry to an invoice.
+  
+  **Body Fields:**
+  - `billingInvoiceId` (UUID, Required): Parent invoice ID.
+  - `tollName` (String, Required): Name of the toll.
+  - `countryCode` (String, Optional): e.g., "AE".
+  - `tollLocation` (String, Optional): Geographic location or booth name.
+  - `tollAmount` (Decimal, Required): The toll charge value.
+  - `currencyCode` (String, Optional): e.g., "AED".
+  - `tollTime` (Date, Optional): Time of toll crossing.
+  - `status` (String, Optional): "Approved" or "Rejected".
+  - `document_id` (UUID, Optional): Related booking document ID.
+  - `jsonMetadata` (JSONB, Optional): Additional metadata.
+
+  **Success Response (201 Created):**
+  ```json
+  {
+    "success": true,
+    "code": 201,
+    "message": "Successfully created",
+    "data": {
+      "id": "new-toll-uuid",
+      "tollName": "Salik Toll",
+      "tollAmount": "4.00"
+    }
+  }
+  ```
+}
+

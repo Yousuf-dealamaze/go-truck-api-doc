@@ -1,0 +1,58 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-master?page=1&limit=10
+  body: none
+  auth: inherit
+}
+
+query {
+  page: 1
+  limit: 10
+  ~search: 
+  ~status: invoice-generated
+  ~bookingId: 
+  ~consumerId: 
+}
+
+docs {
+  ### Get All Billing Invoices
+  Fetches a paginated list of billing invoices.
+  
+  **Query Parameters:**
+  - `page`: Page number (default: 1)
+  - `limit`: Items per page (default: 10)
+  - `search`: Search by invoice number
+  - `status`: Filter by status (`invoice-generated`, `cancelled`)
+  - `bookingId`: Filter by associated booking UUID
+  - `consumerId`: Filter by consumer UUID
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "totalItems": 1,
+      "items": [
+        {
+          "id": "uuid-v4",
+          "invoiceNumber": "INV-2024-001",
+          "bookingId": "uuid-v4",
+          "status": "invoice-generated",
+          "totalAmount": 150.50,
+          "createdAt": "2024-02-25T10:00:00Z"
+        }
+      ],
+      "totalPages": 1,
+      "currentPage": 1
+    }
+  }
+  ```
+}
+

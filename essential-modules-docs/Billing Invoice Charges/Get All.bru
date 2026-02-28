@@ -1,0 +1,56 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-charges?page=1&limit=10
+  body: none
+  auth: inherit
+}
+
+query {
+  page: 1
+  limit: 10
+  ~billingInvoiceId: 
+  ~status: Approved
+  ~chargesType: border_fee
+}
+
+docs {
+  ### Get All Invoice Charges
+  Fetches a paginated list of billing invoice additional charges.
+  
+  **Query Parameters:**
+  - `page`: Page number (default: 1)
+  - `limit`: Items per page (default: 10)
+  - `billingInvoiceId`: Filter by parent invoice UUID
+  - `status`: Filter by status (`Approved`, `Rejected`)
+  - `chargesType`: Filter by type (`border_fee`, `customs`, `documentation`)
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "totalItems": 1,
+      "items": [
+        {
+          "id": "charge-uuid",
+          "invoice_charges_id": "GINC-202602261622-4567",
+          "charges_type": "border_fee",
+          "amount": "200.00",
+          "currency": "SAR",
+          "status": "Approved"
+        }
+      ],
+      "totalPages": 1,
+      "currentPage": 1
+    }
+  }
+  ```
+}
+

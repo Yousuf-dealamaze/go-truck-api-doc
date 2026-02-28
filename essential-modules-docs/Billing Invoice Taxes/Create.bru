@@ -1,0 +1,55 @@
+meta {
+  name: Create (TESTING ONLY)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/billing-invoice-taxes
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "invoice-uuid",
+    "countryCode": "SA",
+    "taxType": "VAT",
+    "rateType": "Percentage",
+    "taxRate": 15,
+    "taxableAmount": 300,
+    "taxAmount": 45,
+    "currencyCode": "SAR"
+  }
+}
+
+docs {
+  ### Create Invoice Tax (TESTING ONLY)
+  Manually adds a tax entry to an invoice.
+  
+  **Body Fields:**
+  - `billingInvoiceId` (UUID, Required): Parent invoice ID.
+  - `countryCode` (String, Optional): e.g., "SA".
+  - `taxType` (String, Optional): e.g., "VAT", "Income Tax".
+  - `rateType` (String, Optional): e.g., "Percentage", "Fixed".
+  - `taxRate` (Decimal, Optional): The rate value (e.g., 15.00).
+  - `taxableAmount` (Decimal, Optional): The amount subject to tax.
+  - `taxAmount` (Decimal, Optional): The calculated tax value.
+  - `currencyCode` (String, Optional): e.g., "SAR".
+  - `jsonMetadata` (JSONB, Optional): Additional metadata.
+
+  **Success Response (201 Created):**
+  ```json
+  {
+    "success": true,
+    "code": 201,
+    "message": "Successfully created",
+    "data": {
+      "id": "new-tax-uuid",
+      "billingInvoiceId": "invoice-uuid",
+      "taxAmount": "45.00"
+    }
+  }
+  ```
+}
+

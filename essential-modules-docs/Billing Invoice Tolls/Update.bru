@@ -1,0 +1,55 @@
+meta {
+  name: Update (TESTING ONLY)
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/billing-invoice-tolls/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "status": "Rejected",
+    "jsonMetadata": {
+      "rejectionReason": "incorrect crossing time"
+    },
+    "document_id": "updated-doc-uuid"
+  }
+}
+
+docs {
+  ### Update Invoice Toll (TESTING ONLY)
+  Updates an existing invoice toll entry.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the toll entry.
+  
+  **Body Fields (All Optional):**
+  - `tollName`: String
+  - `countryCode`: String
+  - `tollLocation`: String
+  - `tollAmount`: Decimal
+  - `currencyCode`: String
+  - `tollTime`: Date
+  - `status`: String
+  - `document_id`: UUID
+  - `jsonMetadata`: JSONB
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully updated",
+    "data": null
+  }
+  ```
+}
+

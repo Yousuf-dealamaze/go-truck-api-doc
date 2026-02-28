@@ -1,0 +1,44 @@
+meta {
+  name: Get Dashboard
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-master/dashboard-stat
+  body: none
+  auth: inherit
+}
+
+docs {
+  ### Get Invoice Dashboard Statistics
+  Retrieves dashboard statistics for billing invoices, including total counts, revenue sums, and status breakdown.
+  
+  **Transporter Specificity:**
+  If called with a transporter role token, the results are automatically filtered by `transporterId`.
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "totalInvoices": 10,
+      "totalAmount": 5000.00,
+      "subtotalAmount": 4500.00,
+      "totalTaxAmount": 500.00,
+      "statusBreakdown": [
+        {
+          "status": "invoice-generated",
+          "count": 8
+        },
+        {
+          "status": "Cancelled",
+          "count": 2
+        }
+      ]
+    }
+  }
+  ```
+}

@@ -1,0 +1,66 @@
+meta {
+  name: Create (TESTING ONLY)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/billing-invoice-items
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "invoice-uuid",
+    "transporterId": "transporter-uuid",
+    "pricingRuleId": "pricing-rule-uuid",
+    "chargeCategory": "Freight",
+    "chargeName": "Base Freight",
+    "itemDescription": {
+      "type": "standard",
+      "details": "Calculated based on distance"
+    },
+    "baseRate": 500.00,
+    "vehicleQuantity": 1,
+    "amount": 500.00,
+    "currencyCode": "INR",
+    "taxable": true,
+    "status": "Approved"
+  }
+}
+
+docs {
+  ### Create Invoice Item (TESTING ONLY)
+  Manually adds a line item to an invoice.
+  
+  **Body Fields:**
+  - `billingInvoiceId` (UUID, Required): Parent invoice ID.
+  - `transporterId` (UUID, Optional): ID of the transporter.
+  - `pricingRuleId` (UUID, Optional): ID of the pricing rule used.
+  - `chargeCategory` (String, Optional): e.g., "Freight", "Tax", "Service".
+  - `chargeName` (String, Optional): Name of the charge.
+  - `itemDescription` (JSONB, Optional): Structured description or calculation details.
+  - `baseRate` (Decimal, Optional): Rate per unit.
+  - `vehicleQuantity` (Integer, Optional): Number of vehicles/units.
+  - `amount` (Decimal, Optional): Total amount for this item.
+  - `currencyCode` (String, Optional): e.g., "INR".
+  - `taxable` (Boolean, Optional): Whether tax applies to this item.
+  - `status` (String, Optional): `Approved` | `Rejected`.
+  - `jsonMetadata` (JSONB, Optional): Additional metadata.
+
+  **Success Response (201 Created):**
+  ```json
+  {
+    "success": true,
+    "code": 201,
+    "message": "Successfully created",
+    "data": {
+      "id": "new-item-uuid",
+      "billingInvoiceId": "invoice-uuid",
+      "amount": "500.00"
+    }
+  }
+  ```
+}
+

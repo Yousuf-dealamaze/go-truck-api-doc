@@ -1,0 +1,52 @@
+meta {
+  name: Update (TESTING ONLY)
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/billing-invoice-payments/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "status": "Payment Verified",
+    "paymentProof": ["https://example.com/updated-proof.pdf"]
+  }
+}
+
+docs {
+  ### Update Invoice Payment (TESTING ONLY)
+  Updates an existing invoice payment entry.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the payment entry.
+  
+  **Body Fields (All Optional):**
+  - `paymentMethod`: String
+  - `paymentReference`: String
+  - `paidAmount`: Decimal
+  - `companyBankId`: UUID
+  - `currencyCode`: String
+  - `paymentDate`: Date
+  - `paymentProof`: Array of Strings
+  - `status`: String
+  - `jsonMetadata`: JSONB
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully updated",
+    "data": null
+  }
+  ```
+}
+

@@ -1,0 +1,55 @@
+meta {
+  name: Update (TESTING ONLY)
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseUrl}}/billing-invoice-items/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "amount": 550.00,
+    "status": "Approved",
+    "itemDescription": {
+      "type": "custom",
+      "details": "Adjusted manually by admin"
+    }
+  }
+}
+
+docs {
+  ### Update Invoice Item (TESTING ONLY)
+  Updates an existing invoice line item.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the invoice item.
+  
+  **Body Fields (All Optional):**
+  - `chargeCategory`: String
+  - `chargeName`: String
+  - `itemDescription`: JSONB
+  - `baseRate`: Decimal
+  - `vehicleQuantity`: Integer
+  - `amount`: Decimal
+  - `status`: `Approved` | `Rejected`
+  - `jsonMetadata`: JSONB
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully updated",
+    "data": null
+  }
+  ```
+}
+

@@ -1,0 +1,55 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-items?page=1&limit=10
+  body: none
+  auth: inherit
+}
+
+query {
+  page: 1
+  limit: 10
+  ~billingInvoiceId: 
+  ~transporterId: 
+  ~status: Approved
+}
+
+docs {
+  ### Get All Invoice Items
+  Fetches a paginated list of billing invoice items.
+  
+  **Query Parameters:**
+  - `page`: Page number (default: 1)
+  - `limit`: Items per page (default: 10)
+  - `billingInvoiceId`: Filter by parent invoice UUID
+  - `transporterId`: Filter by transporter UUID
+  - `status`: Filter by status (`Approved`, `Rejected`)
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "totalItems": 1,
+      "items": [
+        {
+          "id": "item-uuid",
+          "chargeName": "Base Freight",
+          "amount": "100.00",
+          "currencyCode": "USD",
+          "status": "Approved"
+        }
+      ],
+      "totalPages": 1,
+      "currentPage": 1
+    }
+  }
+  ```
+}
+

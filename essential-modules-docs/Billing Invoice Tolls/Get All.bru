@@ -1,0 +1,51 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-tolls?page=1&limit=10
+  body: none
+  auth: inherit
+}
+
+query {
+  page: 1
+  limit: 10
+  ~billingInvoiceId: 
+}
+
+docs {
+  ### Get All Invoice Tolls
+  Fetches a paginated list of billing invoice toll entries.
+  
+  **Query Parameters:**
+  - `page`: Page number (default: 1)
+  - `limit`: Items per page (default: 10)
+  - `billingInvoiceId`: Filter by parent invoice UUID
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "totalItems": 1,
+      "items": [
+        {
+          "id": "toll-uuid",
+          "tollName": "Salik Toll",
+          "tollLocation": "Al Barsha",
+          "tollAmount": "4.00",
+          "currencyCode": "AED"
+        }
+      ],
+      "totalPages": 1,
+      "currentPage": 1
+    }
+  }
+  ```
+}
+

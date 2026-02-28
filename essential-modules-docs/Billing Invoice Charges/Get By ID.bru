@@ -1,0 +1,43 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-charges/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Get Invoice Charge By ID
+  Fetches details for a specific billing invoice charge, including associated invoice and document metadata.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the invoice charge.
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "id": "charge-uuid",
+      "invoice_charges_id": "GINC-202602261622-4567",
+      "billingInvoiceId": "invoice-uuid",
+      "amount": "200.00",
+      "document": {
+         "id": "doc-uuid",
+         "fileUrl": "..."
+      }
+    }
+  }
+  ```
+}
+

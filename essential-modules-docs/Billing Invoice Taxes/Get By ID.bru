@@ -1,0 +1,40 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-taxes/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Get Invoice Tax By ID
+  Fetches details for a specific billing invoice tax entry.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the tax entry.
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "id": "tax-uuid",
+      "billingInvoiceId": "invoice-uuid",
+      "taxType": "VAT",
+      "taxRate": "15.00",
+      "taxAmount": "45.00"
+    }
+  }
+  ```
+}
+

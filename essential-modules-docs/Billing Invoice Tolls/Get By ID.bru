@@ -1,0 +1,39 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-tolls/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Get Invoice Toll By ID
+  Fetches details for a specific billing invoice toll entry.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the toll entry.
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "id": "toll-uuid",
+      "billingInvoiceId": "invoice-uuid",
+      "tollName": "Salik Toll",
+      "tollAmount": "4.00"
+    }
+  }
+  ```
+}
+

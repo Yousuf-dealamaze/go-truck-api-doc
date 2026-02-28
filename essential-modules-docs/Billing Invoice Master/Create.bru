@@ -1,0 +1,60 @@
+meta {
+  name: Create (TESTING ONLY)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/billing-invoice-master
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "bookingId": "uuid-v4",
+    "consumerId": "uuid-v4",
+    "invoiceDate": "2024-02-25",
+    "baseCurrency": "USD",
+    "displayCurrency": "INR",
+    "exchangeRate": 83.0,
+    "subtotalAmount": 100.0,
+    "totalTaxAmount": 18.0,
+    "totalAmount": 118.0,
+    "generatedBy": "admin-uuid"
+  }
+}
+
+docs {
+  ### Create Billing Invoice (TESTING ONLY)
+  Manually creates a billing invoice. Note: In production, invoices are typically generated internally.
+  
+  **Body Fields:**
+  - `bookingId` (UUID, Required): ID of the master booking.
+  - `consumerId` (UUID, Optional): ID of the consumer.
+  - `invoiceDate` (Date, Required): Date of the invoice.
+  - `baseCurrency` (String, Required): e.g., "USD".
+  - `displayCurrency` (String, Required): e.g., "INR".
+  - `exchangeRate` (Float, Required): Exchange rate between base and display currency.
+  - `subtotalAmount` (Float, Required): Amount before tax.
+  - `totalTaxAmount` (Float, Required): Calculated tax.
+  - `totalAmount` (Float, Required): Total amount including tax.
+  - `generatedBy` (UUID, Optional): ID of the user/system creating the invoice.
+  - `jsonMetadata` (JSONB, Optional): Any additional structured data.
+  
+  **Success Response (201 Created):**
+  ```json
+  {
+    "success": true,
+    "code": 201,
+    "message": "Successfully created",
+    "data": {
+      "id": "uuid-v4",
+      "invoiceNumber": "INV-2024-001",
+      "bookingId": "uuid-v4",
+      "totalAmount": 118.0
+    }
+  }
+  ```
+}
+

@@ -1,0 +1,34 @@
+meta {
+  name: Delete (TESTING ONLY)
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/billing-invoice-tolls/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Delete Invoice Toll (TESTING ONLY)
+  Performs a soft delete on a specific invoice toll entry.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the toll entry.
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully deleted",
+    "data": null
+  }
+  ```
+}
+

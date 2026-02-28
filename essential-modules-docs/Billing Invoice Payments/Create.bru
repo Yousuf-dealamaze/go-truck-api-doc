@@ -1,0 +1,57 @@
+meta {
+  name: Create (TESTING ONLY)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/billing-invoice-payments
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "invoice-uuid",
+    "paymentMethod": "Bank Transfer",
+    "paymentReference": "UTR123456789",
+    "paidAmount": 345,
+    "companyBankId": "bank-uuid",
+    "currencyCode": "AED",
+    "paymentDate": "2026-02-25T10:45:00Z",
+    "paymentProof": ["https://example.com/proof1.pdf", "https://example.com/proof2.pdf"],
+    "status": "Payment Received"
+  }
+}
+
+docs {
+  ### Create Invoice Payment (TESTING ONLY)
+  Manually adds a payment entry to an invoice.
+  
+  **Body Fields:**
+  - `billingInvoiceId` (UUID, Required): Parent invoice ID.
+  - `paymentMethod` (Enum, Required): 'Bank Transfer', 'Online', 'Ledger Folio'.
+  - `paymentReference` (String, Optional): UTR or Bank reference number.
+  - `paidAmount` (Decimal, Required): The amount paid.
+  - `companyBankId` (UUID, Optional): The company bank account reference.
+  - `currencyCode` (String, Optional): e.g., "AED".
+  - `paymentDate` (Date, Optional): Date of payment.
+  - `paymentProof` (Array of Strings, Optional): URLs or paths to payment proof files.
+  - `status` (Enum, Optional): 'Invoice Generated', 'Invoice Shared', etc.
+  - `jsonMetadata` (JSONB, Optional): Additional metadata.
+
+  **Success Response (201 Created):**
+  ```json
+  {
+    "success": true,
+    "code": 201,
+    "message": "Successfully created",
+    "data": {
+      "id": "new-payment-uuid",
+      "paidAmount": "345.00",
+      "status": "Payment Received"
+    }
+  }
+  ```
+}
+

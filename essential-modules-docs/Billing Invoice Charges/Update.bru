@@ -1,0 +1,52 @@
+meta {
+  name: Update (TESTING ONLY)
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/billing-invoice-charges/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "amount": 250.00,
+    "status": "Approved",
+    "description": "Adjusted port handling charges"
+  }
+}
+
+docs {
+  ### Update Invoice Charge (TESTING ONLY)
+  Updates an existing invoice additional charge.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the invoice charge.
+  
+  **Body Fields (All Optional):**
+  - `charges_type`: Enum
+  - `document_id`: UUID
+  - `description`: String
+  - `unit_rate`: Decimal
+  - `quantity`: Integer
+  - `amount`: Decimal
+  - `status`: Enum
+  - `json_metadata`: JSONB
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully updated",
+    "data": null
+  }
+  ```
+}
+

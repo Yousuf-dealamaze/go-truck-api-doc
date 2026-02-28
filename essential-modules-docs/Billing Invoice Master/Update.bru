@@ -1,0 +1,59 @@
+meta {
+  name: Update (TESTING ONLY)
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/billing-invoice-master/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "invoiceDate": "2024-02-26",
+    "displayCurrency": "EUR",
+    "exchangeRate": 0.92,
+    "status": "cancelled",
+    "jsonMetadata": {
+      "reason": "Customer cancellation"
+    }
+  }
+}
+
+docs {
+  ### Update Billing Invoice (TESTING ONLY)
+  Updates an existing billing invoice.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the billing invoice.
+  
+  **Body Fields (All Optional):**
+  - `consumerId`: UUID
+  - `invoiceDate`: Date
+  - `baseCurrency`: String
+  - `displayCurrency`: String
+  - `exchangeRate`: Float
+  - `subtotalAmount`: Float
+  - `totalTaxAmount`: Float
+  - `totalAmount`: Float
+  - `status`: `invoice-generated` | `cancelled`
+  - `generatedBy`: UUID
+  - `jsonMetadata`: JSON Object
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully updated",
+    "data": null
+  }
+  ```
+}
+

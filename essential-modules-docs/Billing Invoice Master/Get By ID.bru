@@ -1,0 +1,54 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-master/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Get Billing Invoice By ID
+  Fetches detailed information for a specific billing invoice, including its line items.
+  
+  **Path Parameters:**
+  - `id`: The UUID of the billing invoice.
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "id": "uuid-v4",
+      "invoiceNumber": "INV-2024-001",
+      "bookingId": "uuid-v4",
+      "consumerId": "uuid-v4",
+      "invoiceDate": "2024-02-25",
+      "baseCurrency": "USD",
+      "displayCurrency": "USD",
+      "exchangeRate": 1.0,
+      "subtotalAmount": 100.0,
+      "totalTaxAmount": 10.0,
+      "totalAmount": 110.0,
+      "status": "invoice-generated",
+      "items": [
+        {
+          "id": "item-uuid",
+          "chargeName": "Base Freight",
+          "amount": 100.0
+        }
+      ]
+    }
+  }
+  ```
+}
+
