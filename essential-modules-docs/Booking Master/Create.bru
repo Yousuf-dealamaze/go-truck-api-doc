@@ -12,17 +12,17 @@ post {
 
 body:json {
   {
-    "userId": "64d6d853-2a0d-45b5-9e29-0d437d05dd41",
+    "userId": "62afb72a-f62e-4d63-b353-daec2d2480b2",
     "currency": "SAR",
     "bookingDistanceKm": 25.5,
     "bookingAmount": 1500.00,
     "totalDistanceKm": 25.5,
     "totalAmount": 1500.00,
     "vehiclesQuantity": 2,
-    "status": "active",
+    "status": "CREATED",
     "pricingRuleId": "",
-    "booking_mode": "Scheduled",
-    "scheduled_at": "2023-12-01T10:00:00Z"
+    "bookingMode": "Scheduled",
+    "scheduledAt": "2023-12-01T10:00:00Z"
   }
 }
 
@@ -38,9 +38,8 @@ docs {
   * `totalAmount` (number, optional): Total amount including taxes/extras.
   * `vehiclesQuantity` (number, optional): Number of vehicles required.
   * `status` (string, optional): Status of the booking.
-  * `booking_mode` (string, optional): 'Instant' or 'Scheduled'.
-  * `scheduled_at` (date, optional): Date and time for scheduled bookings.
+  * `bookingMode` (string, optional): 'Instant' or 'Scheduled'.
+  * `scheduledAt` (date, optional): Date and time for scheduled bookings.
   
   **Note:** `bookingJsonData` is internally generated and stores user data after query.
 }
-
