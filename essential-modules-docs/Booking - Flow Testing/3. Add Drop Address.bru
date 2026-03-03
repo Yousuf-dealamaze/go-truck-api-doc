@@ -1,0 +1,28 @@
+meta {
+  name: 3. Add Drop Address
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/booking-addresses
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "bookingId": "{{bookingId}}",
+    "addressType": "drop",
+    "firstName": "Receiver",
+    "lastName": "Name",
+    "address1": "Port Authority Dammam",
+    "city": "Dammam",
+    "regionState": "Eastern Province",
+    "countryCode": "SA",
+    "phone": "966500000002",
+    "latitude": "26.4207",
+    "longitude": "50.0888",
+    "status": "active"
+  }
+}

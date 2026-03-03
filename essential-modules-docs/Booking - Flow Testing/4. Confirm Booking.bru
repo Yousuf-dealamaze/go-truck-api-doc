@@ -1,0 +1,17 @@
+meta {
+  name: 4. Confirm Booking
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/booking-master/{{bookingId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "status": "CONFIRMED"
+  }
+}

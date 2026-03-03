@@ -1,0 +1,18 @@
+meta {
+  name: 5. Get Invoice
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-master?bookingId={{bookingId}}
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+  const data = res.getBody();
+  if (data.success && data.data.rows && data.data.rows.length > 0) {
+    bru.setVar("invoiceId", data.data.rows[0].id);
+  }
+}

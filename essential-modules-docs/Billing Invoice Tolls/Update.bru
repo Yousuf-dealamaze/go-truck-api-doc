@@ -1,5 +1,5 @@
 meta {
-  name: Update (TESTING ONLY)
+  name: Update
   type: http
   seq: 4
 }
@@ -20,7 +20,7 @@ body:json {
     "jsonMetadata": {
       "rejectionReason": "incorrect crossing time"
     },
-    "document_id": "updated-doc-uuid"
+    "documentId": "updated-doc-uuid"
   }
 }
 
@@ -39,9 +39,9 @@ docs {
   - `currencyCode`: String
   - `tollTime`: Date
   - `status`: String
-  - `document_id`: UUID
+  - `documentId`: UUID
   - `jsonMetadata`: JSONB
-
+  
   **Success Response (200 OK):**
   ```json
   {
@@ -52,4 +52,3 @@ docs {
   }
   ```
 }
-

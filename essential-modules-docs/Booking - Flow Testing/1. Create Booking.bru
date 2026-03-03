@@ -1,0 +1,30 @@
+meta {
+  name: 1. Create Booking
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-master
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userId": "62afb72a-f62e-4d63-b353-daec2d2480b2",
+    "currency": "SAR",
+    "totalDistanceKm": 100,
+    "vehiclesQuantity": 1,
+    "pricingRuleId": "f0bc07d4-b535-4f88-9d64-df4f3c4e35d5",
+    "status": "CREATED",
+    "bookingMode": "Scheduled",
+    "scheduledAt": "2026-03-10T10:00:00Z"
+  }
+}
+
+script:post-response {
+  if (res.body && res.body.data && res.body.data.id) {
+    bru.setEnvVar("bookingId", res.body.data.id);
+  }
+}

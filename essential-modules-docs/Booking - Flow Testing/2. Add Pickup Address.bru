@@ -1,0 +1,28 @@
+meta {
+  name: 2. Add Pickup Address
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/booking-addresses
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "bookingId": "{{bookingId}}",
+    "addressType": "pick_up",
+    "firstName": "John",
+    "lastName": "Doe",
+    "address1": "Main Logistics Center",
+    "city": "Riyadh",
+    "regionState": "Riyadh",
+    "countryCode": "SA",
+    "phone": "966500000001",
+    "latitude": "24.7136",
+    "longitude": "46.6753",
+    "status": "active"
+  }
+}

@@ -1,5 +1,5 @@
 meta {
-  name: Create (TESTING ONLY)
+  name: Create 
   type: http
   seq: 3
 }
@@ -13,10 +13,10 @@ post {
 body:json {
   {
     "billingInvoiceId": "invoice-uuid",
-    "charges_type": "border_fee",
-    "document_id": "document-uuid",
+    "chargesType": "border_fee",
+    "documentId": "document-uuid",
     "description": "Port handling charges",
-    "unit_rate": 200,
+    "unitRate": 200,
     "quantity": 1,
     "amount": 200,
     "currency": "SAR",
@@ -29,20 +29,20 @@ docs {
   ### Create Billing Invoice Charge (TESTING ONLY)
   Manually adds an additional charge to an invoice.
   
-  **Note**: `invoice_charges_id` is generated internally using the pattern `GINC-YYYYMMDDHHMM-RANDOM`.
-
+  **Note**: `invoiceChargesId` is generated internally using the pattern `GINC-YYYYMMDDHHMM-RANDOM`.
+  
   **Body Fields:**
   - `billingInvoiceId` (UUID, Required): Parent invoice ID.
-  - `charges_type` (Enum, Required): `border_fee`, `customs`, `documentation`.
-  - `document_id` (UUID, Optional): Reference to a booking upload.
+  - `chargesType` (Enum, Required): `border_fee`, `customs`, `documentation`.
+  - `documentId` (UUID, Optional): Reference to a booking upload.
   - `description` (String, Optional): Detail about the charge.
-  - `unit_rate` (Decimal, Required): Price per unit.
+  - `unitRate` (Decimal, Required): Price per unit.
   - `quantity` (Integer, Required): Number of units.
   - `amount` (Decimal, Required): Total amount (`unit_rate` * `quantity`).
   - `currency` (String, Optional): default `SAR`.
   - `taxable` (Boolean, Optional): default `false`.
   - `status` (Enum, Optional): `Approved`, `Rejected`.
-
+  
   **Success Response (201 Created):**
   ```json
   {
@@ -51,10 +51,9 @@ docs {
     "message": "Successfully created",
     "data": {
       "id": "new-charge-uuid",
-      "invoice_charges_id": "GINC-202602261622-4567",
+      "invoiceChargesId": "GINC-202602261622-4567",
       "amount": "200.00"
     }
   }
   ```
 }
-

@@ -1,5 +1,5 @@
 meta {
-  name: Update (TESTING ONLY)
+  name: Update
   type: http
   seq: 4
 }
@@ -30,15 +30,15 @@ docs {
   - `id`: The UUID of the invoice charge.
   
   **Body Fields (All Optional):**
-  - `charges_type`: Enum
-  - `document_id`: UUID
+  - `chargesType`: Enum
+  - `documentId`: UUID
   - `description`: String
-  - `unit_rate`: Decimal
+  - `unitRate`: Decimal
   - `quantity`: Integer
   - `amount`: Decimal
   - `status`: Enum
-  - `json_metadata`: JSONB
-
+  - `jsonMetadata`: JSONB
+  
   **Success Response (200 OK):**
   ```json
   {
@@ -49,4 +49,3 @@ docs {
   }
   ```
 }
-

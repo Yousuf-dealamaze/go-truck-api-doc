@@ -1,0 +1,24 @@
+meta {
+  name: 8. Add Manual Toll
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/billing-invoice-tolls
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "{{invoiceId}}",
+    "tollName": "Testing Toll",
+    "countryCode": "SA",
+    "tollLocation": "Riyadh Gate",
+    "tollAmount": 50,
+    "currencyCode": "SAR",
+    "tollTime": "2026-03-03T10:30:00Z",
+    "status": "Approved"
+  }
+}

@@ -1,0 +1,45 @@
+meta {
+  name: Get Detailed
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-master/4a9e1986-1a15-4569-bbee-767b931edb4d/details
+  body: none
+  auth: inherit
+}
+
+docs {
+  ### Get Detailed Billing Invoice
+  Fetches the entire billing invoice details, including:
+  - Master record
+  - Items
+  - Charges
+  - Taxes
+  - Tolls
+  - Payments
+  
+  **Path Parameters:**
+  - `id`: The UUID of the billing invoice.
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Successfully fetched",
+    "data": {
+      "id": "uuid-v4",
+      "invoiceNumber": "INV-2024-001",
+      "bookingId": "uuid-v4",
+      "items": [...],
+      "charges": [...],
+      "taxes": [...],
+      "tolls": [...],
+      "payments": [...],
+      "totalAmount": 110.0
+    }
+  }
+  ```
+}

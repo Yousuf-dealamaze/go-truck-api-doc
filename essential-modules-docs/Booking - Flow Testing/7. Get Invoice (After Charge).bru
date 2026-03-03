@@ -1,0 +1,11 @@
+meta {
+  name: 7. Get Invoice (After Charge)
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-master?bookingId={{bookingId}}
+  body: none
+  auth: inherit
+}

@@ -1,5 +1,5 @@
 meta {
-  name: Create (TESTING ONLY)
+  name: Create 
   type: http
   seq: 3
 }
@@ -20,7 +20,7 @@ body:json {
     "currencyCode": "AED",
     "tollTime": "2026-02-25T10:30:00Z",
     "status": "Approved",
-    "document_id": "booking-doc-uuid"
+    "documentId": "booking-doc-uuid"
   }
 }
 
@@ -37,9 +37,9 @@ docs {
   - `currencyCode` (String, Optional): e.g., "AED".
   - `tollTime` (Date, Optional): Time of toll crossing.
   - `status` (String, Optional): "Approved" or "Rejected".
-  - `document_id` (UUID, Optional): Related booking document ID.
+  - `documentId` (UUID, Optional): Related booking document ID.
   - `jsonMetadata` (JSONB, Optional): Additional metadata.
-
+  
   **Success Response (201 Created):**
   ```json
   {
@@ -54,4 +54,3 @@ docs {
   }
   ```
 }
-
