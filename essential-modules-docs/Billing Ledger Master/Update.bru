@@ -1,0 +1,27 @@
+meta {
+  name: Update (Testing Only)
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/billing-ledger-master/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "status": "hold",
+    "remarks": "Updated status for investigation"
+  }
+}
+
+docs {
+  ### Update Ledger Entry (Testing Only)
+  Updates an existing ledger entry.
+}

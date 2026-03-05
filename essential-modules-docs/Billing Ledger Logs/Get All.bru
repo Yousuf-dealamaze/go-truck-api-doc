@@ -1,0 +1,24 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/billing-ledger-logs
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~ledgerId: 
+  ~settlementId: 
+  ~actionStatus: Ledger Posted
+}
+
+docs {
+  ### Get All Ledger Logs
+  Retrieves a paginated list of billing ledger logs with optional filters.
+}

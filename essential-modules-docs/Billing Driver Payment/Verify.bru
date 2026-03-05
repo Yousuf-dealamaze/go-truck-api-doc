@@ -1,0 +1,20 @@
+meta {
+  name: Verify Payment
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/billing-driver-payment/:id/verify
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: Payment_UUID
+}
+
+docs {
+  ### Verify Payment
+  Verifies a recorded driver payment and auto-updates the associated ledgers to "paid".
+}

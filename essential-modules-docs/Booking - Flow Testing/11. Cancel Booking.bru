@@ -1,0 +1,17 @@
+meta {
+  name: 11. Cancel Booking
+  type: http
+  seq: 11
+}
+
+patch {
+  url: {{baseUrl}}/booking-master/{{bookingId}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "status": "CANCELLED"
+  }
+}

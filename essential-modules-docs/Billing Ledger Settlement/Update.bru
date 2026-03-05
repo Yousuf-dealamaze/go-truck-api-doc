@@ -1,0 +1,27 @@
+meta {
+  name: Update (Testing Only)
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/billing-ledger-settlement/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "paymentStatus": "Completed",
+    "settlementStatus": "Booking Closed"
+  }
+}
+
+docs {
+  ### Update Ledger Settlement (Testing Only)
+  Updates an existing ledger settlement.
+}

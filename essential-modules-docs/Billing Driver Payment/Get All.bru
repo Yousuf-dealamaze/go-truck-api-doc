@@ -1,0 +1,25 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/billing-driver-payment
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~driverId: 
+  ~transporterId: 
+  ~paymentStatus: recorded
+  ~paymentMode: bank_transfer
+}
+
+docs {
+  ### Get All Driver Payment Entries
+  Retrieves a paginated list of billing driver payment entries with optional filters.
+}

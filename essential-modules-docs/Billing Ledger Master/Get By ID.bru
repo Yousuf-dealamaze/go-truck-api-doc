@@ -1,0 +1,20 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/billing-ledger-master/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Get Ledger Entry by ID
+  Retrieves a specific billing ledger entry by its UUID.
+}

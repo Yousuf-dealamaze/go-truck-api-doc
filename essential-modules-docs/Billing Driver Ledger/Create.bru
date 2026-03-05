@@ -1,0 +1,30 @@
+meta {
+  name: Create (Testing Only)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/billing-driver-ledger
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "driverId": "uuid-v4",
+    "transporterId": "uuid-v4",
+    "bookingId": "uuid-v4",
+    "earningType": "trip_payment",
+    "earningAmount": 1500.0,
+    "currencyCode": "AED",
+    "earningStatus": "pending",
+    "enteredBy": "transporter-user-uuid-v4",
+    "enteredAt": "2026-03-03T17:55:00Z"
+  }
+}
+
+docs {
+  ### Create Driver Ledger Entry (Testing Only)
+  Manually creates a driver ledger entry for testing.
+}

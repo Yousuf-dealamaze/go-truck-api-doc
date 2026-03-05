@@ -1,0 +1,20 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/billing-driver-payment/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Get Driver Payment Entry by ID
+  Retrieves a specific billing driver payment entry by its UUID.
+}

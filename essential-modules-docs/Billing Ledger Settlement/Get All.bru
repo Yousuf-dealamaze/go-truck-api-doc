@@ -1,0 +1,26 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/billing-ledger-settlement
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~settlementStatus: Settlement Approved
+  ~paymentStatus: Pending
+  ~transporterId: 
+  ~settlementBatchId: 
+  ~search: 
+}
+
+docs {
+  ### Get All Ledger Settlements
+  Retrieves a paginated list of billing ledger settlements.
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Create (Testing Only)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/billing-ledger-master
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "transporterId": "uuid-v4",
+    "bookingId": "uuid-v4",
+    "invoiceId": "uuid-v4",
+    "invoiceItemId": "uuid-v4",
+    "chargeCategory": "freight",
+    "chargesEntryType": "customs",
+    "description": "Customs clearance fees",
+    "eventType": "sale",
+    "creditAmount": 500.0,
+    "debitAmount": 0,
+    "currencyCode": "AED",
+    "remarks": "Test entry",
+    "status": "approved",
+    "actionStatus": "ledger_posted"
+  }
+}
+
+docs {
+  ### Create Ledger Entry (Testing Only)
+  Manually creates a ledger entry for testing purposes. 
+  
+  **Note**: `jsonMetadata` is handled internally and is not accepted in this request.
+}

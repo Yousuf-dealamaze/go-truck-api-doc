@@ -1,0 +1,26 @@
+meta {
+  name: Create (Testing Only)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/billing-ledger-logs
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "ledgerId": "uuid-v4",
+    "settlementId": "uuid-v4",
+    "actionStatus": "Ledger Posted",
+    "performedBy": "user-uuid-v4",
+    "performedAt": "2026-03-03T17:45:00Z"
+  }
+}
+
+docs {
+  ### Create Ledger Log (Testing Only)
+  Creates a new ledger log entry.
+}

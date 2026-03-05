@@ -1,0 +1,20 @@
+meta {
+  name: Delete (Testing Only)
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/billing-ledger-settlement/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Delete Ledger Settlement (Testing Only)
+  Performs a soft-delete on the ledger settlement.
+}

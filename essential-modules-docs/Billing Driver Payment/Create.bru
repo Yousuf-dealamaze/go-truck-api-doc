@@ -1,0 +1,31 @@
+meta {
+  name: Create (Testing Only)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/billing-driver-payment
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "driverId": "uuid-v4",
+    "transporterId": "uuid-v4",
+    "paymentMode": "bank_transfer",
+    "paidAmount": 2000.0,
+    "currencyCode": "AED",
+    "bankReference": "UTR123456789",
+    "paymentDate": "2026-03-03T18:00:00Z",
+    "paymentStatus": "recorded",
+    "enteredBy": "transporter-user-uuid-v4",
+    "enteredAt": "2026-03-03T18:00:00Z"
+  }
+}
+
+docs {
+  ### Create Driver Payment Entry (Testing Only)
+  Manually records a driver payment entry for testing.
+}

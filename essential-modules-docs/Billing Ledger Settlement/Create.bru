@@ -1,0 +1,33 @@
+meta {
+  name: Create (Testing Only)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/billing-ledger-settlement
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "transporterId": "uuid-v4",
+    "settlementBatchId": "UTBI135656",
+    "batchCreated": "2026-01-20",
+    "totalCredits": 2000.0,
+    "totalDebits": -300.0,
+    "settlementStatus": "Settlement Approved",
+    "paidAmount": 1700.0,
+    "currencyCode": "AED",
+    "bankId": "uuid-v4",
+    "utrReference": "UTR-123456",
+    "paymentDate": "2026-01-20",
+    "paymentStatus": "Paid"
+  }
+}
+
+docs {
+  ### Create Ledger Settlement (Testing Only)
+  Manually creates a ledger settlement for testing purposes.
+}

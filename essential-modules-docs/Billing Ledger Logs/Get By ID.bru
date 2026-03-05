@@ -1,0 +1,20 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/billing-ledger-logs/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Get Ledger Log by ID
+  Retrieves a specific billing ledger log by its UUID.
+}

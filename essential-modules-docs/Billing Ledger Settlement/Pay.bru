@@ -1,0 +1,29 @@
+meta {
+  name: Record Payment
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/billing-ledger-settlement/:id/pay
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: Settlement_UUID
+}
+
+body:json {
+  {
+    "bankId": "50c3d9a1-cb9e-4363-952d-c23f2b4c1006",
+    "utrReference": "HDFC00012347890",
+    "paymentDate": "2026-03-05",
+    "paidAmount": 4500.00
+  }
+}
+
+docs {
+  ### Record Payment
+  Records payment for an approved settlement batch.
+}

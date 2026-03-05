@@ -1,0 +1,26 @@
+meta {
+  name: Update (Testing Only)
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/billing-ledger-logs/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "actionStatus": "Settlement Batched"
+  }
+}
+
+docs {
+  ### Update Ledger Log (Testing Only)
+  Updates an existing ledger log entry.
+}

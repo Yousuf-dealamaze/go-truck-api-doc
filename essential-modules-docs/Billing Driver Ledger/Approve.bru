@@ -1,0 +1,20 @@
+meta {
+  name: Approve Driver Earning
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/billing-driver-ledger/:id/approve
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: Ledger_UUID
+}
+
+docs {
+  ### Approve Driver Earning
+  Approves a pending driver earning.
+}

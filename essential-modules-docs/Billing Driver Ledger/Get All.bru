@@ -1,0 +1,26 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/billing-driver-ledger
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~driverId: 
+  ~transporterId: 
+  ~bookingId: 
+  ~earningStatus: pending
+  ~earningType: trip_payment
+}
+
+docs {
+  ### Get All Driver Ledger Entries
+  Retrieves a paginated list of billing driver ledger entries with optional filters.
+}

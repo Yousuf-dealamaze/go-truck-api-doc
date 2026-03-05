@@ -1,0 +1,26 @@
+meta {
+  name: Update (Testing Only)
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/billing-driver-payment/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "paymentStatus": "verified"
+  }
+}
+
+docs {
+  ### Update Driver Payment Entry (Testing Only)
+  Updates an existing driver payment entry.
+}

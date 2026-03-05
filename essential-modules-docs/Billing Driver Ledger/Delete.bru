@@ -1,0 +1,20 @@
+meta {
+  name: Delete (Testing Only)
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/billing-driver-ledger/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Delete Driver Ledger Entry (Testing Only)
+  Performs a soft-delete on the driver ledger entry.
+}

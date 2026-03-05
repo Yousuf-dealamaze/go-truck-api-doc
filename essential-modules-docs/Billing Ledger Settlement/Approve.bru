@@ -1,0 +1,20 @@
+meta {
+  name: Approve Settlement
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/billing-ledger-settlement/:id/approve
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: Settlement_UUID
+}
+
+docs {
+  ### Approve Settlement Batch
+  Approves a settlement batch so it can be paid.
+}

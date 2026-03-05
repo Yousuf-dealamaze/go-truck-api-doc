@@ -1,0 +1,27 @@
+meta {
+  name: Create Batch
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/billing-ledger-settlement/create-batch
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "transporterId": "099a531f-0e27-44df-9eb9-b223ff9fc9cc",
+    "ledgerIds": [
+      "22bd1983-a7bf-4f6c-b3a6-b5103a08c823",
+      "8c7bb091-c276-4dcd-bb64-8ab3cf274a27"
+    ],
+    "currencyCode": "AED"
+  }
+}
+
+docs {
+  ### Create Settlement Batch
+  Creates a settlement batch by grouping provided unsettled ledgers for a transporter.
+}

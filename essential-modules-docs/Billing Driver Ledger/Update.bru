@@ -1,0 +1,27 @@
+meta {
+  name: Update (Testing Only)
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/billing-driver-ledger/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "earningStatus": "approved",
+    "approvedAt": "2026-03-03T17:56:00Z"
+  }
+}
+
+docs {
+  ### Update Driver Ledger Entry (Testing Only)
+  Updates an existing driver ledger entry.
+}

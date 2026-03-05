@@ -1,0 +1,11 @@
+meta {
+  name: 12. Get Ledgers (After Cancellation)
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseUrl}}/billing-ledger-master?bookingId={{bookingId}}
+  body: none
+  auth: inherit
+}

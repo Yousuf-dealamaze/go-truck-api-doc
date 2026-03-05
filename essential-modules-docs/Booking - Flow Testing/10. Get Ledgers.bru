@@ -1,0 +1,11 @@
+meta {
+  name: 10. Get Ledgers
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/billing-ledger-master?bookingId={{bookingId}}
+  body: none
+  auth: inherit
+}
