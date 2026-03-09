@@ -1,0 +1,27 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/client-billing-invoice-charges
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "YOUR_INVOICE_ID",
+    "invoiceItemId": "idd",
+    "chargesType": "customs",
+    "documentId": "DOCUMENT_UUID",
+    "description": "Customs clearance fees",
+    "unitRate": 200.00,
+    "quantity": 1,
+    "amount": 200.00,
+    "currencyCode": "SAR",
+    "taxable": true,
+    "status": "Approved"
+  }
+}

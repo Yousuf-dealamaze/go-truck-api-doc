@@ -1,0 +1,22 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseUrl}}/pricing-engine-client-master/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "pricingRuleTitle": "Updated Client Pricing",
+    "sellingRate": 1300
+  }
+}

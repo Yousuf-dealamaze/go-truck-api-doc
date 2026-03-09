@@ -1,0 +1,25 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/client-billing-invoice-items
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "YOUR_INVOICE_ID",
+    "transporterId": "TRANSPORTER_ID",
+    "clientPricingId": "PRICING_RULE_ID",
+    "sellingRate": 350.00,
+    "vehicleQuantity": 2,
+    "amount": 700.00,
+    "currencyCode": "SAR",
+    "taxable": true,
+    "status": "Approved"
+  }
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-client-master
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": "90596350-019a-4c9f-8be3-a4c0ca6f6c8d",
+    "vehiclesQuantity": 1,
+    "pickupRegion": null,
+    "dropRegion": null,
+    "pickupAddressId": null,
+    "dropAddressId": null,
+    "poReference": "PO-2024-001",
+    "clientPricingId": "YOUR_PRICING_ID_HERE",
+    "bookingMode": "Instant",
+    "currencyCode": "SAR",
+    "bookingJsonData": {
+        "notes": "Urgent delivery"
+    },
+    "status": "CREATED"
+  }
+}

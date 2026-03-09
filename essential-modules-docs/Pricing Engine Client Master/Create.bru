@@ -1,0 +1,34 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/pricing-engine-client-master
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "pricingRuleTitle": "Sample Client Pricing",
+    "pricingType": "Platform",
+    "transporterId": null,
+    "regionFrom": "RIYADH",
+    "regionTo": "JEDDAH",
+    "approxDistance": 950,
+    "description": "Standard pricing for Riyadh to Jeddah",
+    "vehicleTypeId": null,
+    "vehicleSizeId": null,
+    "cargoTypeId": null,
+    "baseCurrencyCode": "SAR",
+    "buyingRate": 1000,
+    "rateType": "flat",
+    "rateAmount": 200,
+    "sellingRate": 1200,
+    "effectiveDate": "2024-05-18",
+    "expiryDate": "2024-12-31",
+    "status": true
+  }
+}

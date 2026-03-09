@@ -1,0 +1,22 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseUrl}}/booking-client-master/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "status": "CONFIRMED",
+    "poReference": "PO-2024-001-UPDATED"
+  }
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/client-billing-invoice-payments
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "YOUR_INVOICE_ID",
+    "paymentMethod": "Bank Transfer",
+    "paymentReference": "UTR123456789",
+    "paidAmount": 345.00,
+    "companyBankId": "BANK_UUID",
+    "currencyCode": "SAR",
+    "paymentDate": "2026-03-06",
+    "paymentProof": ["path/to/proof.pdf"],
+    "status": "Payment Received"
+  }
+}

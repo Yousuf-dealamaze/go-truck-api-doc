@@ -1,0 +1,22 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseUrl}}/client-billing-invoice-taxes/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "taxRate": 15,
+    "taxAmount": 45.00
+  }
+}

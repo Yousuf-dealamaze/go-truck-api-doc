@@ -1,0 +1,26 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/client-billing-invoice-master
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "clientBookingId": "YOUR_CLIENT_BOOKING_ID",
+    "clientId": "CLIENT_ID",
+    "invoiceDate": "2024-03-06",
+    "baseCurrencyCode": "SAR",
+    "displayCurrencyCode": "SAR",
+    "exchangeRate": 1.0,
+    "subtotalAmount": 1000.00,
+    "totalTaxAmount": 150.00,
+    "totalAmount": 1150.00,
+    "status": "Invoice Generated"
+  }
+}

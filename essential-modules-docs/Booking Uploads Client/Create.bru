@@ -1,0 +1,19 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-uploads-client
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "clientBookingId": "YOUR_CLIENT_BOOKING_ID",
+    "docUploadType": "Truck Load Pics",
+    "docUploadFile": ["file1.jpg", "file2.jpg"]
+  }
+}

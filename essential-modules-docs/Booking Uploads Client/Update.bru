@@ -1,0 +1,21 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseUrl}}/booking-uploads-client/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "docUploadFile": ["new_file1.jpg"]
+  }
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{baseUrl}}/booking-vehicles-client/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "status": "IN_TRANSIT"
+  }
+}

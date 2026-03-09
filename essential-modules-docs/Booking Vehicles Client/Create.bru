@@ -1,0 +1,25 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-vehicles-client
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "clientBookingId": "YOUR_CLIENT_BOOKING_ID",
+    "clientPricingId": "YOUR_CLIENT_PRICING_ID",
+    "driverId": "DRIVER_ID_FROM_AUTH_SERVICE",
+    "vehicleId": "VEHICLE_ID_FROM_MASTER",
+    "quantity": 1,
+    "totalDistanceKm": 950,
+    "totalAmount": 1200,
+    "currencyCode": "SAR",
+    "status": "ASSIGNED"
+  }
+}
