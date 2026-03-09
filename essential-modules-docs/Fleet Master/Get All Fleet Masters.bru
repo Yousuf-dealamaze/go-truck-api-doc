@@ -15,6 +15,9 @@ params:query {
   limit: 10
   search: 
   status: 
+  regionType: 
+  regionName: 
+  city: 
 }
 
 docs {
@@ -25,5 +28,8 @@ docs {
   * `limit` (number, optional): Number of items per page (default: 10).
   * `search` (string, optional): Search term for name, code, or type.
   * `status` (string, optional): Filter by status ('active' or 'inactive').
+  * `regionType` (string, optional): Filter by region type (e.g., 'City', 'Country').
+  * `regionName` (string, optional): Filter by specific region name (mapped to `regionName` in DB).
+  * `city` (string, optional): Alias for `regionName`, filter by specific city name.
 }
 

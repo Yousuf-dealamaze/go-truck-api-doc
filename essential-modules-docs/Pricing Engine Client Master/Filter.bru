@@ -14,8 +14,26 @@ body:json {
   {
     "page": 1,
     "limit": 10,
-    "search": "",
-    "status": true,
-    "pricingType": "Platform"
+    "sourceCity": "RIYADH",
+    "destinationCity": "JEDDAH",
+    "distanceKm": 950,
+    "vehicleQty": 1,
+    "status": true
   }
 }
+
+docs {
+  ### Advanced Client Pricing Filter
+  This endpoint provides a robust search and price calculation engine for Client Pricing Rules.
+  
+  #### Query Parameters:
+  - `sourceCity`: Filters by the origin region (mapped to `regionFrom`).
+  - `destinationCity`: Filters by the destination region (mapped to `regionTo`).
+  - `distanceKm`: If provided, the system calculates a full price breakdown using the `BookingCalculationHelper`.
+  - `vehicleQty`: Used in calculations (defaults to 1).
+  
+  #### Response Highlights:
+  - `calculation`: An object containing the breakdown of gross total, platform charges, and VAT based on the `sellingRate`.
+  - `uniqueFilters`: A metadata object containing all available `vehicleTypeId`, `cargoTypeId`, etc., present in the search results (useful for UI dropdowns).
+}
+

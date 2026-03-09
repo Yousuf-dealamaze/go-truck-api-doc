@@ -32,3 +32,16 @@ body:json {
     "status": true
   }
 }
+
+docs {
+  ### Create Client Pricing Rule
+  Initializes a new pricing rule for client-side calculations.
+  
+  #### Key Fields:
+  - `pricingType`: Categorizes the rule (e.g., 'Platform', 'Direct').
+  - `buyingRate`: The rate at which the service is purchased.
+  - `sellingRate`: The final rate offered to the client (Base for calculations).
+  - `regionFrom/To`: Geographic scope of the rule.
+  - `approxDistance`: Reference mileage for the route.
+}
+
