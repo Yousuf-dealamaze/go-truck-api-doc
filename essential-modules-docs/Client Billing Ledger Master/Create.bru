@@ -1,0 +1,25 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/client-billing-ledger-master
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "clientId": "CLIENT_UUID",
+    "clientBookingId": "BOOKING_UUID",
+    "billingInvoiceId": "INVOICE_UUID",
+    "chargeCategory": "freight",
+    "chargesEntryType": "manual",
+    "description": "Additional handling fee",
+    "eventType": "sale",
+    "amount": 100,
+    "currencyCode": "SAR"
+  }
+}

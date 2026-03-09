@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{baseUrl}}/pricing-engine-client-master/filter
+  url: {{baseUrl}}/client-billing-ledger-master/filter
   body: json
   auth: inherit
 }
@@ -14,8 +14,7 @@ body:json {
   {
     "page": 1,
     "limit": 10,
-    "search": "",
-    "status": true,
-    "pricingType": "Platform"
+    "clientId": "",
+    "eventType": "sale"
   }
 }

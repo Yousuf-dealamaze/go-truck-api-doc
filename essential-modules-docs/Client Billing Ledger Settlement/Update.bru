@@ -5,7 +5,7 @@ meta {
 }
 
 patch {
-  url: {{baseUrl}}/pricing-engine-client-master/:id
+  url: {{baseUrl}}/client-billing-ledger-settlement/:id
   body: json
   auth: inherit
 }
@@ -16,7 +16,6 @@ params:path {
 
 body:json {
   {
-    "pricingRuleTitle": "Updated Pricing Title",
-    "sellingRate": 1300
+    "status": "completed"
   }
 }
