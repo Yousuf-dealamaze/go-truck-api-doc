@@ -15,9 +15,21 @@ params:query {
   ~limit: 10
   ~fleetId: 550e8400-e29b-41d4-a716-446655440000
   ~status: active
+  ~regionType: 
+  ~regionName: 
+  ~regionCode: 
 }
 
 docs {
   Retrieves a paginated list of all fleet master regions.
+  
+  **Query Parameters:**
+  * `page` (number, optional): Page number (default: 1).
+  * `limit` (number, optional): Number of items per page (default: 10).
+  * `fleetId` (uuid, optional): Filter by fleet ID.
+  * `status` (string, optional): Filter by status ('active' or 'inactive').
+  * `regionType` (string, optional): Search by region type.
+  * `regionName` (string, optional): Search by region name.
+  * `regionCode` (string, optional): Search by region code.
 }
 
