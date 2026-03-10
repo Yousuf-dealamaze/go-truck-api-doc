@@ -18,3 +18,14 @@ body:json {
     "status": "CREATED"
   }
 }
+
+docs {
+  Filter booking client master records.
+  
+  **Body Parameters:**
+  * `page` (number): Page number for pagination.
+  * `limit` (number): Number of records per page.
+  * `search` (string): Search term.
+  * `status` (string): Filter by status.
+  * `userId` (uuid): Filter by user ID.
+}

@@ -28,3 +28,25 @@ body:json {
     "status": "CREATED"
   }
 }
+
+docs {
+  Creates a new booking client master record.
+  
+  **Body Parameters:**
+  * `userId` (uuid): ID of the user creating the booking.
+  * `vehiclesQuantity` (number): Number of vehicles required. (Min 1)
+  * `pickupRegion` (uuid): ID of the pickup region.
+  * `dropRegion` (uuid): ID of the drop region.
+  * `pickupAddressId` (uuid): ID of the pickup address.
+  * `dropAddressId` (uuid): ID of the drop address.
+  * `poReference` (string): Purchase order reference string.
+  * `clientPricingId` (uuid): **Required**. Associated client pricing ID.
+  * `bookingMode` (string): Mode of booking ('Instant' or 'Scheduled'). Defaults to 'Instant'.
+  * `scheduledAt` (date): Date/time for schedule.
+  * `bookingDistanceKm` (number): Distance in kilometers.
+  * `bookingAmount` (number): Booking amount.
+  * `totalAmount` (number): Total amount.
+  * `currencyCode` (string): Currency code.
+  * `bookingJsonData` (object): Additional JSON data.
+  * `status` (string): Initial status (defaults to 'CREATED').
+}

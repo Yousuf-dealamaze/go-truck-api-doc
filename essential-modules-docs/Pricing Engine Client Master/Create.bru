@@ -34,14 +34,27 @@ body:json {
 }
 
 docs {
-  ### Create Client Pricing Rule
-  Initializes a new pricing rule for client-side calculations.
+  Creates a new pricing engine client master record.
   
-  #### Key Fields:
-  - `pricingType`: Categorizes the rule (e.g., 'Platform', 'Direct').
-  - `buyingRate`: The rate at which the service is purchased.
-  - `sellingRate`: The final rate offered to the client (Base for calculations).
-  - `regionFrom/To`: Geographic scope of the rule.
-  - `approxDistance`: Reference mileage for the route.
+  **Body Parameters:**
+  * `pricingRuleTitle` (string): Title of the pricing rule.
+  * `pricingType` (string): The type of pricing ('Platform' or 'Transporter').
+  * `transporterId` (uuid): Optional ID of the transporter.
+  * `regionFrom` (string): Region from.
+  * `regionTo` (string): Region to.
+  * `approxDistance` (number): Approximate distance.
+  * `description` (string): Description of the pricing rule.
+  * `vehicleTypeId` (uuid): The vehicle type ID.
+  * `vehicleSizeId` (uuid): The vehicle size ID.
+  * `cargoTypeId` (uuid): The cargo type ID.
+  * `baseCurrencyCode` (string): Currency code for the rates.
+  * `buyingRate` (number): Buying rate.
+  * `rateType` (string): Rate type ('flat' or 'percentage').
+  * `rateAmount` (number): Rate amount.
+  * `sellingRate` (number): Selling rate.
+  * `effectiveDate` (date): Date when the rule becomes effective.
+  * `expiryDate` (date): Date when the rule expires.
+  * `forceExpiry` (date): Date to force expiry.
+  * `status` (boolean): Status of the rule.
 }
 

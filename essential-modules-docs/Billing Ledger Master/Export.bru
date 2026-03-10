@@ -1,0 +1,33 @@
+meta {
+  name: Export
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/billing-ledger-master/export
+  body: none
+  auth: inherit
+}
+
+query {
+  ~status: approved
+  ~transporterId: 
+  ~bookingId: 
+  ~invoiceId: 
+  ~startDate: 
+  ~endDate: 
+}
+
+docs {
+  ### Export Ledger Entries
+  Retrieves a downloaded Excel file for billing ledger entries.
+  
+  **Query Params:**
+  - `status`: Filter by status (approved, rejected, hold)
+  - `transporterId`: Filter by transporter UUID
+  - `bookingId`: Filter by booking UUID
+  - `invoiceId`: Filter by invoice master UUID
+  - `startDate`: Start date for filtering created ledger entries
+  - `endDate`: End date for filtering created ledger entries
+}
