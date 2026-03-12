@@ -1,0 +1,23 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/booking-track
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+  ~bookingId: 
+  ~userId: 
+  ~status: 
+}
+
+docs {
+  Retrieves a paginated list of booking tracking records with optional filters.
+}

@@ -1,5 +1,5 @@
 meta {
-  name: Filter
+  name: Get All Pricing (Filter)
   type: http
   seq: 3
 }
@@ -14,26 +14,50 @@ body:json {
   {
     "page": 1,
     "limit": 10,
-    "sourceCity": "RIYADH",
-    "destinationCity": "JEDDAH",
+    "search": "",
+    "status": true,
+    "pricingType": "Platform",
+    "regionFrom": "",
+    "regionTo": "",
+    "vehicleTypeId": "",
+    "vehicleSizeId": "",
+    "cargoTypeId": "",
+    "baseCurrencyCode": "",
     "distanceKm": 950,
     "vehicleQty": 1,
-    "status": true
+    "sourceCity": "RIYADH",
+    "sourceState": "",
+    "sourceCountry": "",
+    "destinationCity": "JEDDAH",
+    "destinationState": "",
+    "destinationCountry": ""
   }
 }
 
 docs {
-  ### Advanced Client Pricing Filter
-  This endpoint provides a robust search and price calculation engine for Client Pricing Rules.
+  Filter client pricing rules with various criteria.
   
-  #### Query Parameters:
-  - `sourceCity`: Filters by the origin region (mapped to `regionFrom`).
-  - `destinationCity`: Filters by the destination region (mapped to `regionTo`).
-  - `distanceKm`: If provided, the system calculates a full price breakdown using the `BookingCalculationHelper`.
-  - `vehicleQty`: Used in calculations (defaults to 1).
+  **Body Parameters:**
+  * `page` (number): Page number for pagination.
+  * `limit` (number): Number of records per page.
+  * `search` (string): Search term to filter by title or description.
+  * `status` (boolean): Filter by status.
+  * `pricingType` (string): Filter by pricing type ('Platform' or 'Transporter').
+  * `regionFrom` (string): Filter by origin region.
+  * `regionTo` (string): Filter by destination region.
+  * `vehicleTypeId` (string): Filter by vehicle type ID.
+  * `vehicleSizeId` (string): Filter by vehicle size ID.
+  * `cargoTypeId` (string): Filter by cargo type ID.
+  * `baseCurrencyCode` (string): Filter by currency code.
+  * `distanceKm` (number): Filter by distance in kilometers.
+  * `vehicleQty` (number): Number of vehicles. Multiplies the Base Price.
+  * `qty` (number): Multiplier applied to the Base Price.
   
-  #### Response Highlights:
-  - `calculation`: An object containing the breakdown of gross total, platform charges, and VAT based on the `sellingRate`.
-  - `uniqueFilters`: A metadata object containing all available `vehicleTypeId`, `cargoTypeId`, etc., present in the search results (useful for UI dropdowns).
+  * `sourceCity` (string): Filter by source city. Maps to regionFrom.
+  * `sourceState` (string): Filter by source state.
+  * `sourceCountry` (string): Filter by source country.
+  * `destinationCity` (string): Filter by destination city. Maps to regionTo.
+  * `destinationState` (string): Filter by destination state.
+  * `destinationCountry` (string): Filter by destination country.
 }
 

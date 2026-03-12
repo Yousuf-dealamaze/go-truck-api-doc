@@ -1,0 +1,35 @@
+meta {
+  name: Export
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/billing-driver-ledger/export
+  body: none
+  auth: inherit
+}
+
+query {
+  ~driverId: 
+  ~transporterId: 
+  ~bookingId: 
+  ~earningStatus: 
+  ~earningType: 
+  ~startDate: 
+  ~endDate: 
+}
+
+docs {
+  ### Export Driver Ledger Entries
+  Retrieves a downloaded Excel file for billing driver ledger entries.
+  
+  **Query Params:**
+  - `driverId`: Filter by driver UUID
+  - `transporterId`: Filter by transporter UUID
+  - `bookingId`: Filter by booking UUID
+  - `earningStatus`: Filter by earning status
+  - `earningType`: Filter by earning type
+  - `startDate`: Start date for filtering created ledger entries
+  - `endDate`: End date for filtering created ledger entries
+}

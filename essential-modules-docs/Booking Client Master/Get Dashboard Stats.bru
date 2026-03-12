@@ -1,0 +1,16 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/booking-client-master/dashboard-stat
+  body: none
+  auth: inherit
+}
+
+docs {
+  ### Get Dashboard Stats
+  Get dashboard stats for client booking
+}

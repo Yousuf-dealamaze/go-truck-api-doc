@@ -1,0 +1,35 @@
+meta {
+  name: Export
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/billing-ledger-settlement/export
+  body: none
+  auth: inherit
+}
+
+query {
+  ~search: 
+  ~settlementStatus: 
+  ~paymentStatus: 
+  ~transporterId: 
+  ~settlementBatchId: 
+  ~startDate: 
+  ~endDate: 
+}
+
+docs {
+  ### Export Settlement Entries
+  Retrieves a downloaded Excel file for billing ledger settlements.
+  
+  **Query Params:**
+  - `search`: General search text
+  - `settlementStatus`: Filter by settlement status
+  - `paymentStatus`: Filter by payment status
+  - `transporterId`: Filter by transporter UUID
+  - `settlementBatchId`: Filter by settlement batch ID
+  - `startDate`: Start date for filtering created ledger entries
+  - `endDate`: End date for filtering created ledger entries
+}

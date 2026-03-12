@@ -1,0 +1,27 @@
+meta {
+  name: Update (Testing Only)
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/booking-track/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "status": "UPDATED",
+    "subStatus": "TEST_UPDATE"
+  }
+}
+
+docs {
+  ### Update Tracking Record
+  **CRITICAL: This endpoint is for TESTING PURPOSES ONLY.**
+}

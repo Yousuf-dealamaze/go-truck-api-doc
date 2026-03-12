@@ -1,0 +1,28 @@
+meta {
+  name: Create (Testing Only)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-track
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "bookingId": "c6a2c3eb-1365-4d7a-af27-96a86c67d163",
+    "userId": "d748281a-6e54-46a4-8f5f-f61110034a71",
+    "status": "CREATED",
+    "subStatus": "INITIAL_BOOKING",
+    "modifiedBy": "d748281a-6e54-46a4-8f5f-f61110034a71"
+  }
+}
+
+docs {
+  ### Create Tracking Record
+  **CRITICAL: This endpoint is for TESTING PURPOSES ONLY.**
+  
+  In production, tracking records should be generated automatically by the backend when booking statuses change.
+}

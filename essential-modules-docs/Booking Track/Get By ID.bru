@@ -1,0 +1,19 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/booking-track/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Retrieves a single booking tracking record by its UUID.
+}

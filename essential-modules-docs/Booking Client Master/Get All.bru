@@ -10,6 +10,14 @@ get {
   auth: inherit
 }
 
+params:query {
+  page: 1
+  limit: 10
+  ~search: 
+  ~status: 
+  ~userId: 
+}
+
 docs {
-  Retrieves a paginated list of booking client master records.
+  Retrieves a paginated list of booking client master records with optional filters.
 }

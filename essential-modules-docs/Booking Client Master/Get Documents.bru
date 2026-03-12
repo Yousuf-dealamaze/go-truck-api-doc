@@ -1,0 +1,25 @@
+meta {
+  name: Get Documents
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/booking-client-master/:id/documents
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+}
+
+docs {
+  ### Get Documents
+  Get documents for a specific client booking
+}
