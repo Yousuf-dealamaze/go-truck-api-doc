@@ -1,0 +1,22 @@
+meta {
+  name: Export PDF
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/billing-invoice-master/{{invoiceId}}/pdf
+  body: none
+  auth: inherit
+}
+
+vars:pre-request {
+  invoiceId: 
+}
+
+docs {
+  ### Export Invoice PDF
+  Generates and downloads a real TAX-INVOICE PDF for the specified Invoice ID.
+  
+  **Note**: This endpoint requires a valid authentication token and the requester must be authorized to view the invoice (e.g., the owner or a transporter).
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Export PDF
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/client-billing-invoice-master/{{invoiceId}}/pdf
+  body: none
+  auth: inherit
+}
+
+vars:pre-request {
+  invoiceId: 
+}
+
+docs {
+  ### Export Client Invoice PDF
+  Generates and downloads a real TAX-INVOICE PDF for the specified Client Invoice ID.
+  
+  **Note**: Access is restricted to Clients, Client Users, and assigned Transporters.
+}
