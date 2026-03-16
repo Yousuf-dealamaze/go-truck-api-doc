@@ -1,0 +1,11 @@
+meta {
+  name: 5. Get Client Invoice (After Charge)
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/client-billing-invoice-master/{{clientInvoiceId}}
+  body: none
+  auth: inherit
+}

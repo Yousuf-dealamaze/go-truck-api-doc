@@ -1,0 +1,24 @@
+meta {
+  name: Get By Booking ID
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/booking-track/booking/:bookingId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  bookingId: 
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+}
+
+docs {
+  Retrieves a paginated list of tracking records for a specific booking ID.
+}

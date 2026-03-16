@@ -1,0 +1,15 @@
+meta {
+  name: 8. Get Ledgers
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/billing-ledger-master
+  body: none
+  auth: inherit
+}
+
+query {
+  search: {{clientInvoiceId}}
+}

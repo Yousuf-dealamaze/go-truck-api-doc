@@ -1,0 +1,11 @@
+meta {
+  name: 7. Get Client Invoice (After Toll)
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/client-billing-invoice-master/{{clientInvoiceId}}
+  body: none
+  auth: inherit
+}

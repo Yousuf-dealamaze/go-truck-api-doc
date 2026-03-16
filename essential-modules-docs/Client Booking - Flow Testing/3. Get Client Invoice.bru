@@ -1,0 +1,21 @@
+meta {
+  name: 3. Get Client Invoice
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/client-billing-invoice-master
+  body: none
+  auth: inherit
+}
+
+query {
+  clientBookingId: {{clientBookingId}}
+}
+
+script:post-response {
+  if (res.body && res.body.data && res.body.data.rows && res.body.data.rows.length > 0) {
+    bru.setEnvVar("clientInvoiceId", res.body.data.rows[0].id);
+  }
+}

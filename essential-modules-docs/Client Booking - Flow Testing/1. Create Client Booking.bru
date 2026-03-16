@@ -1,0 +1,30 @@
+meta {
+  name: 1. Create Client Booking
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/booking-client-master
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": "90596350-019a-4c9f-8be3-a4c0ca6f6c8d",
+    "vehiclesQuantity": 1,
+    "pickupAddressId": "9ce379fb-d667-44e2-85d4-660afcb60c9a",
+    "dropAddressId": "9ce379fb-d667-44e2-85d4-660afcb60c9a",
+    "clientPricingId": "90596350-019a-4c9f-8be3-a4c0ca6f6c8d",
+    "bookingMode": "Instant",
+    "currencyCode": "SAR",
+    "status": "CREATED"
+  }
+}
+
+script:post-response {
+  if (res.body && res.body.data && res.body.data.id) {
+    bru.setEnvVar("clientBookingId", res.body.data.id);
+  }
+}

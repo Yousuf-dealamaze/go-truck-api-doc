@@ -1,0 +1,22 @@
+meta {
+  name: 6. Add Manual Toll
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/client-billing-invoice-tolls
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "{{clientInvoiceId}}",
+    "tollName": "Road Toll",
+    "countryCode": "SA",
+    "tollAmount": 20.00,
+    "currencyCode": "SAR",
+    "status": "Approved"
+  }
+}

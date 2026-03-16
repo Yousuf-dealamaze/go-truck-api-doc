@@ -1,0 +1,25 @@
+meta {
+  name: 4. Add Manual Charge
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/client-billing-invoice-charges
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "billingInvoiceId": "{{clientInvoiceId}}",
+    "chargesType": "handling",
+    "description": "Port handling fees",
+    "unitRate": 150.00,
+    "quantity": 1,
+    "amount": 150.00,
+    "currencyCode": "SAR",
+    "taxable": true,
+    "status": "Approved"
+  }
+}
