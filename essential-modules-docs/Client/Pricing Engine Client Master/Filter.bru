@@ -1,0 +1,56 @@
+meta {
+  name: Get All Pricing (Filter)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/pricing-engine-client-master/filter
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "page": 1,
+    "limit": 10,
+    "search": "",
+    "regionFrom": "ea1d2de0-029c-423d-8446-df9bc626f0b5",
+    "regionTo": "a26e3279-c0b4-408b-933f-15f3fc15beea"
+  }
+}
+
+docs {
+  ### Filter Client Pricing Rules (POST)
+  Same capability as GET /pricing-engine-client-master but accepts params via request body for complex queries.
+  
+  **Body Parameters:**
+  
+  | Field | Type | Description |
+  |---|---|---|
+  | `page` | number | Page number (default: 1) |
+  | `limit` | number | Records per page (default: 10) |
+  | `search` | string | Search by title, ID, or description |
+  | `status` | boolean | Filter by active status |
+  | `pricingType` | string | `'Platform'` or `'Transporter'` (camelCase) |
+  | `pricing_type` | string | Same as `pricingType`, snake_case alias for UI compatibility |
+  | `transporterId` | uuid | Filter by transporter |
+  | `regionFrom` | string | Exact match on origin region (plain string, e.g. `"Dammam"`) |
+  | `regionTo` | string | Exact match on destination region (plain string) |
+  | `vehicleTypeId` | string | Filter by vehicle type |
+  | `vehicleSizeId` | string | Filter by vehicle size |
+  | `cargoTypeId` | string | Filter by cargo type |
+  | `baseCurrencyCode` | string | Filter by currency code (e.g. `"SAR"`) |
+  | `distanceKm` | number | Triggers price calculation per rule |
+  | `vehicleQty` | number | Vehicle count multiplier (default: 1) |
+  | `qty` | number | Days/trip multiplier (default: 1) |
+  | `sourceCity` | string | Resolves to `regionFrom` via FleetMasterRegion lookup |
+  | `sourceState` | string | Used with `sourceCity` for region resolution |
+  | `sourceCountry` | string | Used with `sourceCity` for region resolution |
+  | `destinationCity` | string | Resolves to `regionTo` |
+  | `destinationState` | string | Used with `destinationCity` |
+  | `destinationCountry` | string | Used with `destinationCity` |
+  
+  > **Note:** `regionFrom` / `regionTo` in the DB are stored as plain strings (city names), not UUIDs.
+  > Use `sourceCity` / `destinationCity` for automatic region resolution.
+}

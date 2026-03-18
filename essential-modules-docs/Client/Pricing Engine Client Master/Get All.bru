@@ -1,0 +1,64 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/pricing-engine-client-master
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~search: 
+  ~sourceCity: RIYADH
+  ~sourceState: 
+  ~sourceCountry: 
+  ~destinationCity: JEDDAH
+  ~destinationState: 
+  ~destinationCountry: 
+  ~distanceKm: 950
+  ~vehicleQty: 1
+  ~qty: 1
+  ~pricing_type: Platform
+  ~pricingType: 
+  ~transporterId: 
+  ~vehicleTypeId: 
+  ~vehicleSizeId: 
+  ~cargoTypeId: 
+  ~baseCurrencyCode: 
+  ~status: 
+}
+
+docs {
+  ### Get All Client Pricing Rules
+  Retrieves a paginated list of client pricing rules. Supports the same filters and calculations as the Standard Pricing Engine.
+
+  **Location Filters (resolved to regionFrom / regionTo internally):**
+  * `sourceCity`, `sourceState`, `sourceCountry`: Resolves to matching `regionFrom` values.
+  * `destinationCity`, `destinationState`, `destinationCountry`: Resolves to matching `regionTo` values.
+
+  **Direct Region Filters:**
+  * `regionFrom` (string): Filter directly by origin region name.
+  * `regionTo` (string): Filter directly by destination region name.
+
+  > **Note:** `regionFrom` and `regionTo` store plain city/region name strings, not UUIDs.
+
+  **Other Filters:**
+  * `search`: Global search across Rule Title, ID, Description, Pricing Type, Routes (From/To), Vehicle/Cargo Types, Currency Code, and Rate Type.
+  * `pricing_type` or `pricingType`: Filter by `'Platform'` or `'Transporter'`.
+  * `transporterId`, `vehicleTypeId`, `vehicleSizeId`, `cargoTypeId`, `baseCurrencyCode`, `status`.
+
+  **Calculation Parameters (optional):**
+  * `distanceKm`: If provided, each rule includes a `calculation` object with full price and tax breakdown.
+  * `vehicleQty`: Multiplier for number of trucks (default: 1).
+  * `qty`: Multiplier for days/trips (default: 1).
+
+  **Response includes:**
+  * `currency`: Joined from CurrencyMaster via `baseCurrencyCode`.
+  * `transporter`: Enriched via metadata.
+  * `uniqueFilters`: Distinct field values for UI dropdowns.
+}

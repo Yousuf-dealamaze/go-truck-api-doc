@@ -1,0 +1,67 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/pricing-engine-client-master
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "pricingRuleTitle": "Sample Client Pricing - Riyadh to Jeddah",
+    "pricingType": "Platform",
+    "transporterId": null,
+    "regionFrom": "Riyadh",
+    "regionTo": "Jeddah",
+    "approxDistance": 950,
+    "description": "Standard pricing for Riyadh to Jeddah route",
+    "vehicleTypeId": null,
+    "vehicleSizeId": null,
+    "cargoTypeId": null,
+    "baseCurrencyCode": "SAR",
+    "buyingRate": 1000,
+    "rateType": "flat",
+    "rateAmount": 200,
+    "sellingRate": 1200,
+    "effectiveDate": "2024-05-18",
+    "expiryDate": "2025-12-31",
+    "forceExpiry": null,
+    "status": true
+  }
+}
+
+docs {
+  ### Create Client Pricing Rule
+
+  Creates a new client pricing rule record.
+
+  > **Note:** `regionFrom` and `regionTo` accept **plain city/region name strings** (e.g. `"Dammam"`, `"Riyadh"`), not UUIDs.
+
+  **Body Parameters:**
+
+  | Field | Type | Required | Description |
+  |---|---|---|---|
+  | `pricingRuleTitle` | string | ✅ | Title of the pricing rule |
+  | `pricingType` | string | ✅ | `'Platform'` or `'Transporter'` |
+  | `transporterId` | uuid | ❌ | Transporter ID (for Transporter type rules) |
+  | `regionFrom` | string | ✅ | Origin city/region name (e.g. `"Riyadh"`) |
+  | `regionTo` | string | ✅ | Destination city/region name (e.g. `"Jeddah"`) |
+  | `approxDistance` | number | ❌ | Approximate distance in KM |
+  | `description` | string | ❌ | Description of the rule |
+  | `vehicleTypeId` | string | ❌ | Vehicle type filter |
+  | `vehicleSizeId` | string | ❌ | Vehicle size filter |
+  | `cargoTypeId` | string | ❌ | Cargo type filter |
+  | `baseCurrencyCode` | string | ✅ | Currency code (e.g. `"SAR"`) — joined to CurrencyMaster |
+  | `buyingRate` | number | ✅ | Cost/buying rate |
+  | `rateType` | string | ✅ | `'flat'` or `'percentage'` |
+  | `rateAmount` | number | ✅ | Additional rate amount |
+  | `sellingRate` | number | ✅ | Selling/final rate |
+  | `effectiveDate` | date | ❌ | When the rule becomes effective |
+  | `expiryDate` | date | ❌ | When the rule expires |
+  | `forceExpiry` | date | ❌ | Override expiry date |
+  | `status` | boolean | ❌ | Active status (default: true) |
+}

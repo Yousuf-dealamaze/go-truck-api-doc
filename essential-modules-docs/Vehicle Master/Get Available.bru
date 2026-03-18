@@ -1,0 +1,30 @@
+meta {
+  name: Get Available
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/vehicle-master/available
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~transporterId: 
+}
+
+docs {
+  ### Get Available Vehicles
+  Retrieves a list of vehicles that are currently marked as **available** and have a **driver allocated** to them.
+  
+  This endpoint performs an integration check with the Auth Service (via gRPC) to fetch driver allocation data and joins it with local vehicle records.
+  
+  **Filters:**
+  * `transporterId` (Optional): Filters results by a specific transporter.
+  
+  **Response Structure:**
+  * `driverInfo`: Details of the allocated driver.
+  * `allocationInfo`: Allocation metadata (vehicle ID, transporter, timing).
+  * `vehicleInfo`: Local vehicle master record.
+}

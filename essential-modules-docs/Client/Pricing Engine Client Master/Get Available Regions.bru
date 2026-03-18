@@ -1,0 +1,46 @@
+meta {
+  name: Get Available Regions
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/pricing-engine-client-master/regions
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~fromRegion: 
+}
+
+docs {
+  ### Get Available Regions
+  Returns all unique origin (`fromRegions`) and destination (`toRegions`) region values stored in the client pricing rules.
+  
+  > **Important:** `regionFrom` and `regionTo` store **plain city/region name strings** (e.g. `"Dammam"`, `"Riyadh"`), not UUIDs.
+  > Passing a UUID as `fromRegion` will not return results.
+  
+  **Query Parameters:**
+  * `fromRegion` (string, optional): If provided, filters the results to only show regions that have a pricing rule originating from this value. Pass the plain region name string (e.g. `"Dammam"`).
+  
+  **How It Works:**
+  1. Reads distinct `regionFrom` and `regionTo` values from the pricing table.
+  2. For string values — looks up `FleetMasterRegion` by `regionName` to get a canonical name.
+  3. For any value not found in `FleetMasterRegion`, the raw stored string is returned as-is.
+  
+  **Response Structure:**
+  ```json
+  {
+    "success": true,
+    "data": {
+      "fromRegions": [
+        { "value": "Dammam", "regionName": "Dammam" }
+      ],
+      "toRegions": [
+        { "value": "Jeddah", "regionName": "Jeddah" }
+      ]
+    }
+  }
+  ```
+}
