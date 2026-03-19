@@ -1,0 +1,45 @@
+meta {
+  name: Dropdown Clubbable
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/client-billing-invoice-master/dropdown/clubbable
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~clientId: ~
+}
+
+docs {
+  ### Dropdown - Clubbable Invoices
+  Returns a lightweight list of all invoices that are not yet assigned to any club
+  (parentInvoiceId is null). Intended for use in dropdowns when selecting invoices to club.
+  
+  Role-based filtering applies — clients only see their own invoices.
+  
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Fetched successfully",
+    "data": [
+      {
+        "id": "inv-uuid-001",
+        "invoiceNumber": "GCINV-000039",
+        "clientId": "client-uuid",
+        "clientBookingId": "booking-uuid",
+        "subtotalAmount": "2000.00",
+        "totalTaxAmount": "300.00",
+        "totalAmount": "2300.00",
+        "status": "Invoice Generated",
+        "invoiceDate": "2026-03-19T00:00:00.000Z"
+      }
+    ]
+  }
+  ```
+}

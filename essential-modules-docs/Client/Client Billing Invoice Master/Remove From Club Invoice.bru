@@ -1,0 +1,49 @@
+meta {
+  name: Remove From Club Invoice
+  type: http
+  seq: 11
+}
+
+delete {
+  url: {{baseUrl}}/client-billing-invoice-master/club/:parentId/remove/:childId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  parentId: parent-invoice-uuid
+  childId: child-invoice-uuid
+}
+
+docs {
+  ### Remove Child From Club Invoice
+  Removes a single child invoice from a clubbed parent invoice.
+  Parent totals are recalculated from the remaining children.
+
+  **Path Parameters:**
+  - `parentId` (UUID, Required): The parent invoice ID.
+  - `childId` (UUID, Required): The child invoice ID to remove.
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Updated successfully",
+    "data": {
+      "parentInvoice": { "id": "parent-uuid", "subtotalAmount": "2300.00", "..." : "..." },
+      "childInvoices": [
+        { "id": "remaining-child-uuid", "parentInvoiceId": "parent-uuid", "..." : "..." }
+      ],
+      "invoiceBreakdown": [
+        { "invoiceId": "remaining-child-uuid", "subtotalAmount": 2000, "totalTaxAmount": 300, "totalAmount": 2300 }
+      ],
+      "finalCalc": {
+        "subtotalAmount": 2000,
+        "totalTaxAmount": 300,
+        "totalAmount": 2300
+      }
+    }
+  }
+  ```
+}

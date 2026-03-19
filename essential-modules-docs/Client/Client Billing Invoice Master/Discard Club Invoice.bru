@@ -1,0 +1,40 @@
+meta {
+  name: Discard Club Invoice
+  type: http
+  seq: 12
+}
+
+delete {
+  url: {{baseUrl}}/client-billing-invoice-master/club/:parentId/discard
+  body: none
+  auth: inherit
+}
+
+params:path {
+  parentId: parent-invoice-uuid
+}
+
+docs {
+  ### Discard Club Invoice
+  Discards an entire clubbed invoice. Unlinks all child invoices (sets their parentInvoiceId to null)
+  and soft deletes the parent invoice. Child invoice amounts are not modified.
+
+  **Path Parameters:**
+  - `parentId` (UUID, Required): The parent invoice ID to discard.
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Deleted successfully",
+    "data": {
+      "discardedParentInvoiceId": "parent-uuid",
+      "unlinkedChildInvoiceIds": [
+        "child-uuid-1",
+        "child-uuid-2"
+      ]
+    }
+  }
+  ```
+}

@@ -1,0 +1,73 @@
+meta {
+  name: Add To Club Invoice
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/client-billing-invoice-master/club/:parentId/add
+  body: json
+  auth: inherit
+}
+
+params:path {
+  parentId: parent-invoice-uuid
+}
+
+body:json {
+  {
+    "invoiceIds": [
+      "uuid-of-new-invoice-1",
+      "uuid-of-new-invoice-2"
+    ]
+  }
+}
+
+docs {
+  ### Add To Club Invoice
+  Adds more child invoices to an existing clubbed parent invoice.
+  The parent invoice totals and breakdown are recalculated to include all children (old + new).
+
+  **Path Parameters:**
+  - `parentId` (UUID, Required): The parent invoice ID to add children to.
+
+  **Body Fields:**
+  - `invoiceIds` (UUID[], Required): Array of at least 1 invoice ID to add as children.
+
+  **Validations:**
+  - Parent must exist and have `parentInvoiceId = null` (is actually a parent)
+  - Each new invoice must have `parentInvoiceId = null` (not already a child)
+
+  **Success Response (200 OK):**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "Updated successfully",
+    "data": {
+      "parentInvoice": {
+        "id": "parent-uuid",
+        "invoiceNumber": "GCINV-000042",
+        "subtotalAmount": "5000.00",
+        "totalTaxAmount": "750.00",
+        "totalAmount": "5750.00"
+      },
+      "childInvoices": [
+        { "id": "old-child-1", "parentInvoiceId": "parent-uuid", "..." : "..." },
+        { "id": "old-child-2", "parentInvoiceId": "parent-uuid", "..." : "..." },
+        { "id": "new-child-1", "parentInvoiceId": "parent-uuid", "..." : "..." }
+      ],
+      "invoiceBreakdown": [
+        { "invoiceId": "old-child-1", "subtotalAmount": 2000, "..." : "..." },
+        { "invoiceId": "old-child-2", "subtotalAmount": 1500, "..." : "..." },
+        { "invoiceId": "new-child-1", "subtotalAmount": 1500, "..." : "..." }
+      ],
+      "finalCalc": {
+        "subtotalAmount": 5000,
+        "totalTaxAmount": 750,
+        "totalAmount": 5750
+      }
+    }
+  }
+  ```
+}

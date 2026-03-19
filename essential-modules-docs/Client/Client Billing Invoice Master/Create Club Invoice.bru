@@ -1,0 +1,64 @@
+meta {
+  name: Create Club Invoice
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/client-billing-invoice-master/club
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "invoiceIds": [
+      "uuid-of-invoice-1",
+      "uuid-of-invoice-2"
+    ]
+  }
+}
+
+docs {
+  ### Club Invoices
+  Clubs multiple client invoices into a single parent invoice.
+  All invoices must belong to the same client and share the same base currency.
+  Minimum 2 invoice IDs required.
+  
+  **Body Fields:**
+  - `invoiceIds` (UUID[], Required): Array of at least 2 client billing invoice IDs to club.
+  
+  **Success Response (201 Created):**
+  ```json
+  {
+    "success": true,
+    "code": 201,
+    "message": "Created successfully",
+    "data": {
+      "parentInvoice": {
+        "id": "parent-uuid",
+        "invoiceNumber": "GCINV-000042",
+        "clientBookingId": null,
+        "clientId": "client-uuid",
+        "subtotalAmount": "3500.00",
+        "totalTaxAmount": "525.00",
+        "totalAmount": "4025.00",
+        "status": "Invoice Generated"
+      },
+      "childInvoices": [
+        { "id": "inv-uuid-001", "parentInvoiceId": "parent-uuid", "..." : "..." },
+        { "id": "inv-uuid-002", "parentInvoiceId": "parent-uuid", "..." : "..." }
+      ],
+      "invoiceBreakdown": [
+        { "invoiceId": "inv-uuid-001", "subtotalAmount": 2000, "totalTaxAmount": 300, "totalAmount": 2300 },
+        { "invoiceId": "inv-uuid-002", "subtotalAmount": 1500, "totalTaxAmount": 225, "totalAmount": 1725 }
+      ],
+      "finalCalc": {
+        "subtotalAmount": 3500,
+        "totalTaxAmount": 525,
+        "totalAmount": 4025
+      }
+    }
+  }
+  ```
+}
