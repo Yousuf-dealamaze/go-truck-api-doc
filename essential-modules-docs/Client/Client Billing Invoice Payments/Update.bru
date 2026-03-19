@@ -15,7 +15,11 @@ params:path {
 }
 
 body:multipart-form {
-  status: Payment Verified
+  paymentMethod: Bank Transfer
   paymentReference: UTR123456789
+  paidAmount: 2932.50
+  currencyCode: SAR
+  paymentDate: 2026-03-19
+  status: Payment Verified
   paymentProof: @file(/path/to/proof.pdf)
 }
