@@ -6,7 +6,7 @@ meta {
 
 patch {
   url: {{baseUrl}}/client-billing-invoice-payments/:id
-  body: json
+  body: multipartForm
   auth: inherit
 }
 
@@ -14,8 +14,8 @@ params:path {
   id: 
 }
 
-body:json {
-  {
-    "status": "Payment Verified"
-  }
+body:multipart-form {
+  status: Payment Verified
+  paymentReference: UTR123456789
+  paymentProof: @file(/path/to/proof.pdf)
 }

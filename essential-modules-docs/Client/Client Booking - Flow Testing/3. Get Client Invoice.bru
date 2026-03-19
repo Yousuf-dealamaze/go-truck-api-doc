@@ -5,12 +5,12 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/client-billing-invoice-master
+  url: {{baseUrl}}/client-billing-invoice-master?clientBookingId={{clientBookingId}}
   body: none
   auth: inherit
 }
 
-query {
+params:query {
   clientBookingId: {{clientBookingId}}
 }
 

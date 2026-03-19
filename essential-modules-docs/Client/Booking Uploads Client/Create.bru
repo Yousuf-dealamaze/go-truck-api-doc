@@ -6,14 +6,23 @@ meta {
 
 post {
   url: {{baseUrl}}/booking-uploads-client
-  body: json
+  body: multipartForm
   auth: inherit
 }
 
-body:json {
-  {
-    "clientBookingId": "YOUR_CLIENT_BOOKING_ID",
-    "docUploadType": "Truck Load Pics",
-    "docUploadFile": ["file1.jpg", "file2.jpg"]
-  }
+body:multipart-form {
+  clientBookingId: b6d4eb23-580c-40a9-b863-ab3a52f38e9a
+  docUploadType: Truck Load Pics
+  files: @file()
+}
+
+docs {
+  Creates a new client booking upload record with file upload.
+
+  **Body Parameters (multipart/form-data):**
+  * `clientBookingId` (uuid, required): ID of the client booking.
+  * `docUploadType` (string, required): Type of document uploaded.
+  * `files` (file, required): The document file(s) to upload. Multiple files can be uploaded using the same field name 'files'.
+
+  **Note:** After upload, file paths are stored as an array in `docUploadFile` field automatically.
 }

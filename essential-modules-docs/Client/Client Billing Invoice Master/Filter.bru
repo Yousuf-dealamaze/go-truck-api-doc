@@ -14,17 +14,22 @@ body:json {
   {
     "page": 1,
     "limit": 10,
-    "status": "Invoice Generated",
-    "clientId": ""
+    "search": "",
+    "status": "",
+    "clientId": "",
+    "clientBookingId": ""
   }
 }
 
 docs {
   ### Filter Client Invoices
   Search and filter through the master list of client invoices.
-  
-  #### Filters:
-  - `status`: Filter by invoice lifecycle state (e.g., 'Invoice Generated').
-  - `clientId`: Specific client owner of the invoice.
-}
 
+  #### Filters:
+  - `page` (number, optional): Page number for pagination.
+  - `limit` (number, optional): Number of items per page.
+  - `search` (string, optional): Search by invoice ID or number.
+  - `status` (string, optional): Filter by invoice status (any string, e.g. 'Invoice Generated', 'Cancelled').
+  - `clientId` (uuid, optional): Filter by client ID.
+  - `clientBookingId` (uuid, optional): Filter by client booking ID.
+}

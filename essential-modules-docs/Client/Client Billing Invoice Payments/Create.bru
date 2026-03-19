@@ -6,20 +6,18 @@ meta {
 
 post {
   url: {{baseUrl}}/client-billing-invoice-payments
-  body: json
+  body: multipartForm
   auth: inherit
 }
 
-body:json {
-  {
-    "billingInvoiceId": "YOUR_INVOICE_ID",
-    "paymentMethod": "Bank Transfer",
-    "paymentReference": "UTR123456789",
-    "paidAmount": 345.00,
-    "companyBankId": "BANK_UUID",
-    "currencyCode": "SAR",
-    "paymentDate": "2026-03-06",
-    "paymentProof": ["path/to/proof.pdf"],
-    "status": "Payment Received"
-  }
+body:multipart-form {
+  billingInvoiceId: ee82e7f3-2aa4-4092-a933-703adf04c4ec
+  paymentMethod: Bank Transfer
+  paymentReference: UTR123456789
+  paidAmount: 345.00
+  companyBankId: ee82e7f3-2aa4-4092-a933-703adf04c4ec
+  currencyCode: SAR
+  paymentDate: 2026-03-06
+  status: Payment Received
+  paymentProof: @file(C:\Users\DELL\OneDrive\Documents\MEGA\Desktop Sync\Documents\AirtelReceipt.pdf)
 }
