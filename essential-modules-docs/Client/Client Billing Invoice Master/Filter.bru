@@ -30,7 +30,12 @@ docs {
   - `page` (number, optional): Page number for pagination.
   - `limit` (number, optional): Number of items per page.
   - `search` (string, optional): Search by invoice ID or number.
-  - `status` (string, optional): Filter by invoice status (any string, e.g. 'Invoice Generated', 'Cancelled').
+  - `status` (string, optional): Filter by invoice status (e.g. 'Invoice Generated', 'Cancelled').
   - `clientId` (uuid, optional): Filter by client ID.
   - `clientBookingId` (uuid, optional): Filter by client booking ID.
+  - `clubFilter` (string, optional): Filter by club status. Accepted values:
+    - `"clubbed"` — Returns only parent club invoices (parentInvoiceId is null + marked as clubbed). These are the consolidated invoices created by the club endpoint.
+    - `"free"` — Returns only standalone invoices that are not part of any club (not a parent, not a child).
+    - `"children"` — Returns only child invoices that have been assigned to a parent club (parentInvoiceId is not null).
+    - omit / empty — Returns all invoices regardless of club status (default).
 }
