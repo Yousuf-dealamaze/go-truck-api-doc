@@ -1,0 +1,26 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/client-billing-invoice-payments/stats/dashboard
+  body: none
+  auth: inherit
+}
+
+docs {
+  Returns dashboard statistics for client billing invoice payments.
+  
+  **Access:** super_admin and admin only.
+  
+  **Response includes:**
+  * `totals.totalPayments` - Total number of payments
+  * `totals.totalPaidAmount` - Sum of all paid amounts
+  * `statusBreakdown` - Count and total amount grouped by payment status
+  * `methodBreakdown` - Count and total amount grouped by payment method (Bank Transfer, Online, Ledger Folio)
+  * `currencyBreakdown` - Count and total amount grouped by currency code
+  * `monthlyTrend` - Monthly count and total amount for the last 12 months
+  * `recentPayments` - Last 5 payments with invoice details
+}

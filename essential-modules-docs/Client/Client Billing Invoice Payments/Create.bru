@@ -21,3 +21,24 @@ body:multipart-form {
   status: Payment Received
   paymentProof: @file(C:\Users\DELL\OneDrive\Documents\MEGA\Desktop Sync\Documents\AirtelReceipt.pdf)
 }
+
+docs {
+  Creates a new client billing invoice payment.
+  
+  **Note:** Only parent invoices (parentInvoiceId = null) are allowed. Child/credit-note invoices cannot receive payments.
+  
+  **Status Values & Side Effects:**
+  * `Payment Received` — Records that payment has been received. Automatically updates the linked invoice status to Payment Received.
+  * `Payment Verified` — Records that payment has been verified. Automatically updates the linked invoice status to Payment Verified.
+  
+  **Body Parameters (multipart/form-data):**
+  * `billingInvoiceId` (uuid, required): ID of the parent invoice.
+  * `paymentMethod` (string, required): One of 'Bank Transfer', 'Online', 'Ledger Folio'.
+  * `paymentReference` (string, optional): UTR or reference number.
+  * `paidAmount` (number, required): Amount paid.
+  * `companyBankId` (uuid, optional): Company bank account ID.
+  * `currencyCode` (string, required): Currency code (e.g., SAR).
+  * `paymentDate` (date, optional): ISO date of payment.
+  * `status` (string, optional): Payment status. See Status Values above.
+  * `paymentProof` (file, optional): Proof of payment file.
+}

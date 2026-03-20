@@ -23,3 +23,21 @@ body:multipart-form {
   status: Payment Verified
   paymentProof: @file(/path/to/proof.pdf)
 }
+
+docs {
+  Updates an existing client billing invoice payment.
+  
+  **Status Values & Side Effects:**
+  * `Payment Received` — Marks payment as received. Automatically updates the linked invoice status to Payment Received.
+  * `Payment Verified` — Marks payment as verified. Automatically updates the linked invoice status to Payment Verified.
+  
+  **Body Parameters (multipart/form-data):**
+  * `paymentMethod` (string, optional): One of 'Bank Transfer', 'Online', 'Ledger Folio'.
+  * `paymentReference` (string, optional): UTR or reference number.
+  * `paidAmount` (number, optional): Amount paid.
+  * `companyBankId` (uuid, optional): Company bank account ID.
+  * `currencyCode` (string, optional): Currency code.
+  * `paymentDate` (date, optional): ISO date of payment.
+  * `status` (string, optional): Payment status. See Status Values above.
+  * `paymentProof` (file, optional): Proof of payment file.
+}

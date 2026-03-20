@@ -25,7 +25,8 @@ body:json {
     "bookingJsonData": {
         "notes": "Urgent delivery"
     },
-    "status": "CREATED"
+    "status": "CREATED",
+    "cancellationReason": ""
   }
 }
 
@@ -49,4 +50,5 @@ docs {
   * `currencyCode` (string): Currency code.
   * `bookingJsonData` (object): Additional JSON data.
   * `status` (string): Initial status (defaults to 'CREATED').
+  * `cancellationReason` (string): Reason for cancellation, if applicable.
 }

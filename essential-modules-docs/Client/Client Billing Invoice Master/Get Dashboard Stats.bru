@@ -1,0 +1,43 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{baseUrl}}/client-billing-invoice-master/stats/dashboard
+  body: none
+  auth: inherit
+}
+
+params:query {
+  clubFilter: all
+  clientId: 
+}
+
+docs {
+  Returns dashboard statistics for client billing invoice master.
+  
+  **Access:** super_admin and admin only.
+  
+  **Query Parameters:**
+  * `clubFilter` (string, optional): Filter scope for stats.
+    - `all` (default) — all invoices
+    - `clubbed` — parent clubbed invoices only
+    - `non_clubbed` — standalone invoices (no parent, not a clubbed parent)
+  * `clientId` (uuid, optional): Scope stats to a specific client.
+  
+  **Response includes:**
+  * `appliedFilter` - The filter that was applied
+  * `totals.totalInvoices` - Total invoice count
+  * `totals.totalSubtotal` - Sum of subtotal amounts
+  * `totals.totalTax` - Sum of tax amounts
+  * `totals.totalAmount` - Sum of total amounts
+  * `clubSummary.clubbedParentInvoices` - Count of clubbed parent invoices
+  * `clubSummary.nonClubbedInvoices` - Count of standalone invoices
+  * `clubSummary.childInvoices` - Count of child invoices linked to a parent
+  * `statusBreakdown` - Count and total amount per status
+  * `currencyBreakdown` - Count and total amount per currency
+  * `monthlyTrend` - Monthly count and total amount for last 12 months
+  * `recentInvoices` - Last 5 invoices with booking details
+}

@@ -17,12 +17,18 @@ params:path {
 body:json {
   {
     "status": "CONFIRMED",
-    "poReference": "PO-2024-001-UPDATED"
+    "poReference": "PO-2024-001-UPDATED",
+    "cancellationReason": ""
   }
 }
 
 docs {
   Updates an existing booking client master record.
+  
+  **Status Values & Side Effects:**
+  * `CONFIRMED` — Confirms the booking. Automatically generates a client invoice (status: Invoice Generated).
+  * `DELIVERED` — Marks booking as delivered. Automatically updates the linked invoice status to Invoice Shared.
+  * `CANCELLED` — Cancels the booking. Automatically cancels the linked invoice (status: Invoice Cancelled), rejects all line items, and adds a cancellation charge if configured. Send `cancellationReason` alongside this status.
   
   **Body Parameters:**
   * `userId` (uuid): ID of the user creating the booking.
@@ -40,5 +46,6 @@ docs {
   * `totalAmount` (number): Total amount.
   * `currencyCode` (string): Currency code.
   * `bookingJsonData` (object): Additional JSON data.
-  * `status` (string): Updated status.
+  * `status` (string): Updated status. See Status Values above.
+  * `cancellationReason` (string): Required when status is CANCELLED.
 }
