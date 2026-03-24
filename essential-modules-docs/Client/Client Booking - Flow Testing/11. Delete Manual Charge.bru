@@ -1,0 +1,11 @@
+meta {
+  name: 11. Delete Manual Charge
+  type: http
+  seq: 11
+}
+
+delete {
+  url: {{baseUrl}}/client-billing-invoice-charges/{{manualChargeId}}
+  body: none
+  auth: inherit
+}

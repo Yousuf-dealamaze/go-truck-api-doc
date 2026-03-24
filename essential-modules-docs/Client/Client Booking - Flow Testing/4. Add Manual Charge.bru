@@ -23,3 +23,9 @@ body:json {
     "status": "Approved"
   }
 }
+
+script:post-response {
+  if (res.body && res.body.data && res.body.data.id) {
+    bru.setEnvVar("manualChargeId", res.body.data.id);
+  }
+}
