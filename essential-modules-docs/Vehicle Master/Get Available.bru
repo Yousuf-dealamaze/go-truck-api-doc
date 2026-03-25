@@ -12,6 +12,7 @@ get {
 
 params:query {
   ~transporterId: 
+  ~search: 
 }
 
 docs {
@@ -22,6 +23,9 @@ docs {
   
   **Filters:**
   * `transporterId` (Optional): Filters results by a specific transporter.
+  * `search` (Optional): Multi-field search strings. Matches against:
+    - **Vehicle**: `registrationNumber`, `idd`.
+    - **Driver**: `displayName`, `displayId`.
   
   **Response Structure:**
   * `driverInfo`: Details of the allocated driver.

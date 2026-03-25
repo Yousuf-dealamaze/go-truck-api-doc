@@ -1,0 +1,16 @@
+meta {
+  name: Mark as Read
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseUrl}}/notification-user/{{notification_id}}/mark-read
+  body: none
+  auth: none
+}
+
+docs {
+  Marks a specific notification as 'Read'.
+  Ensure `:id` is the UUID of the notification instance you want to update.
+}

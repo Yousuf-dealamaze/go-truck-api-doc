@@ -1,0 +1,30 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/notification-user/all?page=1&limit=20&isRead=false
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 1
+  limit: 20
+  isRead: false
+  ~userId: 550e8400-e29b-41d4-a716-446655440001
+  ~search: welcome
+}
+
+docs {
+  Lists notifications for the authenticated user. 
+  If the requester is an **Admin**, they can optionally pass a `userId` query parameter to view notifications for any user.
+  
+  **Available Filters:**
+  * `page`: Pagination page number (default: 1).
+  * `limit`: Page size (default: 20).
+  * `isRead`: Boolean to filter by read/unread status.
+  * `search`: Searches within `title` and `description`.
+}

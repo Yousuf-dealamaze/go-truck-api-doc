@@ -1,0 +1,68 @@
+meta {
+  name: Get All Nested Data
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/manage-faq-category/all-data?type=Consumer
+  body: none
+  auth: inherit
+}
+
+query {
+  type: Consumer
+}
+
+docs {
+  # Get All Nested FAQ Data
+  
+  This endpoint retrieves a hierarchical list of FAQ categories along with their associated sub-categories and Q&A pairs.
+  
+  ### Search Parameters
+  - `type`: (Required) Filter by audience type. Possible values: `Consumer`, `Transporter`, `Partner`.
+  - `status`: (Optional) Filter by status. Defaults to `active`.
+  
+  ### Dummy Response
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "FAQ data fetched successfully",
+    "data": [
+      {
+        "id": "main-cat-uuid",
+        "categoryTitle": "General Questions",
+        "categoryCode": "FC0001",
+        "type": "Consumer",
+        "status": "active",
+        "faqQas": [
+          {
+            "id": "qa-1-uuid",
+            "faqQuestion": "How do I reset my password?",
+            "faqAnswer": "Go to settings...",
+            "sequence": 1
+          }
+        ],
+        "childCategories": [
+          {
+            "id": "sub-cat-uuid",
+            "categoryTitle": "Account Security",
+            "categoryCode": "FC0002",
+            "status": "active",
+            "faqQas": [
+              {
+                "id": "qa-2-uuid",
+                "faqQuestion": "What is 2FA?",
+                "faqAnswer": "Two-factor authentication...",
+                "sequence": 1
+              }
+            ],
+            "childCategories": []
+          }
+        ]
+      }
+    ]
+  }
+  ```
+}

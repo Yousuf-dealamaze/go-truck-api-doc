@@ -1,0 +1,34 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/notification-user/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userId": "550e8400-e29b-41d4-a716-446655440001",
+    "notificationId": "550e8400-e29b-41d4-a716-446655440002",
+    "title": "Welcome to GoTruks",
+    "description": "Your account has been successfully created."
+  }
+}
+
+docs {
+  Creates a new in-app notification for a specific user.
+  
+  **Required Fields:**
+  * `userId`: UUID of the recipient user.
+  * `title`: Header text for the notification.
+  
+  **Optional Fields:**
+  * `notificationId`: Link to a specific notification template.
+  * `description`: Detailed body text.
+  * `jsonMetadata`: JSON object for extra contextual data.
+  * `status`: Custom status string (e.g., 'sent', 'queued').
+}

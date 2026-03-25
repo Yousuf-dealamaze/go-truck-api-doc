@@ -1,0 +1,16 @@
+meta {
+  name: Mark All as Read
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/notification-user/mark-all-read
+  body: none
+  auth: none
+}
+
+docs {
+  Bulk marks every notification for the authenticated user as 'Read'.
+  No request body is required as it uses the `user.id` from the session.
+}

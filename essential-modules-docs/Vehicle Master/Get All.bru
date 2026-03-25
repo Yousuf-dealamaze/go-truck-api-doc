@@ -11,14 +11,24 @@ get {
 }
 
 params:query {
-  page: 1
-  limit: 10
+  ~page: 1
+  ~limit: 
   ~search: 
   ~status: 
   ~filterByTransporterId: 
 }
 
 docs {
-  Retrieves all vehicles with pagination and optional filters.
+  Retrieves a list of vehicles.
+  
+  **Dynamic Pagination:**
+  * If `limit` is provided: Returns a paginated object with `rows` and `paging` metadata.
+  * If `limit` is absent: Returns a raw array of all matching records.
+  
+  **Filters:**
+  * `page` / `limit`: Optional pagination.
+  * `search`: Searches across registration number, model, make, vin, and type.
+  * `status`: Filter by 'active' or 'inactive'.
+  * `filterByTransporterId`: Filter vehicles belonging to a specific transporter.
 }
 

@@ -1,0 +1,27 @@
+meta {
+  name: Get Unread Count
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/notification-user/unread-count
+  body: none
+  auth: none
+}
+
+docs {
+  Returns the total number of unread notifications for the currently logged-in user.
+  
+  **Response Example:**
+  ```json
+  {
+    "success": true,
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+      "unreadCount": 5
+    }
+  }
+  ```
+}
