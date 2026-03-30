@@ -13,6 +13,9 @@ get {
 params:query {
   ~transporterId: 
   ~search: 
+  ~vehicleType: 
+  ~vehicleSize: 
+  ~vehicleCargo: 
 }
 
 docs {
@@ -23,9 +26,13 @@ docs {
   
   **Filters:**
   * `transporterId` (Optional): Filters results by a specific transporter.
+  * `vehicleType` (Optional): Filters by vehicle type.
+  * `vehicleSize` (Optional): Filters by vehicle size ID.
+  * `vehicleCargo` (Optional): Filters by cargo type ID.
   * `search` (Optional): Multi-field search strings. Matches against:
-    - **Vehicle**: `registrationNumber`, `idd`.
-    - **Driver**: `displayName`, `displayId`.
+    - **Vehicle**: `registrationNumber`, `idd` (Ref ID), `model`, `make`, `vin`.
+    - **Driver**: `displayName` (Driver Name), `displayId`, `idd`.
+    - **Transporter**: `legalName`, `displayName`, `displayId`, `idd`.
   
   **Response Structure:**
   * `driverInfo`: Details of the allocated driver.
