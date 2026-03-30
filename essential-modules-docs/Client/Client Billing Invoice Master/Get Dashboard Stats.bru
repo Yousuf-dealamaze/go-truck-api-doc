@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/client-billing-invoice-master/stats/dashboard
+  url: {{baseUrl}}/client-billing-invoice-master/stats/dashboard?clubFilter=all&clientId=&view=final
   body: none
   auth: inherit
 }
@@ -13,6 +13,7 @@ get {
 params:query {
   clubFilter: all
   clientId: 
+  view: final
 }
 
 docs {
@@ -21,7 +22,9 @@ docs {
   **Access:** super_admin and admin only.
   
   **Query Parameters:**
-  * `clubFilter` (string, optional): Filter scope for stats.
+  * `view` (string, optional): Special layout for stats.
+    - `final` — Only shows parent/standalone invoices (parentInvoiceId is null) and restricts the `statusBreakdown` to: Approved, Payment Received, Payment Verified, and Completed.
+  * `clubFilter` (string, optional): Filter scope for stats (Ignored if `view=final`).
     - `all` (default) — all invoices
     - `clubbed` — parent clubbed invoices only
     - `non_clubbed` — standalone invoices (no parent, not a clubbed parent)

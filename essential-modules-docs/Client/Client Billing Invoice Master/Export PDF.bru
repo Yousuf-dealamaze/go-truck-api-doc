@@ -11,12 +11,16 @@ get {
 }
 
 vars:pre-request {
-  invoiceId: 2409b13b-9682-4209-bbee-a43e0e08e0ad
+  invoiceId: 2cbdd912-2691-429e-8be2-bb72f6d2f626
 }
 
 docs {
-  ### Export Client Invoice PDF
-  Generates and downloads a real TAX-INVOICE PDF for the specified Client Invoice ID.
+  ### Export Client Invoice PDF Metadata
+  Returns the snapshot details of the generated PDF, including the public `fullURLPath`. 
+  
+  **One-Time Generation**:
+  - First call: Generates the PDF, stores it on the server, and returns the path/URL.
+  - Subsequent calls: Instantaneously returns the cached metadata and URL.
   
   **Note**: Access is restricted to Clients, Client Users, and assigned Transporters.
 }

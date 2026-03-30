@@ -18,7 +18,8 @@ body:json {
     "status": "",
     "clientId": "",
     "clientBookingId": "",
-    "clubFilter": ""
+    "clubFilter": "",
+    "view": ""
   }
 }
 
@@ -33,6 +34,7 @@ docs {
   - `status` (string, optional): Filter by invoice status (e.g. 'Drafted', 'In Preparation', 'Under Review', 'Approved', 'Completed', 'Invoice Cancelled').
   - `clientId` (uuid, optional): Filter by client ID.
   - `clientBookingId` (uuid, optional): Filter by client booking ID.
+  - `view` (string, optional): Use `"final"` to show only top-level parent/standalone invoices (parentInvoiceId is null).
   - `clubFilter` (string, optional): Filter by club status. Accepted values:
     - `"clubbed"` — Returns only parent club invoices (parentInvoiceId is null + marked as clubbed). These are the consolidated invoices created by the club endpoint.
     - `"free"` — Returns only standalone invoices that are not part of any club (not a parent, not a child).

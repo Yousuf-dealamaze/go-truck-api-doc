@@ -11,7 +11,7 @@ patch {
 }
 
 params:path {
-  id: 
+  id: a86b5aa2-d5d9-42e1-a9bf-b0b9f482ce5a
 }
 
 body:json {
@@ -25,10 +25,10 @@ body:json {
 
 docs {
   Updates an existing FAQ category.
-
+  
   **Path Parameters:**
   * `id` (uuid): The UUID of the FAQ category.
-
+  
   **Body Parameters:**
   * `categoryTitle` (string): Title of the FAQ category (optional).
   * `parentCategoryId` (uuid): Parent category identifier (optional).
@@ -37,4 +37,3 @@ docs {
   * `sequence` (number): Display order (optional).
   * `status` (enum): Status ('active', 'inactive') (optional).
 }
-

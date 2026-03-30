@@ -1,0 +1,18 @@
+meta {
+  name: Batch Update Status
+  type: http
+  seq: 14
+}
+
+patch {
+  url: {{baseUrl}}/client-billing-invoice-master/batch/status
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "status": "Approved",
+    "invoiceIds": ["uuid-1", "uuid-2"]
+  }
+}
