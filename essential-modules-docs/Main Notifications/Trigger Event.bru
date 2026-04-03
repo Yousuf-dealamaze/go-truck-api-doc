@@ -1,0 +1,63 @@
+meta {
+  name: Trigger Event
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/notifications/trigger-event
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "eventCode": "BOOKING_CREATED",
+    "bookingId": "550e8400-e29b-41d4-a716-446655440000",
+    "customData": {
+      "remark": "Urgent Booking"
+    }
+  }
+}
+
+docs {
+  ## Universal Event Trigger
+  This endpoint allows you to manually trigger any notification event from any module.
+  
+  ### 1. Booking Events (Resolves Client, Driver, Transporter)
+  Use **bookingId**.
+  - **BOOKING_CREATED**, **BOOKING_CONFIRMED**, **BOOKING_ASSIGNED**, **DELIVERED**, **BOOKING_COMPLETED**, etc.
+  ```json
+  {
+    "eventCode": "BOOKING_CREATED",
+    "bookingId": "YOUR_BOOKING_UUID",
+    "customData": { "remark": "Urgent" }
+  }
+  ```
+  
+  ### 2. Support / Enquiry Events (Resolves User, Admin)
+  Use **ticketId**.
+  - **TICKET_OPEN**, **TICKET_RESOLVED**, **ENQUIRY_SUBMITTED**, etc.
+  ```json
+  {
+    "eventCode": "TICKET_OPEN",
+    "ticketId": "YOUR_TICKET_UUID",
+    "customData": { "subject": "Delay" }
+  }
+  ```
+  
+  ### 3. Account / Wallet / Payment (Resolves User)
+  Use **userId**.
+  - **User_REGISTERED**, **User_APPROVED**, **WALLET_CREDITED**, **PAYMENT_SUCCESS**, etc.
+  ```json
+  {
+    "eventCode": "User_REGISTERED",
+    "userId": "YOUR_USER_UUID",
+    "customData": { "welcomeMessage": "Hello!" }
+  }
+  ```
+  
+  ---
+  **Dynamic Data (`customData`):**
+  You can pass any key-value pairs in `customData` and they will be available as variables (e.g. `{{remark}}`) in the notification templates.
+}

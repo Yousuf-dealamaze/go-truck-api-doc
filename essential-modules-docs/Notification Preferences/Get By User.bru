@@ -1,0 +1,33 @@
+meta {
+  name: Get By User
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/notification-preferences/user/:userId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~category: 
+  ~page: 1
+  ~limit: 10
+}
+
+params:path {
+  userId: 
+}
+
+docs {
+  Retrieves notification preferences for a specific user with category filtering and optional pagination.
+  
+  **Path Parameters:**
+  * `userId` (UUID, required): The ID of the user whose preferences to retrieve.
+  
+  **Query Parameters:**
+  * `category` (string, optional): Filter by notification category name (e.g., 'Booking', 'Auth').
+  * `page` (number, optional): Page number (if provided with limit).
+  * `limit` (number, optional): Items per page (if provided with page).
+}

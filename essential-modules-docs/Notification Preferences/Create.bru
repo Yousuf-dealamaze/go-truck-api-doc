@@ -7,7 +7,7 @@ meta {
 post {
   url: {{baseUrl}}/notification-preferences/create
   body: json
-  auth: none
+  auth: inherit
 }
 
 body:json {
@@ -16,7 +16,6 @@ body:json {
     "eventId": "34cb488c-7d0b-4a48-bf6b-03b5c245757b",
     "channelType": "email",
     "isEnabled": true,
-    "isMandatory": false,
     "status": "active"
   }
 }
@@ -31,7 +30,6 @@ docs {
   
   **Optional Fields:**
   * `isEnabled`: Whether the notification is enabled (default: true)
-  * `isMandatory`: Whether the notification is mandatory (default: false)
   * `status`: 'active' or 'inactive'
 }
 

@@ -1,0 +1,20 @@
+meta {
+  name: Get By Booking Code
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/booking-track/booking-code/:bookingCode
+  body: none
+  auth: inherit
+}
+
+params:path {
+  bookingCode: BK-FINAL-1774873481650-3
+}
+
+docs {
+  Retrieves a booking and its tracking history by its booking code.
+  The response includes booking details, allocations (enriched with driver data), and tracking logs.
+}

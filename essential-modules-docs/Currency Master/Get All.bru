@@ -13,6 +13,8 @@ get {
 params:query {
   ~status: active
   ~search: USD
+  ~page: 1
+  ~limit: 10
 }
 
 docs {
@@ -21,5 +23,7 @@ docs {
   **Query Parameters:**
   * `status` (optional): Filter by status ('active'/'inactive').
   * `search` (optional): Search by code, name, country, or region.
+  * `page` (optional): Page number (only applied if limit is also provided).
+  * `limit` (optional): Items per page (only applied if page is also provided).
 }
 

@@ -1,0 +1,43 @@
+meta {
+  name: Bulk Update
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{baseUrl}}/notification-preferences/bulk-update
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "filter": {
+      "eventCode": "USER_REGISTRATION",
+      "category": "AUTH",
+      "userIds": ["550e8400-e29b-41d4-a716-446655440000"],
+      "channelType": "email"
+    },
+    "changes": {
+      "isEnabled": true,
+      "status": "active"
+    }
+  }
+}
+
+docs {
+  Updates notification preferences in bulk for one or more users based on a filter.
+  
+  **Filter Object (`filter`):**
+  * `eventCode` (string, optional): The unique code of the event.
+  * `category` (string, optional): The name of the notification category.
+  * **Note**: At least one of `eventCode` or `category` must be provided.
+  * `channelType` (string, required): 'email', 'sms', 'push', etc.
+  * `userIds` (array, optional): List of user UUIDs. 
+    * If omitted, updates are applied only to the authenticated user from the token.
+    * If provided, requester must be `admin`, `super admin`, or `transporter`.
+  
+  **Changes Object (`changes`):**
+  * `isEnabled` (boolean, optional): If the preference is active (default: true).
+  * `status` (string, optional): 'active' or 'inactive' (default: 'active').
+}

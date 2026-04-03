@@ -7,19 +7,26 @@ meta {
 get {
   url: {{baseUrl}}/notification-preferences/all
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {
+  ~userId: 
+  ~eventId: 
+  ~category: 
+  ~status: active
   ~page: 1
   ~limit: 10
 }
 
 docs {
-  Retrieves all notification preferences with pagination.
+  Retrieves all notification preferences.
   
   **Query Parameters:**
-  * `page` (number, optional): Page number (default: 1)
-  * `limit` (number, optional): Items per page (default: 10)
+  * `userId` (optional): Filter by direct user ID.
+  * `eventId` (optional): Filter by direct event ID.
+  * `category` (optional): Search by notification category name (e.g., 'Booking', 'Auth').
+  * `status` (optional): 'active' or 'inactive'.
+  * `page` (optional): Page number (only applied if limit is also provided).
+  * `limit` (optional): Items per page (only applied if page is also provided).
 }
-

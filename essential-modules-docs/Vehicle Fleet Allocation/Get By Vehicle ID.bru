@@ -1,0 +1,35 @@
+meta {
+  name: Get By Vehicle ID
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/vehicle-fleet-allocation/vehicle/:vehicleId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+  ~search: 
+  ~status: 
+}
+
+params:path {
+  vehicleId: 
+}
+
+docs {
+  Retrieves a list of fleet allocations for a specific vehicle.
+  
+  **Role-Based Access Control (RBAC):**
+  * **Admin / Super Admin**: Can view all allocations.
+  * **Transporter / Driver**: Automatically restricted to viewing allocations within their own transporter's fleet.
+  
+  **Filters:**
+  * `page` / `limit`: Optional pagination.
+  * `search`: Searches across vehicle registration, type, fleet name, etc.
+  * `status`: Filter by 'active' or 'inactive'.
+}

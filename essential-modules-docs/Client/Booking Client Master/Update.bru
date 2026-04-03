@@ -18,7 +18,8 @@ body:json {
   {
     "status": "CONFIRMED",
     "poReference": "PO-2024-001-UPDATED",
-    "cancellationReason": ""
+    "cancellationReason": "",
+    "note": "Updated notes"
   }
 }
 
@@ -48,4 +49,5 @@ docs {
   * `bookingJsonData` (object): Additional JSON data.
   * `status` (string): Updated status. See Status Values above.
   * `cancellationReason` (string): Required when status is CANCELLED.
+  * `note` (string): Additional notes for the booking.
 }

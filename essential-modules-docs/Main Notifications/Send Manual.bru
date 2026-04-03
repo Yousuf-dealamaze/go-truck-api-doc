@@ -1,0 +1,35 @@
+meta {
+  name: Send Manual
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/notifications/send
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "userType": "CLIENT_CONSUMER",
+    "templateId": "34cb488c-7d0b-4a48-bf6b-03b5c245757b",
+    "data": {
+      "bookingCode": "GT-12345",
+      "status": "CONFIRMED"
+    }
+  }
+}
+
+docs {
+  Manually queues a specific notification template for a specific user.
+  
+  **Required Fields:**
+  * `userId`: UUID of the recipient user
+  * `userType`: One of 'CLIENT_CONSUMER', 'DRIVER', 'TRANSPORTER', 'ADMIN'
+  * `templateId`: UUID of the notification template to send
+  
+  **Optional Fields:**
+  * `data`: Dynamic data to fill the template variables
+}

@@ -21,14 +21,19 @@ params:query {
 docs {
   Retrieves a list of vehicles.
   
+  **Role-Based Access Control (RBAC):**
+  * **Admin / Super Admin**: Can view all vehicles and manually use `filterByTransporterId`.
+  * **Transporter**: Automatically restricted to viewing their own vehicles (`transporterId` matches their authenticated user ID).
+  * **Driver**: Automatically restricted to vehicles in their associated transporter's fleet (verified via gRPC lookup).
+  
   **Dynamic Pagination:**
-  * If `limit` is provided: Returns a paginated object with `rows` and `paging` metadata.
+  * If `limit` is provided: Returns a paged object with `rows` and `paging` metadata.
   * If `limit` is absent: Returns a raw array of all matching records.
   
   **Filters:**
   * `page` / `limit`: Optional pagination.
   * `search`: Searches across registration number, model, make, vin, and type.
   * `status`: Filter by 'active' or 'inactive'.
-  * `filterByTransporterId`: Filter vehicles belonging to a specific transporter.
+  * `filterByTransporterId`: Filter vehicles belonging to a specific transporter (available to Admins).
 }
 

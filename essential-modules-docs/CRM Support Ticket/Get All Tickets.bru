@@ -17,15 +17,19 @@ params:query {
   ~status: open
   ~priority: high
   ~ticketType: Booking Issue
+  ~bookingId: 
 }
 
 docs {
   Retrieves a list of CRM support tickets with pagination and filters.
   
+  **Returns:**
+  * Support Ticket details including associated **Category**, **Sub-Category**, and **Booking** details.
+
   **Query Parameters:**
   * `page`, `limit`: Pagination
   * `status`, `priority`, `ticketType`, `assignTo`, `bookingId`, `transporterId`: Filters
   * `issueCategory`, `issueSubCategory`: Direct category/sub-category filters
-  * `search`: Generic search (ticketId, subject, description, category, sub-category)
+  * `search`: Generic search (ticketId, subject, description)
 }
 
