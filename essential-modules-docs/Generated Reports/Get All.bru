@@ -1,0 +1,23 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/generated-reports/all
+  body: none
+  auth: inherit
+}
+
+docs {
+  Retrieves all generated reports with pagination.
+  
+  **Query Parameters:**
+  * `page` (number, optional): Page number (default: 1)
+  * `limit` (number, optional): Items per page (default: 20)
+  * `search` (string, optional): Search by report_name or report_type
+  * `status` (string, optional): Filter by status ('downloaded' | 'generated' | 'expired')
+  * `report_type` (string, optional): Filter by report type
+  * `generatedBy` (string, optional): Filter by generator
+}

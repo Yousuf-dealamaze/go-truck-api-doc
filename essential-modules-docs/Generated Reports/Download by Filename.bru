@@ -1,0 +1,27 @@
+meta {
+  name: Download by Filename
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/generated-reports/download/:filename
+  body: none
+  auth: inherit
+}
+
+params:path {
+  filename: booking_summary_1748234567890.xlsx
+}
+
+docs {
+  Downloads a generated report file by its filename.
+
+  **Path Parameters:**
+  * `filename` (string): Exact filename returned from the create response (e.g. booking_summary_1748234567890.xlsx)
+
+  **Response:**
+  * Streams the file as a downloadable attachment
+  * Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  * Content-Disposition: attachment; filename="<filename>"
+}

@@ -1,0 +1,43 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/generated-reports/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+  //   "format": "excel",
+  //   "report_type": "booking_history",
+  //   "report_name": "Booking History",
+  // //   "fromDate": "2025-01-01T00:00:00.000Z",
+  // //   "toDate": "2025-04-31T00:00:00.000Z",
+  //   "status": "generated"
+    
+    
+    "format": "excel",
+    "report_type": "sales_tax_report",
+    "report_name": "Sales Tax Report",
+  //   "fromDate": "2025-01-01T00:00:00.000Z",
+  //   "toDate": "2025-04-31T00:00:00.000Z",
+    "status": "generated"
+  }
+}
+
+docs {
+  Creates a new generated report record.
+  
+  **Optional Fields:**
+  * `format` (string): Report format (e.g. 'pdf', 'csv')
+  * `report_type` (string): Type of report
+  * `report_name` (string): Name of the report
+  * `generatedBy` (string): User who generated the report
+  * `fromDate` (date): Report date range start
+  * `toDate` (date): Report date range end
+  * `status` (enum): 'downloaded', 'generated', or 'expired' (default: 'generated')
+}

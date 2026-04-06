@@ -1,0 +1,32 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/scheduled-reports/all
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  limit: 10
+  search: 
+  status: 
+  report_type: 
+  frequency: 
+}
+
+docs {
+  Retrieves all scheduled reports with pagination.
+
+  **Query Parameters:**
+  * `page` (number, optional): Page number (default: 1)
+  * `limit` (number, optional): Items per page (default: 20)
+  * `search` (string, optional): Search by report_name or report_type
+  * `status` (string, optional): Filter by status ('active' | 'inactive')
+  * `report_type` (string, optional): Filter by report type
+  * `frequency` (date, optional): Filter by frequency
+}

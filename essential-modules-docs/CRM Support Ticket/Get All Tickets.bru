@@ -7,7 +7,7 @@ meta {
 get {
   url: {{baseUrl}}/crm-support-ticket?page=1&limit=10
   body: none
-  auth: none
+  auth: inherit
 }
 
 params:query {
@@ -25,11 +25,10 @@ docs {
   
   **Returns:**
   * Support Ticket details including associated **Category**, **Sub-Category**, and **Booking** details.
-
+  
   **Query Parameters:**
   * `page`, `limit`: Pagination
   * `status`, `priority`, `ticketType`, `assignTo`, `bookingId`, `transporterId`: Filters
   * `issueCategory`, `issueSubCategory`: Direct category/sub-category filters
   * `search`: Generic search (ticketId, subject, description)
 }
-

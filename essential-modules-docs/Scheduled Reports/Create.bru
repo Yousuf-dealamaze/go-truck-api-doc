@@ -1,0 +1,44 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/scheduled-reports/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userType": "admin",
+    "format": "xlsx",
+    "delivery": "email",
+    "report_type": "sales_tax_report",
+    "report_name": "Weekly Booking Summary",
+    "frequency": "weekly",
+    "fromDate": "2025-01-01T00:00:00.000Z",
+    "toDate": "2025-01-07T00:00:00.000Z",
+    "nextRun": "2025-01-08T00:00:00.000Z",
+    "status": "active"
+  }
+}
+
+docs {
+  Creates a new scheduled report record.
+
+  **Required Fields:**
+  * `userType` (string): Type of user
+  * `report_type` (string): Type of report — 'sales_tax_report', 'booking_history'
+  * `frequency` (enum): 'daily', 'weekly', or 'monthly'
+
+  **Optional Fields:**
+  * `format` (string): File format (e.g. 'xlsx')
+  * `delivery` (string): Delivery method (e.g. 'email')
+  * `report_name` (string): Display name for the report
+  * `fromDate` (date): Report date range start
+  * `toDate` (date): Report date range end
+  * `nextRun` (date): Next scheduled run time
+  * `status` (enum): 'active' or 'inactive' (default: 'active')
+}

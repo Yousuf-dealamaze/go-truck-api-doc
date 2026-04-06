@@ -1,0 +1,22 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/generated-reports/:id/view
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+docs {
+  Retrieves a specific generated report by ID.
+
+  **Path Parameters:**
+  * `id` (UUID): Generated report ID
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/scheduled-reports/:id/update
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+body:json {
+  {
+    "userType": "admin",
+    "report_name": "Updated Weekly Booking Summary",
+    "status": "inactive",
+    "nextRun": "2025-01-15T00:00:00.000Z"
+  }
+}
+
+docs {
+  Updates an existing scheduled report record.
+
+  **Path Parameters:**
+  * `id` (UUID): Scheduled report ID
+
+  **Optional Fields:**
+  * `userType` (string): Type of user
+  * `format`, `delivery`, `report_type`, `report_name`
+  * `frequency`, `fromDate`, `toDate`, `nextRun`
+  * `status` (enum): 'active' or 'inactive'
+}

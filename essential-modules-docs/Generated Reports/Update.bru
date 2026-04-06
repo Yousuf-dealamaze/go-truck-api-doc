@@ -1,0 +1,34 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/generated-reports/:id/update
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 123e4567-e89b-12d3-a456-426614174000
+}
+
+body:json {
+  {
+    "status": "downloaded",
+    "report_name": "Updated January Booking Summary"
+  }
+}
+
+docs {
+  Updates an existing generated report record.
+
+  **Path Parameters:**
+  * `id` (UUID): Generated report ID
+
+  **Optional Fields:**
+  * `format`, `report_type`, `report_name`, `generatedBy`
+  * `fromDate`, `toDate`
+  * `status` (enum): 'downloaded', 'generated', or 'expired'
+}

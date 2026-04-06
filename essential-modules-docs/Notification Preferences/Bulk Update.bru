@@ -13,31 +13,30 @@ patch {
 body:json {
   {
     "filter": {
-      "eventCode": "USER_REGISTRATION",
-      "category": "AUTH",
-      "userIds": ["550e8400-e29b-41d4-a716-446655440000"],
-      "channelType": "email"
+      "events": {
+        "5729acb3-92d3-419d-80d1-7ae61793e1da": {
+          "WEB": true,
+          "APP": false,
+          "SMS": true,
+          "EMAIL": true
+        }
+      }
     },
     "changes": {
-      "isEnabled": true,
       "status": "active"
     }
   }
 }
 
 docs {
-  Updates notification preferences in bulk for one or more users based on a filter.
+  ### **How it works:**
+  This endpoint allows you to update multiple notification preferences for the **authenticated user** in a single call using an event-channel mapping.
   
-  **Filter Object (`filter`):**
-  * `eventCode` (string, optional): The unique code of the event.
-  * `category` (string, optional): The name of the notification category.
-  * **Note**: At least one of `eventCode` or `category` must be provided.
-  * `channelType` (string, required): 'email', 'sms', 'push', etc.
-  * `userIds` (array, optional): List of user UUIDs. 
-    * If omitted, updates are applied only to the authenticated user from the token.
-    * If provided, requester must be `admin`, `super admin`, or `transporter`.
+  1.  **Direct Mapping:** Any channel you explicitly define for an event (e.g., `"EMAIL": true`) will be updated or created accordingly.
+  2.  **Auto-Population:** If an event has system-defined channel templates (e.g., `APP`, `SMS`) that you **omitted** from your request, the system will automatically identify them and create default "Enabled" preferences for them.
+  3.  **User Context:** The `userId` is automatically taken from your access token.
   
-  **Changes Object (`changes`):**
-  * `isEnabled` (boolean, optional): If the preference is active (default: true).
-  * `status` (string, optional): 'active' or 'inactive' (default: 'active').
+  ### **Risks:**
+  *   **Bulk Creation:** If you specify a new `eventId` that the user has never interacted with, the system will create all possible channel records for it at once. 
+  *   **Database Volume:** Large mappings (many events or many channels) will result in multiple database upsert operations. Use specific mappings to avoid unnecessary updates.
 }
