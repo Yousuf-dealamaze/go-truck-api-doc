@@ -14,6 +14,8 @@ body:json {
   {
     "idProof": "ABCDE1234F",
     "idProofType": "PAN",
+    "addressProofExpiryDate": "2026-12-31",
+    "registrationProofExpiryDate": "2027-01-15",
     "description": "Profile update description"
   }
 }
@@ -33,9 +35,11 @@ docs {
   - **addressProof** (string, optional): Address proof details.
   - **addressProofType** (string, optional): Type of address proof.
   - **addressProofDoc** (string, optional): URL to address proof document.
+  - **addressProofExpiryDate** (string, optional): Expiry date for address proof.
   - **registrationProof** (string, optional): Registration proof details.
   - **registrationProofType** (string, optional): Type of registration proof.
   - **registrationProofDoc** (string, optional): URL to registration proof document.
+  - **registrationProofExpiryDate** (string, optional): Expiry date for registration proof.
   - **logoPic** (string, optional): URL to logo image.
   - **displayPic** (string, optional): URL to profile picture.
   - **description** (string, optional): Profile description.

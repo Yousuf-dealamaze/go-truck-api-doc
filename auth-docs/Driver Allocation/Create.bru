@@ -15,7 +15,8 @@ body:json {
     "driverId": "00000000-0000-0000-0000-000000000000",
     "transporterId": "00000000-0000-0000-0000-000000000000",
     "remarks": "Assigned for route A",
-    "status": "assigned"
+    "status": "assigned",
+    "vehicleId": "00000000-0000-0000-0000-000000000000"
   }
 }
 
@@ -29,4 +30,5 @@ docs {
   - **transporterId** (UUID, required)
   - **remarks** (string, optional)
   - **status** (string, optional): `un-assign`, `assigned`, `blocked`, `hold`.
+  - **vehicleId** (UUID, optional)
 }

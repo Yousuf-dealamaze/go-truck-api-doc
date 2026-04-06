@@ -10,13 +10,29 @@ get {
   auth: inherit
 }
 
+params:query {
+  ~page: 1
+  ~limit: 10
+  ~search: 
+  ~driverId: 
+  ~transporterId: 
+  ~status: 
+}
+
 docs {
   # Get All Allocations
   
-  Retrieves list of driver allocations.
+  Retrieves list of driver allocations with search and pagination.
   
   ## Query Params
-  - **driverId** (UUID)
-  - **transporterId** (UUID)
-  - **status** (string)
+  - **page** (number, optional) - Page number (default: 1)
+  - **limit** (number, optional) - Items per page (default: 10)
+  - **search** (string, optional) - Global search across the following:
+    - **Driver ID** (display_id)
+    - **Driver Name** (first_name, last_name)
+    - **Transporter ID** (display_id)
+    - **Company Name** (legal_name)
+  - **driverId** (UUID, optional) - Filter by exact driver UUID
+  - **transporterId** (UUID, optional) - Filter by exact transporter UUID
+  - **status** (string, optional)
 }
