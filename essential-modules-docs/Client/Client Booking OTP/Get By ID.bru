@@ -1,0 +1,19 @@
+meta {
+  name: Get By ID
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/client-booking-otp/:id/view
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  Retrieves a single OTP record by ID, including the associated client booking master details.
+}

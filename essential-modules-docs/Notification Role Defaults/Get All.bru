@@ -11,14 +11,26 @@ get {
 }
 
 params:query {
+  ~eventId: 
+  ~userType: 
+  ~channelType: 
+  ~defaultEnabled: 
+  ~status: active
+  ~search: 
   ~page: 1
   ~limit: 10
 }
 
 docs {
-  Retrieves all notification role defaults with pagination.
+  Retrieves all notification role defaults with optional filters and global search.
   
   **Query Parameters:**
+  * `eventId` (uuid, optional): Filter by event ID
+  * `userType` (string, optional): Filter by user type (e.g., 'ADMIN', 'DRIVER')
+  * `channelType` (string, optional): Filter by channel (e.g., 'EMAIL', 'IN_APP')
+  * `defaultEnabled` (boolean, optional): Filter by default state
+  * `status` (string, optional): Filter by status
+  * `search` (string, optional): Global search by event code or event name
   * `page` (number, optional): Page number (default: 1)
   * `limit` (number, optional): Items per page (default: 10)
 }

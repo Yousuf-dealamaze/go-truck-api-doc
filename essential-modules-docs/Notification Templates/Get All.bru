@@ -11,14 +11,26 @@ get {
 }
 
 params:query {
+  ~eventId: 
+  ~userType: 
+  ~channelType: 
+  ~language: 
+  ~status: active
+  ~search: 
   ~page: 1
   ~limit: 10
 }
 
 docs {
-  Retrieves all notification templates with pagination.
+  Retrieves all notification templates with optional filters and global search.
   
   **Query Parameters:**
+  * `eventId` (optional): Filter by event UUID.
+  * `userType` (optional): Filter by user type (e.g., 'ADMIN', 'CLIENT_CONSUMER').
+  * `channelType` (optional): Filter by channel (e.g., 'EMAIL', 'IN_APP', 'WEB', 'SMS').
+  * `language` (optional): Filter by language (default: 'en').
+  * `status` (optional): 'active' or 'inactive'.
+  * `search` (optional): Global search by event name, code, title, or body template.
   * `page` (number, optional): Page number (default: 1)
   * `limit` (number, optional): Items per page (default: 10)
 }

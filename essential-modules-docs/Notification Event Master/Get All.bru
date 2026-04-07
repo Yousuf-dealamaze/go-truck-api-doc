@@ -11,21 +11,23 @@ get {
 }
 
 params:query {
-  ~page: 1
-  ~limit: 10
   ~status: active
   ~module: BOOKING
   ~categoryId: 
+  ~search: 
+  ~page: 1
+  ~limit: 10
 }
 
 docs {
-  Retrieves all notification events with pagination and filtering.
+  Retrieves all notification events with pagination, filtering, and global search.
   
   **Query Parameters:**
-  * `page` (number, optional): Page number (default: 1)
-  * `limit` (number, optional): Items per page (default: 10)
   * `status` (string, optional): Filter by status ('active', 'inactive')
   * `module` (string, optional): Filter by module name
   * `categoryId` (uuid, optional): Filter by category ID
+  * `search` (string, optional): Global search by event code, name, or category name
+  * `page` (number, optional): Page number (default: 1)
+  * `limit` (number, optional): Items per page (default: 10)
 }
 

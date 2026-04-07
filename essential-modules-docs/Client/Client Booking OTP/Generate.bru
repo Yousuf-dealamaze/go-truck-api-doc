@@ -1,0 +1,22 @@
+meta {
+  name: Generate OTP
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/client-booking-otp/generate
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "clientBookingId": "",
+    "otpType": "DELIVERY"
+  }
+}
+
+docs {
+  Generates a 4-digit OTP for the specified booking and type (PICKUP/DELIVERY) and sends it across all active notification channels.
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Get All
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/client-booking-otp/all
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~clientBookingId: 
+  ~status: active
+  ~otpType: DELIVERY
+  ~search: 
+}
+
+docs {
+  Retrieves a list of OTP records. Supports filtering by clientBookingId, status (active, expired, verified), and otpType (PICKUP/DELIVERY).
+}

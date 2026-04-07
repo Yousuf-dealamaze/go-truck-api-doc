@@ -6,31 +6,35 @@ meta {
 
 post {
   url: {{baseUrl}}/notification-preferences/sync-defaults
-  body: json
+  body: none
   auth: inherit
 }
 
 body:json {
   {
-    "userId": "550e8400-e29b-41d4-a716-446655440000"
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "syncAll": false
   }
 }
 
 docs {
   # Sync Defaults
   
-  This endpoint is used to **repair** a user's notification preferences by populating them with any missing role-based defaults.
+  This endpoint is used to **repair** missing notification preferences system-wide or for a specific user.
+  
+  ### **Usage:**
+  1.  **Global Sync (Admin Only):** Send an **empty body `{}`**. This will scan all users and create missing preferences based on their role defaults.
+  2.  **Single User Sync:** Pass `{"userId": "..."}` in the body.
   
   ### **How it works:**
-  1.  **Diff Check:** It compares the user's current preferences against the system's `Role Defaults` for their specific user type (e.g., DRIVER, TRANSPORTER).
-  2.  **Missing Only:** It only identifies event-channel combinations (e.g., `PAYMENT_SUCCESS` via `SMS`) that are **completely absent** from the user's database records.
-  3.  **Creation:** It creates new preference records for these missing combinations using the default initial state (`defaultEnabled`).
+  1.  **Diff Check:** It compares the target user(s) current records against the system's `Role Defaults`.
+  2.  **Missing Only:** It only creates records for event-channel combinations (e.g., `PAYMENT_SUCCESS` via `SMS`) that are **completely absent** from the database.
+  3.  **Creation:** It initializes these missing records using the default initial state (`defaultEnabled`).
   
   ### **Safety Features:**
-  *   **Skip Existing:** If a user has already configured a preference (even if they've disabled it), this endpoint **will NOT touch or overwrite** it. It preserves all previous user choices.
-  *   **Role Locked:** It automatically uses the user's current system role to find the correct defaults.
+  *   **Skip Existing:** If a user has already configured a preference (even if disabled), this endpoint **will NOT touch or overwrite** it.
+  *   **Batching:** Global sync processes users in batches of 100 to ensure stability.
   
   ### **Risks:**
-  *   **Performance:** If a role has hundreds of defined defaults and it's called for a large number of users simultaneously, it could result in a surge of database writes. However, it is safe for individual user repair.
-  *   **Unintended Notifications:** If new defaults were added recently, this endpoint will immediately enable them for the user (unless the default is set to `Disabled`).
+  *   **Execution Time:** Global sync can take a while if the user base is very large.
 }

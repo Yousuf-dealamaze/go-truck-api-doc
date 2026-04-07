@@ -1,0 +1,23 @@
+meta {
+  name: Verify OTP
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/client-booking-otp/verify
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "clientBookingId": "",
+    "otpType": "DELIVERY",
+    "otpCode": "112211"
+  }
+}
+
+docs {
+  Verifies the OTP code for the specified booking and type. On success, returns 200 OK. Max 3 attempts are allowed before auto-expiration.
+}

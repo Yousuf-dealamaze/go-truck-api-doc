@@ -12,6 +12,8 @@ get {
 
 params:query {
   ~category: 
+  ~channelType: 
+  ~search: 
   ~page: 1
   ~limit: 10
 }
@@ -28,6 +30,8 @@ docs {
   
   **Query Parameters:**
   * `category` (string, optional): Filter by notification category name (e.g., 'Booking', 'Auth').
+  * `channelType` (string, optional): Filter by channel (e.g., 'EMAIL', 'IN_APP', 'WEB', 'SMS').
+  * `search` (string, optional): Global search by event name, code, or channel.
   * `page` (number, optional): Page number (if provided with limit).
   * `limit` (number, optional): Items per page (if provided with page).
 }
