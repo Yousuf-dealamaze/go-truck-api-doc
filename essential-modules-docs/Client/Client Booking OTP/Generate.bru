@@ -18,5 +18,7 @@ body:json {
 }
 
 docs {
-  Generates a 4-digit OTP for the specified booking and type (PICKUP/DELIVERY) and sends it across all active notification channels.
+  Generates a 6-digit randomized secure OTP for the specified booking. 
+  - otpType: 'DELIVERY' (Used to start the delivery process by transitioning status from 'AT_PICKUP' to 'IN_TRANSIT' upon successful verification)
+  - Valid for 10 minutes.
 }

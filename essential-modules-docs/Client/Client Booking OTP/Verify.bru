@@ -20,4 +20,6 @@ body:json {
 
 docs {
   Verifies the OTP code for the specified booking and type. On success, returns 200 OK. Max 3 attempts are allowed before auto-expiration.
+  - otpType: 'DELIVERY' 
+  - Result: On successful verification, the booking status automatically transitions from 'AT_PICKUP' to 'IN_TRANSIT'.
 }
