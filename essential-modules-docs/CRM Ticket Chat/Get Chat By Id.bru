@@ -1,0 +1,15 @@
+meta {
+  name: Get Chat By Id
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/ticket-chat/{{chatId}}
+  body: none
+  auth: none
+}
+
+docs {
+  Fetches a single chat message by ID.
+}

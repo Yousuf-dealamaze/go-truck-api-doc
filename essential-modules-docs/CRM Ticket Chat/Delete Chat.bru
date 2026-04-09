@@ -1,0 +1,15 @@
+meta {
+  name: Delete Chat
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/ticket-chat/{{chatId}}
+  body: none
+  auth: none
+}
+
+docs {
+  Soft-deletes a chat message by ID.
+}

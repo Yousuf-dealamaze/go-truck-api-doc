@@ -1,0 +1,32 @@
+meta {
+  name: Create Chat
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/ticket-chat
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "ticketId": "9f924cbf-9a0e-4de6-bea9-5997d0738405",
+    "userId": "64d6d853-2a0d-45b5-9e29-0d437d05dd41",
+    "type": "user",
+    "message": "Hello, any update on my missing item?",
+    "file": "https://storage.example.com/attachments/missing_item.jpg"
+  }
+}
+
+docs {
+  Creates a new message/chat entry for a support ticket.
+  
+  **Body Parameters:**
+  * `ticketId` (uuid): The ID of the support ticket.
+  * `userId` (uuid): The ID of the sender (user or agent).
+  * `type` (string): 'user' or 'agent'.
+  * `message` (text): The chat message content.
+  * `file` (string): Optional file path or URL for attachment.
+}

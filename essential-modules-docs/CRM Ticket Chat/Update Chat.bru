@@ -1,0 +1,22 @@
+meta {
+  name: Update Chat
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/ticket-chat/{{chatId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "message": "Updated message content.",
+    "file": "new_file_path_here"
+  }
+}
+
+docs {
+  Updates an existing chat message.
+}

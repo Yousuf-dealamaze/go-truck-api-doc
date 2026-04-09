@@ -1,0 +1,21 @@
+meta {
+  name: Get Chats By Ticket Id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/ticket-chat?ticketId=9f924cbf-9a0e-4de6-bea9-5997d0738405
+  body: none
+  auth: none
+}
+
+query {
+  ticketId: 9f924cbf-9a0e-4de6-bea9-5997d0738405
+}
+
+docs {
+  Fetches all chat messages for a specific support ticket.
+  
+  **Note**: This endpoint requires the requester to be authenticated and authorized to access the ticket.
+}
