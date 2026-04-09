@@ -7,7 +7,11 @@ meta {
 get {
   url: {{baseUrl}}/ticket-chat/{{chatId}}
   body: none
-  auth: none
+  auth: inherit
+}
+
+vars:pre-request {
+  chatId: 2cb4b3fd-6570-4a3a-b8c2-b7e97b6dff41
 }
 
 docs {

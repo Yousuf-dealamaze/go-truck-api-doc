@@ -7,21 +7,21 @@ meta {
 post {
   url: {{baseUrl}}/crm-support-ticket
   body: json
-  auth: none
+  auth: inherit
 }
 
 body:json {
   {
-    "bookingId": "9f924cbf-9a0e-4de6-bea9-5997d0738405",
+    "bookingId": "10f53121-ea14-4c90-acc6-efcd3b49b0ca",
     "ticketType": "Booking Issue",
-    "transporterId": "64d6d853-2a0d-45b5-9e29-0d437d05dd41",
+    "transporterId": "7c2ac029-af9f-4516-a3e3-105e6a18401d",
     "priority": "high",
     "issueCategory": "1fd5895d-0f7f-42a9-b659-e8891d4629a3",
     "issueSubCategory": "5d542c75-a5c8-475c-8519-e7d2cc469198",
     "subject": "Incomplete delivery",
     "description": "One item from my booking GTBM0000001 is missing.",
-    "assignTo": "64d6d853-2a0d-45b5-9e29-0d437d05dd41",
-    "createdBy": "64d6d853-2a0d-45b5-9e29-0d437d05dd41"
+    "assignTo": "7c2ac029-af9f-4516-a3e3-105e6a18401d",
+    "createdBy": "7c2ac029-af9f-4516-a3e3-105e6a18401d"
   }
 }
 
@@ -41,4 +41,3 @@ docs {
   * `createdBy` (string): User ID who created the ticket.
   * `status` (enum): 'open', 'in_progress', 'resolved', 'closed', 'cancelled' (default: 'open').
 }
-

@@ -7,13 +7,12 @@ meta {
 post {
   url: {{baseUrl}}/ticket-chat
   body: json
-  auth: none
+  auth: inherit
 }
 
 body:json {
   {
     "ticketId": "9f924cbf-9a0e-4de6-bea9-5997d0738405",
-    "userId": "64d6d853-2a0d-45b5-9e29-0d437d05dd41",
     "type": "user",
     "message": "Hello, any update on my missing item?",
     "file": "https://storage.example.com/attachments/missing_item.jpg"
