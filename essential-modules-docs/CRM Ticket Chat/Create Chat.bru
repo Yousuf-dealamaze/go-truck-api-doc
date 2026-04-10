@@ -6,26 +6,13 @@ meta {
 
 post {
   url: {{baseUrl}}/ticket-chat
-  body: json
+  body: multipartForm
   auth: inherit
 }
 
-body:json {
-  {
-    "ticketId": "9f924cbf-9a0e-4de6-bea9-5997d0738405",
-    "type": "user",
-    "message": "Hello, any update on my missing item?",
-    "file": "https://storage.example.com/attachments/missing_item.jpg"
-  }
-}
-
-docs {
-  Creates a new message/chat entry for a support ticket.
-  
-  **Body Parameters:**
-  * `ticketId` (uuid): The ID of the support ticket.
-  * `userId` (uuid): The ID of the sender (user or agent).
-  * `type` (string): 'user' or 'agent'.
-  * `message` (text): The chat message content.
-  * `file` (string): Optional file path or URL for attachment.
+body:multipart-form {
+  ticketId: e177b72c-56e8-4662-bc22-66d3079e27a8
+  type: USER
+  message: Hello, please see the attachment.
+  file: @file(C:\Users\DELL\Pictures\anurag.jpeg)
 }
