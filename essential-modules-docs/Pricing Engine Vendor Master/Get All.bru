@@ -1,0 +1,32 @@
+meta {
+  name: Get All
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/pricing-engine-vendor-master
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~search: 
+  ~sourceCity: RIYADH
+  ~destinationCity: JEDDAH
+  ~distanceKm: 950
+  ~vehicleQty: 1
+  ~qty: 1
+}
+
+docs {
+  ### Get All Vendor Pricing Rules
+  Retrieves a paginated list of vendor pricing rules.
+  
+  **Calculation Parameters:**
+  - `distanceKm`: Triggers weight-based/distance calculations.
+  - `vehicleQty`: Multiplier for number of vehicles.
+  - `qty`: Multiplier for trips/days.
+}

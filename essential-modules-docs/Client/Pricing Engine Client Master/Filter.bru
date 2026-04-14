@@ -16,7 +16,8 @@ body:json {
     "limit": 10,
     "search": "",
     "regionFrom": "ea1d2de0-029c-423d-8446-df9bc626f0b5",
-    "regionTo": "a26e3279-c0b4-408b-933f-15f3fc15beea"
+    "regionTo": "a26e3279-c0b4-408b-933f-15f3fc15beea",
+    "client_id": null
   }
 }
 
@@ -35,6 +36,8 @@ docs {
   | `pricingType` | string | `'Platform'` or `'Transporter'` (camelCase) |
   | `pricing_type` | string | Same as `pricingType`, snake_case alias for UI compatibility |
   | `transporterId` | uuid | Filter by transporter |
+  | `clientId` | uuid | Filter by client |
+  | `client_id` | uuid | Alias for `clientId` |
   | `regionFrom` | string | Exact match on origin region (plain string, e.g. `"Dammam"`) |
   | `regionTo` | string | Exact match on destination region (plain string) |
   | `vehicleTypeId` | string | Filter by vehicle type |

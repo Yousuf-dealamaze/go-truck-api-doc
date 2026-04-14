@@ -1,0 +1,46 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/pricing-engine-vendor-master
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "pricingRuleTitle": "Vendor Pricing - Riyadh to Jeddah",
+    "sourceType": "Own Trucks",
+    "transporterId": "550e8400-e29b-41d4-a716-446655440000",
+    "regionFrom": "Riyadh",
+    "regionTo": "Jeddah",
+    "approxDistance": 950,
+    "description": "Standard vendor pricing for Riyadh to Jeddah route",
+    "vehicleTypeId": null,
+    "vehicleSizeId": null,
+    "cargoTypeId": null,
+    "baseCurrencyCode": "SAR",
+    "buyingRate": 1000,
+    "rateType": "flat",
+    "rateAmount": 200,
+    "sellingRate": 1200,
+    "effectiveDate": "2024-05-18",
+    "expiryDate": "2025-12-31",
+    "status": true
+  }
+}
+
+docs {
+  ### Create Vendor Pricing Rule
+  
+  Creates a new vendor pricing rule record.
+  
+  **Mandatory Fields:**
+  - `pricingRuleTitle`
+  - `regionFrom`, `regionTo`
+  - `buyingRate`
+  - `effectiveDate`, `expiryDate`
+}

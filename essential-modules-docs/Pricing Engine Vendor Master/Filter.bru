@@ -1,0 +1,31 @@
+meta {
+  name: Get All Pricing (Filter)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/pricing-engine-vendor-master/filter
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "page": 1,
+    "limit": 10,
+    "search": "",
+    "regionFrom": "Riyadh",
+    "regionTo": "Jeddah",
+    "sourceType": "Own Trucks",
+    "distanceKm": 950
+  }
+}
+
+docs {
+  ### Filter Vendor Pricing Rules (POST)
+  Same capability as GET /pricing-engine-vendor-master but accepts params via request body for complex queries.
+  
+  **Calculation support:**
+  If `distanceKm` is provided in the body, the response will include a `calculation` object for each rule.
+}

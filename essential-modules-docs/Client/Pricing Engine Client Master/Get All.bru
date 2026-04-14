@@ -26,6 +26,8 @@ query {
   ~pricing_type: Platform
   ~pricingType: 
   ~transporterId: 
+  ~clientId: 
+  ~client_id: 
   ~vehicleTypeId: 
   ~vehicleSizeId: 
   ~cargoTypeId: 
@@ -50,7 +52,7 @@ docs {
   **Other Filters:**
   * `search`: Global search across Rule Title, ID, Description, Pricing Type, Routes (From/To), Vehicle/Cargo Types, Currency Code, and Rate Type.
   * `pricing_type` or `pricingType`: Filter by `'Platform'` or `'Transporter'`.
-  * `transporterId`, `vehicleTypeId`, `vehicleSizeId`, `cargoTypeId`, `baseCurrencyCode`, `status`.
+  * `transporterId`, `clientId`, `client_id`, `vehicleTypeId`, `vehicleSizeId`, `cargoTypeId`, `baseCurrencyCode`, `status`.
 
   **Calculation Parameters (optional):**
   * `distanceKm`: If provided, each rule includes a `calculation` object with full price and tax breakdown.

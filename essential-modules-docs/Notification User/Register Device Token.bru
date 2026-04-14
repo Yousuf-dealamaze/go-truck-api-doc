@@ -1,0 +1,28 @@
+meta {
+  name: Register Device Token
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/notification-user/register-device
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "token": "fcm_token_here_from_app",
+    "deviceType": "android"
+  }
+}
+
+docs {
+  Registers a new FCM device token for the authenticated user.
+  
+  **Required Fields:**
+  * `token`: The FCM registration token received from the device.
+  
+  **Optional Fields:**
+  * `deviceType`: Type of device ('android', 'ios', 'web'). Defaults to 'android'.
+}

@@ -15,6 +15,7 @@ body:json {
     "pricingRuleTitle": "Sample Client Pricing - Riyadh to Jeddah",
     "pricingType": "Platform",
     "transporterId": null,
+    "clientId": null,
     "regionFrom": "Riyadh",
     "regionTo": "Jeddah",
     "approxDistance": 950,
@@ -48,6 +49,7 @@ docs {
   | `pricingRuleTitle` | string | ✅ | Title of the pricing rule |
   | `pricingType` | string | ✅ | `'Platform'` or `'Transporter'` |
   | `transporterId` | uuid | ❌ | Transporter ID (for Transporter type rules) |
+  | `clientId` | uuid | ❌ | Client ID (for Client specific rules) |
   | `regionFrom` | string | ✅ | Origin city/region name (e.g. `"Riyadh"`) |
   | `regionTo` | string | ✅ | Destination city/region name (e.g. `"Jeddah"`) |
   | `approxDistance` | number | ❌ | Approximate distance in KM |
