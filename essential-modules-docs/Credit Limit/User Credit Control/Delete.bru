@@ -1,0 +1,20 @@
+meta {
+  name: Delete
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/user-credit-control/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Delete User Credit Control
+  Soft-deletes a user credit control record by ID.
+}

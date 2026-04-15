@@ -1,0 +1,20 @@
+meta {
+  name: Delete
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/credit-limit-approval/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Delete Credit Limit Approval
+  Soft-deletes a credit limit approval by ID. Restricted to Admin / Super Admin.
+}

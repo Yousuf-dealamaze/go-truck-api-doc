@@ -1,0 +1,30 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/credit-limit-approval/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "approvedLimit": 100000.00,
+    "approvedPeriodDays": 60,
+    "approvedBy": "",
+    "status": "APPROVED",
+    "jsonMetadata": {}
+  }
+}
+
+docs {
+  ### Update Credit Limit Approval
+  Updates an existing credit limit approval. Restricted to Admin / Super Admin.
+}

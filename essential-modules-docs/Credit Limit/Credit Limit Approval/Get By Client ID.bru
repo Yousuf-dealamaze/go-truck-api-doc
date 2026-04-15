@@ -1,0 +1,20 @@
+meta {
+  name: Get By Client ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/credit-limit-approval/client/:clientId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  clientId: 
+}
+
+docs {
+  ### Get Credit Limit Approval by Client ID
+  Retrieves the single credit limit approval associated with a specific client.
+}

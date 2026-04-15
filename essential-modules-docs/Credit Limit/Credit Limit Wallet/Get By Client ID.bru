@@ -1,0 +1,20 @@
+meta {
+  name: Get By Client ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/credit-limit-wallet/client/:clientId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  clientId: 
+}
+
+docs {
+  ### Get Credit Limit Wallet by Client ID
+  Retrieves the single credit limit wallet associated with a specific client.
+}

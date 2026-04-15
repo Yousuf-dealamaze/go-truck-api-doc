@@ -1,0 +1,20 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/credit-limit-transaction/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Delete Credit Limit Transaction
+  Soft-deletes a credit limit transaction by ID. Restricted to Admin / Super Admin.
+}

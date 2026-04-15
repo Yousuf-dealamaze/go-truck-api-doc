@@ -1,0 +1,33 @@
+meta {
+  name: Create
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/credit-limit-transaction
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "clientId": "",
+    "creditControlId": "",
+    "transactionType": "DEBIT",
+    "amount": 1000.00,
+    "referenceType": "Booking",
+    "referenceId": "",
+    "description": "",
+    "jsonMetadata": {}
+  }
+}
+
+docs {
+  ### Create Credit Limit Transaction
+  Creates a new credit limit transaction. Transactions are immutable — no update allowed.
+  Restricted to Admin / Super Admin.
+
+  **transactionType:** DEBIT | CREDIT | TEMP_LIMIT | ADJUSTMENT
+  **referenceType:** Booking | Payment | Limit Allotment
+}

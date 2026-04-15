@@ -1,0 +1,20 @@
+meta {
+  name: Delete
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/credit-limit-wallet/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Delete Credit Limit Wallet
+  Soft-deletes a credit limit wallet by ID. Restricted to Admin / Super Admin.
+}

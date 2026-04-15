@@ -1,0 +1,27 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/credit-limit-approval
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~status: PENDING
+  ~clientId: 
+  ~creditControlId: 
+  ~creditRequestId: 
+}
+
+docs {
+  ### Get All Credit Limit Approvals
+  Retrieves a paginated list of credit limit approvals.
+
+  **status:** PENDING | APPROVED | REJECTED
+}

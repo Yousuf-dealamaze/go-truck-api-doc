@@ -1,0 +1,31 @@
+meta {
+  name: Create
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/credit-limit-wallet
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "clientId": "",
+    "creditControlId": "",
+    "totalLimit": 50000.00,
+    "usedLimit": 0.00,
+    "availableLimit": 50000.00,
+    "tempLimit": 0.00,
+    "availableCash": 0.00,
+    "creditPeriodDays": 30,
+    "jsonMetadata": {}
+  }
+}
+
+docs {
+  ### Create Credit Limit Wallet
+  Creates a new credit limit wallet for a client. Only one wallet per client is allowed.
+  Restricted to Admin / Super Admin.
+}

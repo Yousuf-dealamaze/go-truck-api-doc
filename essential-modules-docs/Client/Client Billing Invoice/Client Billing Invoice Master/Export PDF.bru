@@ -1,0 +1,26 @@
+meta {
+  name: Export PDF
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/client-billing-invoice-master/{{invoiceId}}/pdf
+  body: none
+  auth: inherit
+}
+
+vars:pre-request {
+  invoiceId: aa6c563b-6d8b-4c60-aa9a-84f3b0dc7bc4
+}
+
+docs {
+  ### Export Client Invoice PDF Metadata
+  Returns the snapshot details of the generated PDF, including the public `fullURLPath`. 
+  
+  **One-Time Generation**:
+  - First call: Generates the PDF, stores it on the server, and returns the path/URL.
+  - Subsequent calls: Instantaneously returns the cached metadata and URL.
+  
+  **Note**: Access is restricted to Clients, Client Users, and assigned Transporters.
+}

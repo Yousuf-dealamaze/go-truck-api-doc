@@ -1,0 +1,23 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/credit-limit-wallet
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~clientId: 
+  ~creditControlId: 
+}
+
+docs {
+  ### Get All Credit Limit Wallets
+  Retrieves a paginated list of credit limit wallets.
+}

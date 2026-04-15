@@ -1,0 +1,31 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/credit-limit-submission
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~status: PENDING
+  ~clientId: 
+  ~creditControlId: 
+  ~search: 
+}
+
+docs {
+  ### Get All Credit Limit Submissions
+  Retrieves a paginated list of credit limit submissions.
+
+  **Query Params:**
+  - `status`: PENDING | APPROVED | REJECTED
+  - `clientId`: Filter by client UUID
+  - `creditControlId`: Filter by credit control UUID
+  - `search`: Search by displayId or crNumber
+}

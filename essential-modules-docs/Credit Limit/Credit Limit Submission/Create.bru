@@ -1,0 +1,38 @@
+meta {
+  name: Create
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/credit-limit-submission
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "clientId": "",
+    "creditControlId": "",
+    "paymentType": "Cash",
+    "limitType": "PERMANENT",
+    "crNumber": "",
+    "crValue": "",
+    "crExpiry": "2027-01-01",
+    "numberOfEmployees": 10,
+    "requestedLimit": 50000.00,
+    "requestedPeriodDays": 30,
+    "submittedBy": "",
+    "documentUrl": "",
+    "status": "PENDING"
+  }
+}
+
+docs {
+  ### Create Credit Limit Submission
+  Creates a new credit limit submission. Only one submission per client is allowed.
+
+  **paymentType:** Cash | Credit
+  **limitType:** TEMPORARY | PERMANENT
+  **status:** PENDING | APPROVED | REJECTED
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/credit-limit-wallet/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "totalLimit": 100000.00,
+    "usedLimit": 20000.00,
+    "availableLimit": 80000.00,
+    "tempLimit": 5000.00,
+    "availableCash": 10000.00,
+    "creditPeriodDays": 60,
+    "jsonMetadata": {}
+  }
+}
+
+docs {
+  ### Update Credit Limit Wallet
+  Updates an existing credit limit wallet. Restricted to Admin / Super Admin.
+}

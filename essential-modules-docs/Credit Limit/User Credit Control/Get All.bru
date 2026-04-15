@@ -1,0 +1,31 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/user-credit-control
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~status: Approved
+  ~userId: 
+  ~search: 
+}
+
+docs {
+  ### Get All User Credit Controls
+  Retrieves a paginated list of user credit control records.
+
+  **Query Params:**
+  - `page`: Page number (default: 1)
+  - `limit`: Items per page (default: 10)
+  - `status`: Filter by status (Hold, Approved, Dis-Approved, Suspending)
+  - `userId`: Filter by user UUID
+  - `search`: Search by creditControlId or kycName
+}

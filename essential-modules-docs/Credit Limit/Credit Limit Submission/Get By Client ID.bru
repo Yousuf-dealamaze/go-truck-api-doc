@@ -1,0 +1,20 @@
+meta {
+  name: Get By Client ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/credit-limit-submission/client/:clientId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  clientId: 
+}
+
+docs {
+  ### Get Credit Limit Submission by Client ID
+  Retrieves the single credit limit submission associated with a specific client.
+}

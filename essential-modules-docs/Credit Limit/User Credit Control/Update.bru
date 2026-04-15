@@ -1,0 +1,29 @@
+meta {
+  name: Update
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/user-credit-control/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "kycName": "",
+    "paymentType": "Credit",
+    "remarks": "",
+    "status": "Approved"
+  }
+}
+
+docs {
+  ### Update User Credit Control
+  Updates an existing user credit control record by ID.
+}
