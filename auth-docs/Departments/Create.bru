@@ -1,0 +1,26 @@
+meta {
+  name: Create
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseURL}}/departments/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "roleId": "00000000-0000-0000-0000-000000000000",
+    "userId": "00000000-0000-0000-0000-000000000000",
+    "designation_title": "Operations",
+    "status": "active"
+  }
+}
+
+docs {
+  # Create Department
+  
+  Creates a department. Replace UUIDs with valid `role_permissions.id` and `Users.id` values.
+}

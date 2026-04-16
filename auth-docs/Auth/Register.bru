@@ -22,7 +22,9 @@ body:json {
     "gender": "male",
     "displayName": "John Doe",
     "username": "johndoe",
-    "status": "active"
+    "status": "active",
+    "industrySector": "Logistics",
+    "vendorType": "Carrier"
   }
 }
 
@@ -44,4 +46,6 @@ docs {
   - **username** (string, optional): Username (min 3, max 50 chars).
   - **status** (string, optional): Account status. Valid values: `active`, `inactive`, `pending`, `hold`, `blocked`.
   - **parentTransporterId** (UUID, optional): ID of the parent transporter (if applicable).
+  - **industrySector** (string, optional): The industry sector the user belongs to.
+  - **vendorType** (string, optional): Type of vendor.
 }

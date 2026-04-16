@@ -13,7 +13,10 @@ patch {
 body:json {
   {
     "companyType": "LLP",
-    "status": "active"
+    "status": "active",
+    "metadata": {
+      "verified": true
+    }
   }
 }
 
@@ -25,5 +28,5 @@ docs {
   ## Payload
   - **companyType** (string, optional)
   - **status** (string, optional)
-  - ...
+  - **metadata** (json, optional)
 }

@@ -18,7 +18,10 @@ body:json {
     "address_1": "123 Street",
     "address_2": "Area",
     "city": "City",
-    "country": "Country"
+    "country": "Country",
+    "metadata": {
+      "business_focus": "Logistics"
+    }
   }
 }
 
@@ -32,5 +35,5 @@ docs {
   - **companyType** (string, required)
   - **legalName** (string, required)
   - **address_1** (string, required)
-  - ...
+  - **metadata** (json, optional)
 }

@@ -1,0 +1,24 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseURL}}/departments/00000000-0000-0000-0000-000000000000/update
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "designation_title": "Operations (HQ)",
+    "status": "active"
+  }
+}
+
+docs {
+  # Update Department
+  
+  All body fields are optional; include at least the fields to change.
+}

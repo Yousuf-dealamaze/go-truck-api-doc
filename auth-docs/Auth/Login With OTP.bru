@@ -1,0 +1,28 @@
+meta {
+  name: Login With OTP
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseURL}}/auth/login-with-otp
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "phoneNumber": "1234567890",
+    "countryCode": "+91"
+  }
+}
+
+docs {
+  # Login With OTP
+  
+  Triggers a static OTP (112211) for the given phone number.
+  
+  ## Payload
+  - **phoneNumber** (string, required): Registered phone number.
+  - **countryCode** (string, required): Country code (e.g., +91).
+}

@@ -1,0 +1,36 @@
+meta {
+  name: Verify Login OTP
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseURL}}/auth/verify-login-otp
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "phoneNumber": "1234567890",
+    "countryCode": "+91",
+    "otp": "112211"
+  }
+}
+
+script:post-response {
+  if (res.status === 200) {
+    bru.setEnvVar("token", res.body.data.accessToken);
+  }
+}
+
+docs {
+  # Verify Login OTP
+  
+  Verifies the OTP and returns access/refresh tokens.
+  
+  ## Payload
+  - **phoneNumber** (string, required): Registered phone number.
+  - **countryCode** (string, required): Country code.
+  - **otp** (string, required): The 6-digit OTP code.
+}
