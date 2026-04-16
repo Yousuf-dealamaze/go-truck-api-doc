@@ -21,7 +21,14 @@ body:json {
     "vehicleTypeId": "",
     "vehicleSizeId": "",
     "cargoTypeId": "",
-    "distanceKm": 950
+    "distanceKm": 950,
+    "transporterId": "",
+    "transporterName": "",
+    "driverId": "",
+    "driverName": "",
+    "vehicleRegistrationNumber": "",
+    "vehicleModel": "",
+    "vehicleMake": ""
   }
 }
 
@@ -31,4 +38,15 @@ docs {
   
   **Calculation support:**
   If `distanceKm` is provided in the body, the response will include a `calculation` object for each rule.
+  
+  **Vehicle info:**
+  Each driver in `availableDrivers` now includes a `vehicleInfo` object with `registrationNumber`, `model`, `make`, `vin`, etc.
+  
+  **New filter fields:**
+  - `transporterName` — partial match on transporter display/legal name (case-insensitive)
+  - `driverId` — exact match on driver ID
+  - `driverName` — partial match on driver display name (case-insensitive)
+  - `vehicleRegistrationNumber` — partial match on vehicle plate (case-insensitive)
+  - `vehicleModel` — partial match on vehicle model (case-insensitive)
+  - `vehicleMake` — partial match on vehicle make (case-insensitive)
 }
