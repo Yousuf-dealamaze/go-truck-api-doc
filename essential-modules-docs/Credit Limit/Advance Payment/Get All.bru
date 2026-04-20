@@ -1,0 +1,25 @@
+meta {
+  name: Get All
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/advance-payment
+  body: none
+  auth: inherit
+}
+
+query {
+  ~page: 1
+  ~limit: 10
+  ~clientId: 
+  ~status: Pending
+}
+
+docs {
+  ### Get All Advance Payments
+  Fetches a list of advance payment records.
+  **Admin / Super Admin:** Can see all records and filter by `clientId`.
+  **Clients:** Can only see their own records.
+}

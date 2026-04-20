@@ -6,7 +6,7 @@ meta {
 
 put {
   url: {{baseUrl}}/credit-limit-submission/:id
-  body: json
+  body: multipartForm
   auth: inherit
 }
 
@@ -14,22 +14,21 @@ params:path {
   id: 
 }
 
-body:json {
-  {
-    "paymentType": "Credit",
-    "limitType": "TEMPORARY",
-    "crNumber": "",
-    "crValue": "",
-    "crExpiry": "2027-06-01",
-    "numberOfEmployees": 20,
-    "requestedLimit": 100000.00,
-    "requestedPeriodDays": 60,
-    "documentUrl": "",
-    "status": "APPROVED"
-  }
+body:multipart-form {
+  paymentType: Credit
+  limitType: TEMPORARY
+  crNumber: 
+  crValue: 
+  crExpiry: 2027-06-01
+  numberOfEmployees: 20
+  requestedLimit: 100000.00
+  requestedPeriodDays: 60
+  documentUrl: @file()
+  status: APPROVED
 }
 
 docs {
   ### Update Credit Limit Submission
-  Updates an existing credit limit submission. Restricted to Admin / Super Admin.
+  Updates an existing credit limit submission with optional document upload. 
+  Restricted to Admin / Super Admin.
 }

@@ -1,0 +1,26 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/advance-payment/:id
+  body: multipartForm
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+body:multipart-form {
+  status: Approved
+  paymentProof: @file()
+}
+
+docs {
+  ### Update Advance Payment
+  Updates an existing advance payment record with optional file upload.
+  **Note:** `clientId` cannot be changed by non-admins.
+}

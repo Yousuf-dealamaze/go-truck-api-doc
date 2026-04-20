@@ -6,32 +6,34 @@ meta {
 
 post {
   url: {{baseUrl}}/credit-limit-submission
-  body: json
+  body: multipartForm
   auth: inherit
 }
 
-body:json {
-  {
-    "clientId": "",
-    "creditControlId": "",
-    "paymentType": "Cash",
-    "limitType": "PERMANENT",
-    "crNumber": "",
-    "crValue": "",
-    "crExpiry": "2027-01-01",
-    "numberOfEmployees": 10,
-    "requestedLimit": 50000.00,
-    "requestedPeriodDays": 30,
-    "submittedBy": "",
-    "documentUrl": "",
-    "status": "PENDING"
-  }
+body:multipart-form {
+  clientId: 
+  creditControlId: 
+  paymentType: Cash
+  limitType: PERMANENT
+  crNumber: 
+  crValue: 
+  crExpiry: 2027-01-01
+  numberOfEmployees: 10
+  requestedLimit: 50000.00
+  requestedPeriodDays: 30
+  documentUrl: @file()
+  status: PENDING
 }
 
 docs {
   ### Create Credit Limit Submission
-  Creates a new credit limit submission. Only one submission per client is allowed.
-
+  Creates a new credit limit submission with file upload support.
+  Only one pending submission per client is allowed.
+  `submittedBy` is automatically set from the authenticated token.
+  
+  **Admin / Super Admin:** `clientId` can be passed in the body to submit on behalf of a client.
+  **Other roles:** `clientId` is automatically set to the token user's id — any `clientId` in the body is ignored.
+  
   **paymentType:** Cash | Credit
   **limitType:** TEMPORARY | PERMANENT
   **status:** PENDING | APPROVED | REJECTED

@@ -18,13 +18,13 @@ body:json {
   {
     "approvedLimit": 100000.00,
     "approvedPeriodDays": 60,
-    "approvedBy": "",
     "status": "APPROVED",
-    "jsonMetadata": {}
+    "note": ""
   }
 }
 
 docs {
   ### Update Credit Limit Approval
-  Updates an existing credit limit approval. Restricted to Admin / Super Admin.
+  Updates an existing credit limit approval. Restricted to **Admin / Super Admin** only.
+  `approvedBy` is automatically set from the authenticated token.
 }

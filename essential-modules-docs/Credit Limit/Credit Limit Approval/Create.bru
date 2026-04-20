@@ -17,16 +17,16 @@ body:json {
     "creditRequestId": "",
     "approvedLimit": 50000.00,
     "approvedPeriodDays": 30,
-    "approvedBy": "",
     "status": "PENDING",
-    "jsonMetadata": {}
+    "note": ""
   }
 }
 
 docs {
   ### Create Credit Limit Approval
   Creates a new credit limit approval. Only one approval per client is allowed.
-  Restricted to Admin / Super Admin.
+  Restricted to **Admin / Super Admin** only.
+  `approvedBy` is automatically set from the authenticated token.
 
   **status:** PENDING | APPROVED | REJECTED
 }

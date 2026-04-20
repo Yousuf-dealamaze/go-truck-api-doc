@@ -1,0 +1,20 @@
+meta {
+  name: Delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/advance-payment/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+docs {
+  ### Delete Advance Payment
+  Soft deletes an advance payment record.
+}

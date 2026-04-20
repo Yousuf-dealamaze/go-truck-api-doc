@@ -21,14 +21,7 @@ body:json {
     "vehicleTypeId": "",
     "vehicleSizeId": "",
     "cargoTypeId": "",
-    "distanceKm": 950,
-    "transporterId": "",
-    "transporterName": "",
-    "driverId": "",
-    "driverName": "",
-    "vehicleRegistrationNumber": "",
-    "vehicleModel": "",
-    "vehicleMake": ""
+    "distanceKm": 950
   }
 }
 
@@ -37,16 +30,13 @@ docs {
   Same capability as GET /pricing-engine-vendor-master but accepts params via request body for complex queries.
   
   **Calculation support:**
-  If `distanceKm` is provided in the body, the response will include a `calculation` object for each rule.
-  
+  If `distanceKm` is provided, the response includes a `calculation` object per rule.
+
   **Vehicle info:**
-  Each driver in `availableDrivers` now includes a `vehicleInfo` object with `registrationNumber`, `model`, `make`, `vin`, etc.
-  
-  **New filter fields:**
-  - `transporterName` — partial match on transporter display/legal name (case-insensitive)
-  - `driverId` — exact match on driver ID
-  - `driverName` — partial match on driver display name (case-insensitive)
-  - `vehicleRegistrationNumber` — partial match on vehicle plate (case-insensitive)
-  - `vehicleModel` — partial match on vehicle model (case-insensitive)
-  - `vehicleMake` — partial match on vehicle make (case-insensitive)
+  Each driver in `availableDrivers` includes a `vehicleInfo` object with `registrationNumber`, `model`, `make`, `vin`, etc.
+
+  **`search` field searches across:**
+  - Transporter name, display ID, company name
+  - Driver name, display ID
+  - Vehicle registration number, model, make
 }

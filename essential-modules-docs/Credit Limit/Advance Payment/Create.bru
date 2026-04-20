@@ -1,0 +1,32 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/advance-payment
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  paymentReference: ADV-001
+  paymentOf: Initial Advance
+  companyBankId: fda10aa3-ad56-4c78-bc51-230af278042b
+  paymentDate: 2026-04-20
+  paidAmount: 1000.00
+  currencyCode: INR
+  paymentMethod: Bank Transfer
+  status: Pending
+  paymentProof: @file(C:\Users\DELL\Pictures\anurag.jpeg)
+  ~bookingId: 
+  ~clientId: 
+}
+
+docs {
+  ### Create Advance Payment
+  Creates a new advance payment record with file upload.
+  **Admin / Super Admin:** Can specify a `clientId`.
+  **Clients:** `clientId` is automatically set to their own ID.
+}
