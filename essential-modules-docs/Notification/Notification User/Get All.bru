@@ -21,11 +21,13 @@ params:query {
 
 docs {
   Lists notifications for the authenticated user. 
-  If the requester is an **Admin**, they can optionally pass a `userId` query parameter to view notifications for any user.
   
   **Available Filters:**
   * `page`: Pagination page number (default: 1).
   * `limit`: Page size (default: 20).
   * `isRead`: Boolean to filter by read/unread status.
   * `search`: Searches within `title` and `description`.
+  * `userId`: (**Admin only**) View notifications for a specific user.
+  * `forAdmin`: (**Admin only**) Boolean flag. If `true`, returns a combined view including system-wide administrative notifications (NIL UUID) and your own personal notifications. 
+    * *Note: Restricted to ADMIN or SUPER_ADMIN roles. Unauthorized usage returns 403 Forbidden.*
 }
