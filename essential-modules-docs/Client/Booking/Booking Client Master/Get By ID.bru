@@ -15,5 +15,13 @@ params:path {
 }
 
 docs {
-  Retrieves a single booking client master record by ID.
+  Retrieves a single booking client master record by ID with all related details.
+  
+  **Included Relations:**
+  * `pricingRule`: Details of the pricing applied to the booking.
+  * `vehicles`: List of vehicles associated with the booking.
+  * `uploads`: Supporting documents/images.
+  * `allocations`: Details about driver/transporter assignments.
+  * `creditControl`: The client's credit control settings.
+  * `wallet`: The client's credit limit wallet status.
 }

@@ -13,7 +13,7 @@ post {
 body:multipart-form {
   clientId: 
   creditControlId: 
-  paymentType: Cash
+  paymentType: cash
   limitType: PERMANENT
   crNumber: 
   crValue: 
@@ -22,7 +22,7 @@ body:multipart-form {
   requestedLimit: 50000.00
   requestedPeriodDays: 30
   documentUrl: @file()
-  status: PENDING
+  status: Pending
 }
 
 docs {
@@ -34,7 +34,7 @@ docs {
   **Admin / Super Admin:** `clientId` can be passed in the body to submit on behalf of a client.
   **Other roles:** `clientId` is automatically set to the token user's id — any `clientId` in the body is ignored.
   
-  **paymentType:** Cash | Credit
+  **paymentType:** cash | credit
   **limitType:** TEMPORARY | PERMANENT
-  **status:** PENDING | APPROVED | REJECTED
+  **status:** Pending | Approved | Rejected
 }

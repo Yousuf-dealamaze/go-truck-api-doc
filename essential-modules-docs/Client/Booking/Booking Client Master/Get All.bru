@@ -20,4 +20,11 @@ params:query {
 
 docs {
   Retrieves a paginated list of booking client master records with optional filters.
+  
+  **Included Relations:**
+  * `pricingRule`: Details of the pricing applied to the booking.
+  * `vehicles`: List of vehicles associated with the booking.
+  * `uploads`: Supporting documents/images.
+  * `creditControl`: The client's credit control settings (Payment Type, KYC, etc.).
+  * `wallet`: The client's current credit limit and wallet balance status.
 }
