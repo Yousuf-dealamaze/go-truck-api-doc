@@ -1,0 +1,19 @@
+meta {
+  name: Get My Permissions
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseURL}}/roles/my-permissions
+  body: none
+  auth: inherit
+}
+
+docs {
+  # Get My Permissions
+  
+  Retrieves the role permissions for the currently authenticated user.
+  
+  The response includes the user's ID, type, and their assigned department with the associated role permissions.
+}

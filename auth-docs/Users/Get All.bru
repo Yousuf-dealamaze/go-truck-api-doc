@@ -14,8 +14,8 @@ params:query {
   page: 1
   limit: 10
   search: 
-  userType: 
-  status: 
+  userType: client
+  status: active
   gender: 
   sortBy: createdAt
   sortOrder: desc
@@ -24,5 +24,5 @@ params:query {
 docs {
   # Get All Users
   
-  Retrieves a paginated list of all users. Filter by `userType` (e.g., `client`, `client_user`).
+  Retrieves a paginated list of all users. Filter by `userType` (e.g., `client`, `client_user`) and `status` (e.g., `active`, `pending`).
 }
