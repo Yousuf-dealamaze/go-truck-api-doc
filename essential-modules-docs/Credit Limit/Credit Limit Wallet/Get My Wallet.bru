@@ -1,0 +1,20 @@
+meta {
+  name: Get My Wallet
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/credit-limit-wallet/get-my-wallet
+  body: none
+  auth: inherit
+}
+
+docs {
+  ### Get My Wallet
+  Retrieves the credit limit wallet of the currently authenticated user.
+  
+  **Authentication:**
+  - Requires a valid Bearer token.
+  - The `id` in the token is used to find the corresponding wallet.
+}

@@ -15,11 +15,21 @@ query {
   ~limit: 10
   ~clientId: 
   ~status: Pending
+  ~forAdmin: true
 }
 
 docs {
   ### Get All Advance Payments
   Fetches a list of advance payment records.
-  **Admin / Super Admin:** Can see all records and filter by `clientId`.
-  **Clients:** Can only see their own records.
+
+  **Authorization & Filtering:**
+  - **Clients**: Will only see their own records (filtered automatically by their token).
+  - **Admins**: Will see only their own records by default. Send `forAdmin=true` to view all advance payments in the system.
+
+  **Query Params:**
+  - `page`: Page number (default 1)
+  - `limit`: Items per page (default 10)
+  - `clientId`: Filter by client UUID (Admin only via `forAdmin=true`)
+  - `status`: Pending | Approved | Rejected | etc.
+  - `forAdmin`: Set to `true` for Super Admin/Admin to view all records.
 }

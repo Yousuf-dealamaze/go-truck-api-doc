@@ -1,0 +1,15 @@
+meta {
+  name: Bulk Upload
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/pricing-engine-client-master/bulk-upload
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  file: @file()
+}

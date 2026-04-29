@@ -17,15 +17,22 @@ query {
   ~clientId: 
   ~creditControlId: 
   ~search: 
+  ~forAdmin: true
 }
 
 docs {
   ### Get All Credit Limit Submissions
   Retrieves a paginated list of credit limit submissions.
 
+  **Authorization & Filtering:**
+  - **Clients**: Will only see their own submissions (filtered automatically by their token).
+  - **Admins**: Will see only their own records by default. Send `forAdmin=true` to view all submissions in the system.
+
   **Query Params:**
+  - `page`: Page number (default 1)
+  - `limit`: Items per page (default 10)
   - `status`: PENDING | APPROVED | REJECTED
-  - `clientId`: Filter by client UUID
-  - `creditControlId`: Filter by credit control UUID
+  - `clientId`: Filter by client UUID (Admin only via `forAdmin=true`)
   - `search`: Search by displayId or crNumber
+  - `forAdmin`: Set to `true` for Super Admin/Admin to view all records.
 }

@@ -19,12 +19,22 @@ query {
   ~referenceType: 
   ~referenceId: 
   ~search: 
+  ~forAdmin: true
 }
 
 docs {
   ### Get All Credit Limit Transactions
   Retrieves a paginated list of credit limit transactions.
 
-  **transactionType:** DEBIT | CREDIT | TEMP_LIMIT | ADJUSTMENT
-  **referenceType:** Booking | Payment | Limit Allotment
+  **Authorization & Filtering:**
+  - **Clients**: Will only see their own transactions (filtered automatically by their token).
+  - **Admins**: Will see only their own records by default. Send `forAdmin=true` to view all transactions in the system.
+
+  **Query Params:**
+  - `page`: Page number (default 1)
+  - `limit`: Items per page (default 10)
+  - `transactionType`: DEBIT | CREDIT | TEMP_LIMIT | ADJUSTMENT
+  - `referenceType`: Booking | Payment | Limit Allotment
+  - `clientId`: Filter by client UUID (Admin only via `forAdmin=true`)
+  - `forAdmin`: Set to `true` for Super Admin/Admin to view all records.
 }

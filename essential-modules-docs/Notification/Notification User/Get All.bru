@@ -17,6 +17,7 @@ params:query {
   ~userId: 550e8400-e29b-41d4-a716-446655440001
   ~search: welcome
   forAdmin: false
+  ~channelType: PUSH
 }
 
 docs {
@@ -27,6 +28,7 @@ docs {
   * `limit`: Page size (default: 20).
   * `isRead`: Boolean to filter by read/unread status.
   * `search`: Searches within `title` and `description`.
+  * `channelType`: Filter notifications by channel (e.g., `PUSH`, `EMAIL`, `SMS`, `WHATSAPP`).
   * `userId`: (**Admin only**) View notifications for a specific user.
   * `forAdmin`: (**Admin only**) Boolean flag. If `true`, returns a combined view including system-wide administrative notifications (NIL UUID) and your own personal notifications. 
     * *Note: Restricted to ADMIN or SUPER_ADMIN roles. Unauthorized usage returns 403 Forbidden.*

@@ -1,0 +1,31 @@
+meta {
+  name: Get Dashboard Stats
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/dashboard/stats
+  body: none
+  auth: inherit
+}
+
+params:query {
+  filter: current_month
+}
+
+docs {
+  Returns dashboard statistics with booking, consumer, financial, transporter, and driver metrics.
+  
+  **Supported filters (`filter` query param):**
+  * `current_month` - Current month stats
+  * `last_year` - Previous full year stats
+  * `year` - Current year stats
+  * `all` - Entire dataset stats
+  
+  **Examples:**
+  * `{{baseUrl}}/dashboard/stats?filter=current_month`
+  * `{{baseUrl}}/dashboard/stats?filter=last_year`
+  * `{{baseUrl}}/dashboard/stats?filter=year`
+  * `{{baseUrl}}/dashboard/stats?filter=all`
+}
