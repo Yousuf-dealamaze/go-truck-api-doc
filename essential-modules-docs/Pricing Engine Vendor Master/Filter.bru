@@ -15,6 +15,7 @@ body:json {
     "page": 1,
     "limit": 10,
     "search": "",
+    "driverSearch": "",
     "regionFrom": "{{regionFromId}}",
     "regionTo": "{{regionToId}}",
     "sourceType": "Own Trucks",
@@ -35,8 +36,13 @@ docs {
   **Vehicle info:**
   Each driver in `availableDrivers` includes a `vehicleInfo` object with `registrationNumber`, `model`, `make`, `vin`, etc.
 
-  **`search` field searches across:**
-  - Transporter name, display ID, company name
-  - Driver name, display ID
-  - Vehicle registration number, model, make
+  **Search parameters:**
+  - `search`: Global search for Pricing Rules. Filters rows based on:
+    - Rule Title, ID, Description
+    - Transporter/Vendor name, display ID, company name
+  - `driverSearch`: Specific search for Drivers within the results. Filters the `availableDrivers` list based on:
+    - Driver name, display ID, email, phone number
+    - Vehicle registration number, model, make
+  
+  *Note: The global `search` no longer filters based on driver info; use `driverSearch` for that purpose.*
 }
