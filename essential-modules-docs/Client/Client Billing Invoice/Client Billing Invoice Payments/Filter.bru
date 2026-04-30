@@ -15,6 +15,19 @@ body:json {
     "page": 1,
     "limit": 10,
     "billingInvoiceId": "",
-    "status": "Payment Received"
+    "status": "Payment Received",
+    "userType": "client"
   }
+}
+
+docs {
+  ### Filter Payments
+  Search and filter through client billing invoice payments.
+
+  **Body Params:**
+  - `page`: Page number (default 1)
+  - `limit`: Items per page (default 10)
+  - `billingInvoiceId`: Filter by invoice UUID.
+  - `status`: Filter by payment status.
+  - `userType`: Filter by user type (e.g., `client`, `transporter`).
 }

@@ -14,4 +14,16 @@ params:query {
   ~status: 
   ~parentInvoiceId: 
   ~view: 
+  ~userType: client
+}
+
+docs {
+  ### Get All Invoices
+  Fetches a list of client billing invoices.
+
+  **Query Params:**
+  - `status`: Filter by invoice status.
+  - `parentInvoiceId`: Filter by parent invoice UUID (for clubbed invoices).
+  - `view`: Optional view filter.
+  - `userType`: Filter by user type (e.g., `client`, `transporter`).
 }

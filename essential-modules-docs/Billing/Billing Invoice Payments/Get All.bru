@@ -15,6 +15,7 @@ query {
   limit: 10
   ~billingInvoiceId: 
   ~status: 
+  ~userType: client
 }
 
 docs {
@@ -26,6 +27,7 @@ docs {
   - `limit`: Items per page (default: 10)
   - `billingInvoiceId`: Filter by parent invoice UUID
   - `status`: Filter by payment status
+  - `userType`: Filter by user type (e.g., `client`, `transporter`)
   
   **Success Response (200 OK):**
   ```json

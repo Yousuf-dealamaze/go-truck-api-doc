@@ -16,6 +16,7 @@ query {
   ~clientId: 
   ~status: Pending
   ~forAdmin: true
+  ~userType: client
 }
 
 docs {
@@ -32,4 +33,5 @@ docs {
   - `clientId`: Filter by client UUID (Admin only via `forAdmin=true`)
   - `status`: Pending | Approved | Rejected | etc.
   - `forAdmin`: Set to `true` for Super Admin/Admin to view all records.
+  - `userType`: Filter by user type (e.g., `client`, `transporter`).
 }

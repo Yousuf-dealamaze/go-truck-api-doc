@@ -15,8 +15,17 @@ params:query {
   ~limit: 10
   ~billingInvoiceId: 
   ~status: 
+  ~userType: client
 }
 
 docs {
+  ### Get All Payments
   Retrieves a paginated list of client billing invoice payments.
+
+  **Query Params:**
+  - `page`: Page number (default 1)
+  - `limit`: Items per page (default 10)
+  - `billingInvoiceId`: Filter by invoice UUID.
+  - `status`: Filter by payment status.
+  - `userType`: Filter by user type (e.g., `client`, `transporter`).
 }
