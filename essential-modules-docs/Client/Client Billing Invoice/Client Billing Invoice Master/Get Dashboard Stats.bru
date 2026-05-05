@@ -14,6 +14,7 @@ params:query {
   clubFilter: all
   clientId: 
   view: final
+  ~userType: 
 }
 
 docs {
@@ -29,6 +30,7 @@ docs {
     - `clubbed` — parent clubbed invoices only
     - `non_clubbed` — standalone invoices (no parent, not a clubbed parent)
   * `clientId` (uuid, optional): Scope stats to a specific client.
+  * `userType` (string, optional): Filter by user type (e.g., `client`, `vendor`).
   
   **Response includes:**
   * `appliedFilter` - The filter that was applied

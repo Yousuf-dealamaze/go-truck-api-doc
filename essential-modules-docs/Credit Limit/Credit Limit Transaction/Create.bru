@@ -14,6 +14,7 @@ body:json {
   {
     "clientId": "",
     "creditControlId": "",
+    "userType": "client",
     "transactionType": "DEBIT",
     "amount": 1000.00,
     "referenceType": "Booking",
@@ -29,5 +30,6 @@ docs {
   Restricted to Admin / Super Admin.
 
   **transactionType:** DEBIT | CREDIT | TEMP_LIMIT | ADJUSTMENT
+  **userType:** client | vendor
   **referenceType:** Booking | Payment | Limit Allotment
 }

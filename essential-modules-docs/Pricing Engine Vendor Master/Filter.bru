@@ -38,8 +38,10 @@ docs {
 
   **Search parameters:**
   - `search`: Global search for Pricing Rules. Filters rows based on:
-    - Rule Title, ID, Description
-    - Transporter/Vendor name, display ID, company name
+    - Rule Title, ID, Description, Base Currency, Source Type, Vehicle details
+    - Transporter/Vendor name, display ID, legal name, company name
+    - Transporter/Vendor details: First/Last name, Email, Phone number (Live and Metadata fallback)
+    - Region names and codes (From/To)
   - `driverSearch`: Specific search for Drivers within the results. Filters the `availableDrivers` list based on:
     - Driver name, display ID, email, phone number
     - Vehicle registration number, model, make

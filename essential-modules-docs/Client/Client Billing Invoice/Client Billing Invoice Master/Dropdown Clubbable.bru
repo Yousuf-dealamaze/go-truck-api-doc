@@ -12,6 +12,7 @@ get {
 
 params:query {
   ~clientId: ~
+  ~userType: ~
 }
 
 docs {
@@ -20,6 +21,10 @@ docs {
   (parentInvoiceId is null). Intended for use in dropdowns when selecting invoices to club.
   
   Role-based filtering applies — clients only see their own invoices.
+  
+  **Query Parameters:**
+  * `clientId` (uuid, optional): Filter by client.
+  * `userType` (string, optional): Filter by user type (e.g., `client`, `vendor`).
   
   **Success Response (200 OK):**
   ```json

@@ -16,6 +16,7 @@ params:query {
   ~search: 
   ~status: 
   ~filterByTransporterId: 
+  ~excludeAssigned: 
 }
 
 docs {
@@ -35,5 +36,6 @@ docs {
   * `search`: Searches across registration number, model, make, vin, type, and registration country.
   * `status`: Filter by 'active' or 'inactive'.
   * `filterByTransporterId`: Filter vehicles belonging to a specific transporter (available to Admins).
+  * `excludeAssigned`: Set to `true` to hide engaged/assigned vehicles.
 }
 
