@@ -1,0 +1,28 @@
+meta {
+  name: Get Unallocated Drivers
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseURL}}/driver-allocations/unallocated-drivers
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~page: 1
+  ~limit: 10
+  ~search: 
+}
+
+docs {
+  # Get Unallocated Drivers
+  
+  Retrieves a list of drivers who are currently not allocated to any transporter (i.e., they do not have an active allocation with status 'assigned').
+  
+  ## Query Params
+  - **page** (number, optional) - Page number (default: 1)
+  - **limit** (number, optional) - Items per page (default: 10)
+  - **search** (string, optional) - Search across driver display ID, name, email, and phone number.
+}
