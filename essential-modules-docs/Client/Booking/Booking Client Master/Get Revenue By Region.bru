@@ -1,0 +1,20 @@
+meta {
+  name: Get Revenue By Region
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/booking-client-master/revenue-by-region
+  body: none
+  auth: inherit
+}
+
+docs {
+  Returns total revenue aggregated by region for corporate/client bookings.
+  
+  **Data Returned:**
+  * `regionName`: Name of the pickup region
+  * `totalRevenue`: Sum of totalAmount for that region
+  * `totalBookings`: Count of bookings in that region
+}

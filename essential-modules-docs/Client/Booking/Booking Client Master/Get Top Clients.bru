@@ -1,0 +1,32 @@
+meta {
+  name: Get Top Clients
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseUrl}}/booking-client-master/top-clients
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~limit: 10
+}
+
+docs {
+  Returns a ranking of top clients based on total revenue and booking volume for corporate/client bookings.
+  
+  **Data Returned:**
+  * `displayId`: Client's public ID
+  * `firstName`: Client's first name
+  * `lastName`: Client's last name
+  * `companyName`: Client's company name
+  * `totalRevenue`: Sum of totalAmount
+  * `totalBookings`: Total count of bookings
+  * `totalConfirmed`: Count of bookings with CONFIRMED status
+  * `totalCancelled`: Count of bookings with CANCELLED status
+  
+  **Query Params:**
+  * `limit`: Number of top clients to return (default: 10)
+}

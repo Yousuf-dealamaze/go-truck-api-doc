@@ -1,0 +1,38 @@
+meta {
+  name: Duplicate
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/booking-master/:id/duplicate
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "scheduleDate": "2026-05-15T10:00:00Z"
+  }
+}
+
+docs {
+  Duplicates an existing booking record, including its associated addresses.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the source booking to duplicate.
+  
+  **Body Parameters:**
+  * `scheduleDate` (datetime): The date and time for the duplicated booking. If provided, the booking mode will be set to 'Scheduled'.
+  
+  **Behavior:**
+  * Creates a new booking with a fresh `bookingCode` and `CREATED` status.
+  * Copies all essential fields (Client, Pricing Rule, Distance, Amounts, Currency) from the source booking.
+  * Copies all address records (pick-up, drop, etc.) from the source booking to the new one.
+  * Re-calculates pricing snapshots if necessary.
+  * Triggers a 'CREATED' notification and tracking event.
+}

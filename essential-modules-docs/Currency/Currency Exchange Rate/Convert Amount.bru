@@ -1,0 +1,36 @@
+meta {
+  name: Convert Amount
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/currency-exchange-rate/convert?amount=100&fromCurrencyId=UUID-SOURCE&toCurrencyId=UUID-TARGET&conversionType=markup
+  body: none
+  auth: none
+}
+
+query {
+  amount: 100
+  fromCurrencyId: 
+  toCurrencyId: 
+  conversionType: markup
+}
+
+docs {
+  Converts an amount from one currency to another using the latest exchange rates and active conversion rules (markup/markdown, rounding).
+  
+  **Query Parameters:**
+  * `amount` (number, required): The amount to convert.
+  * `fromCurrencyId` (uuid, required): The source currency ID.
+  * `toCurrencyId` (uuid, required): The target currency ID.
+  * `conversionType` (string, optional): 'markup' (default) or 'markdown'.
+  
+  **Returns:**
+  * `originalAmount`: The input amount.
+  * `convertedAmount`: The result after rate conversion, markup application, and rounding.
+  * `exchangeRate`: The market rate used.
+  * `markupPercentage`: The margin applied.
+  * `roundingUsed`: The method (round, ceil, floor).
+  * `precisionUsed`: Number of decimals.
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Duplicate
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/booking-client-master/:id/duplicate
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "scheduleDate": "2026-05-15T10:00:00Z"
+  }
+}
+
+docs {
+  Duplicates an existing client booking record.
+  
+  **Path Parameters:**
+  * `id` (uuid): The UUID of the source client booking to duplicate.
+  
+  **Body Parameters:**
+  * `scheduleDate` (datetime): The date and time for the duplicated booking. If provided, the booking mode will be set to 'Scheduled'.
+  
+  **Behavior:**
+  * Creates a new client booking with a fresh `bookingCode` and `CREATED` status.
+  * Copies essential fields (Client, Pricing, Regions, Addresses, PO Reference, Note, Currency) from the source booking.
+  * Re-calculates pricing snapshots if necessary.
+  * Triggers a 'CREATED' notification and tracking event.
+}

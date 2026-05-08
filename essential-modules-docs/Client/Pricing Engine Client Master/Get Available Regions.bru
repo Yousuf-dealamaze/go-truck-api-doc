@@ -12,17 +12,16 @@ get {
 
 params:query {
   ~fromRegion: 
+  ~clientId: 
 }
 
 docs {
   ### Get Available Regions
   Returns all unique origin (`fromRegions`) and destination (`toRegions`) region values stored in the client pricing rules.
   
-  > **Important:** `regionFrom` and `regionTo` store **plain city/region name strings** (e.g. `"Dammam"`, `"Riyadh"`), not UUIDs.
-  > Passing a UUID as `fromRegion` will not return results.
-  
   **Query Parameters:**
-  * `fromRegion` (string, optional): If provided, filters the results to only show regions that have a pricing rule originating from this value. Pass the plain region name string (e.g. `"Dammam"`).
+  * `fromRegion` (string, optional): Filters results to show regions with rules originating from this value.
+  * `clientId` (UUID, optional): Filters results to show regions with rules for a specific client.
   
   **How It Works:**
   1. Reads distinct `regionFrom` and `regionTo` values from the pricing table.
