@@ -21,10 +21,14 @@ params:query {
 docs {
   Retrieves a paginated list of booking client master records with optional filters.
   
+  **Search & Filters:**
+  * `search`: Searches across Booking Code, PO Reference, **Pickup/Drop Regions**, and **Client Details** (Name, Company, Display ID, Email, Phone).
+  
   **Included Relations:**
   * `pricingRule`: Details of the pricing applied to the booking.
   * `vehicles`: List of vehicles associated with the booking.
   * `uploads`: Supporting documents/images.
   * `creditControl`: The client's credit control settings (Payment Type, KYC, etc.).
   * `wallet`: The client's current credit limit and wallet balance status.
+  * `otps`: Contains the **latest active OTP** for the booking (filtered by status and expiry).
 }

@@ -25,7 +25,8 @@ docs {
   
   **How It Works:**
   1. Reads distinct `regionFrom` and `regionTo` values from the pricing table.
-  2. For string values — looks up `FleetMasterRegion` by `regionName` to get a canonical name.
+  2. **Filtering:** Only rules with `status: 'Approved'` are considered.
+  3. For string values — looks up `FleetMasterRegion` by `regionName` to get a canonical name.
   3. For any value not found in `FleetMasterRegion`, the raw stored string is returned as-is.
   
   **Response Structure:**

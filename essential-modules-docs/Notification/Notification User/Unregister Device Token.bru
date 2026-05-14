@@ -1,0 +1,18 @@
+meta {
+  name: Unregister Device Token
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/notification-user/unregister-device
+  body: none
+  auth: inherit
+}
+
+docs {
+  ### Unregister Device Token(s)
+  Deletes **all** FCM tokens associated with the authenticated user.
+  
+  This endpoint does not require any payload. It strictly uses the `userId` from the authentication token to clear all registered devices.
+}
