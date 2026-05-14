@@ -11,22 +11,22 @@ post {
 }
 
 params:path {
-  id: 123e4567-e89b-12d3-a456-426614174000
+  id: cbf664eb-2913-49e5-b00a-d4d30aed005c
 }
 
 docs {
   Runs a scheduled report immediately — generates the Excel file, saves it to
   uploads/reports/{year}/, creates a generated_reports record, and updates nextRun.
-
+  
   **Path Parameters:**
   * `id` (UUID): Scheduled report ID
-
+  
   **Response includes:**
   * `filename` — file name to use with the download endpoint
   * `filePath` — relative path stored in DB
   * `fileUrl` — direct URL to access the file via /uploads/...
   * `nextRun` — next scheduled run time calculated from frequency
-
+  
   **Supported report_type values:**
   * `booking_summary`
   * `invoice_items`

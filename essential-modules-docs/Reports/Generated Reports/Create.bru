@@ -25,7 +25,8 @@ body:json {
     "report_name": "Sales Tax Report",
   //   "fromDate": "2025-01-01T00:00:00.000Z",
   //   "toDate": "2025-04-31T00:00:00.000Z",
-    "status": "generated"
+    "status": "generated",
+    "userType": "client"
   }
 }
 
@@ -36,6 +37,7 @@ docs {
   * `format` (string): Report format (e.g. 'pdf', 'csv')
   * `report_type` (string): Type of report
   * `report_name` (string): Name of the report
+  * `userType` (string): 'client' or 'vendor' (default: 'client')
   * `generatedBy` (string): User who generated the report
   * `fromDate` (date): Report date range start
   * `toDate` (date): Report date range end

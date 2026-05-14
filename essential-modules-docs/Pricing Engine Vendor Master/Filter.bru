@@ -22,7 +22,8 @@ body:json {
     "vehicleTypeId": "",
     "vehicleSizeId": "",
     "cargoTypeId": "",
-    "distanceKm": 950
+    "distanceKm": 950,
+    "sortPrice": "asc"
   }
 }
 
@@ -30,6 +31,9 @@ docs {
   ### Filter Vendor Pricing Rules (POST)
   Same capability as GET /pricing-engine-vendor-master but accepts params via request body for complex queries.
   
+  **Sorting:**
+  - `sortPrice`: Sort by price (`asc` or `desc`).
+
   **Calculation support:**
   If `distanceKm` is provided, the response includes a `calculation` object per rule.
 

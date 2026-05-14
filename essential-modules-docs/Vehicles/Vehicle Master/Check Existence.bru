@@ -1,0 +1,27 @@
+meta {
+  name: Check Existence
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/vehicle-master/check-existence?registrationNumber=ABC-1234&registrationCountry=UAE
+  body: none
+  auth: inherit
+}
+
+params:query {
+  registrationNumber: ABC-1234
+  registrationCountry: UAE
+}
+
+docs {
+  Checks if a vehicle with the given registration number and country already exists in the database.
+  
+  **Query Parameters:**
+  * `registrationNumber` (Required): The vehicle's registration number.
+  * `registrationCountry` (Required): The country where the vehicle is registered.
+  
+  **Response:**
+  Returns a boolean `exists` flag and the `vehicle` details if found.
+}
