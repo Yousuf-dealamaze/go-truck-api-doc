@@ -12,8 +12,7 @@ post {
 
 body:json {
   {
-    "countryCode": "+91",
-    "phoneNumber": "9876543210",
+    "emailId": "user@example.com",
     "otp": "123456"
   }
 }
@@ -24,7 +23,6 @@ docs {
   Verifies the OTP for enquiry.
   
   ## Payload
-  - **countryCode** (string, required)
-  - **phoneNumber** (string, required)
+  - **emailId** (string, required)
   - **otp** (string, required)
 }
