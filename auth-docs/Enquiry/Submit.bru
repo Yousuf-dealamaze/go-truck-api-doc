@@ -12,6 +12,7 @@ post {
 
 body:json {
   {
+    "enquiryId": "",
     "fullName": "John Doe",
     "countryCode": "+91",
     "phoneNumber": "9876543210",
@@ -29,6 +30,7 @@ docs {
   Submits a transport enquiry.
   
   ## Payload
+  - **enquiryId** (string, optional) - Provide this ID if submitting a draft that has already been verified via OTP.
   - **fullName** (string, required)
   - **countryCode** (string, required)
   - **phoneNumber** (string, required)
